@@ -4,7 +4,7 @@ Gritter, a Grep-Team Twitter clone.
 #Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Fancis Kim
 
-#Vision statement: what would you tell potential customers?
+#Vision statement
 We all have a voice in the public square.
 
 #Motivation
@@ -13,9 +13,9 @@ An approachable technical project that is a sign of the times.
 Additionally, Gritter is a relatively simple app that has features sophisticated enough to meet project objectives. It would require development of several different database tables, with relationships between each. It would have a backend and front-end. Moreover, Gritter is easy to explain to new users or developers examining project results. Lastly, Gritter can be a good discussion point in technical interviews later on.
 
 #Risks to project completion
-- accomodating the skills across the team
-- navigating large time zone differences
-- managing technical scope to be achievable
+- Accomodating the skills across the team
+- Navigating large time zone differences
+- Managing technical scope to be achievable
 
 #Risk Mitigations
 ##Managing technical scope to be achievable
