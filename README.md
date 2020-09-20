@@ -2,7 +2,7 @@
 Gritter, a Grep-Team Twitter clone.
 
 #Team members' names
-Jason Weidner, Aaron Shyuu, Michael Shippee, Fancis Kim
+Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 
 #Vision statement
 We all have a voice in the public square.
