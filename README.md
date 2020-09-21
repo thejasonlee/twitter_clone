@@ -40,4 +40,4 @@ We will use a Scrum process with 1 week sprints. While 1 week sprints are short 
 Additionally, we will review the progress for each sprint, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
 
 # Project Tracking Software 
-We will be using Trello to track stories, sprints and a story backlog. In the first meeting we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
+We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
