@@ -36,8 +36,7 @@ Additionally, Gritter is a relatively simple app that has features sophisticated
 - Distribute components among team members according to their knowledge, skill and previous experience.
 
 # Development method
-We will use a Scrum process with 1 week sprints. While 1 week sprints are short for development cycles, they will support a more collaborative work experience. One team member has voiced concerns about limited web development experience, while others have mentioned experience with non-web development technology stacks. 
-Additionally, we will review the progress for each sprint, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
+We will use a Scrum process with 1 week sprints. While 1 week sprints are short for development cycles, they will support a more collaborative work experience. One team member has voiced concerns about limited web development experience, while others have mentioned experience with non-web development technology stacks. For each sprint, we will have at least one standup meeting and an end-of-sprint demonstaration. Additionally, we will review the progress for each sprint with a sprint retrospective, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
 
 # Project Tracking Software 
 We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
