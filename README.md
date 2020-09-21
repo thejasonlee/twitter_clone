@@ -18,7 +18,7 @@ Additionally, Gritter is a relatively simple app that has features sophisticated
 - Managing technical scope to be achievable
 
 # Risk Mitigations
-##Managing technical scope to be achievable
+## Managing technical scope to be achievable
 - Use of Scrum to manage progress, challenges/hurdles, stories
 - Use Trello to track stories and progress
 
