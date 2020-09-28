@@ -1,7 +1,7 @@
-#Project title
+# Project title
 Gritter, a Grep-Team Twitter clone.
 
-#Team members' names
+# Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 
 #Vision statement
@@ -29,32 +29,39 @@ Additionally, Gritter is a relatively simple app that has features sophisticated
 Moreover, Gritter is easy to explain to new users and developers examining project results. Furthermore, Gritter can be a good discussion point in technical interviews later on.
 
 Lastly, if built well, Gritter can serve as a platform for future project work where students can implement data science-like features that allow users to filter out unwanted content (whether it be from spam farms, automation, or topics that do not interest).
+=======
+# Vision statement
+We all have a voice in the public square.
+
+# Motivation
+An approachable technical project that is a sign of the times.
 
 
-#Risks to project completion
+# Risks to project completion
 - Accomodating the skills across the team
 - Navigating large time zone differences
 - Managing technical scope to be achievable
 
-#Risk Mitigations
-##Managing technical scope to be achievable
+# Risk Mitigations
+## Managing technical scope to be achievable
 - Use of Scrum to manage progress, challenges/hurdles, stories
 - Use Trello to track stories and progress
 
-##Navigating large time zone differences
+## Navigating large time zone differences
 - Leverage Slack/email for asynchronous communication
 - Plan meetings (Zoom) at mutually achievable time
 - Use github to asynchronously managing the code base: https://github.com/jasonweidner/twitter_clone
 - Use Scrum to facilitate progress with asynchronous work
+- Two out of four team members are located in US time zone while two are located in Asia/Pacific region - may be possible to progress around the clock. 
 
-##Accomodating the skills across the team
+## Accomodating the skills across the team
 - Choose a technology stack that is as simple as possible but not simpler than what is needed
 - Choose a technology stack that leverages the interests and existing skills of the team
 - Choose a project concept that is as simple as possible but not simpler than what is needed to meet project objectives
+- Distribute components among team members according to their knowledge, skill and previous experience.
 
-#Development method
-We will use a Scrum process with 1 week sprints. While 1 week sprints are short for development cycles, they will support a more collaborative work experience. One team member has voiced concerns about limited web development experience, while others have mentioned experience with non-web development technology stacks. 
-Additionally, we will review the progress for each sprint, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
+# Development method
+We will use a Scrum process with 1 week sprints. While 1 week sprints are short for development cycles, they will support a more collaborative work experience. One team member has voiced concerns about limited web development experience, while others have mentioned experience with non-web development technology stacks. For each sprint, we will have at least one standup meeting and an end-of-sprint demonstaration. Additionally, we will review the progress for each sprint with a sprint retrospective, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
 
-#Project Tracking Software 
-We will be using Trello to track stories, sprints and a story backlog. In the first meeting we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
+# Project Tracking Software 
+We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
