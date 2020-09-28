@@ -4,7 +4,7 @@ Gritter, a Grep-Team Twitter clone.
 # Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 
-#Vision statement
+# Vision statement
 We aim to build a simple Twitter clone called Gritter (Twitter by the Grep Team).
 
 In the app users will be able to:
@@ -21,7 +21,7 @@ Users will not be able to edit their own tweets. And tweets will be limited to 2
 
 Our motto is "We all have a voice in the public square.".
 
-#Motivation
+# Motivation
 Our motivation for the project is to build an approachable technical project that is a sign of the times. 
 
 Additionally, Gritter is a relatively simple app that has features sophisticated enough to meet project objectives. It would require development of several different database tables, with relationships between each. It would have a backend and front-end and lends itself to development using an agile approach, which is important to the team. 
@@ -29,7 +29,7 @@ Additionally, Gritter is a relatively simple app that has features sophisticated
 Moreover, Gritter is easy to explain to new users and developers examining project results. Furthermore, Gritter can be a good discussion point in technical interviews later on.
 
 Lastly, if built well, Gritter can serve as a platform for future project work where students can implement data science-like features that allow users to filter out unwanted content (whether it be from spam farms, automation, or topics that do not interest).
-=======
+
 # Vision statement
 We all have a voice in the public square.
 
