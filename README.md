@@ -1,41 +1,36 @@
 # Project title
-Gritter, a Grep-Team Twitter clone.
+Gritter, a Grep-Team Twitter clone with enhancements.
 
 # Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 
 # Vision statement
-We aim to build a simple Twitter clone called Gritter (Twitter by the Grep Team).
+We aim to build a simple Twitter clone called Gritter.
 
 In the app users will be able to:
-- read from a public feed, 
-- tweet to their own feed, which also adds content to the public feed,
+- login to an account using a password that is encrypted,
+- read a feed of public tweets, 
+- tweet to their own feed (which also adds content to the public feed),
 - browse the feeds of other users,
-- 'follow' other users (i.e. generate a feed for 'following') 
-- 'like' tweets, 
-- reply to tweets
-- retweet tweets by others, and 
-- delete their own tweets.
+- 'follow' other users (i.e. generate a feed from content authored by users they are 'following') 
+- 'like' tweets (a binary on/off like button), 
+- reply to tweets,
+- retweet tweets by others (i.e. add another's tweet to their own feed),
+- edit their own tweets (not a feature currently available in real Twitter),
+- delete their own tweets,
+- create a filter for content that is viewable in their feeds
+  - will 'mute' content by either by keyword, tweet location, tweet author
 
-Users will not be able to edit their own tweets. And tweets will be limited to 240 characters in length.
+Tweets will be limited to 240 characters in length.
 
-Our motto is "We all have a voice in the public square.".
+We will seed our database with real Twitter data, which includes the metadata required for some of the filtering features we'd like to implement. If time permits we can use the Twitter API to get real-time data. If time does not permit we will use static Twitter data to seed the database. Such data is available through data science competition websites and/or faculty sites used for academic purposes.
 
 # Motivation
-Our motivation for the project is to build an approachable technical project that is a sign of the times. 
+Our motivation is to build a foundation for fleeting social media that can be filtered and edited in ways more useful to users. Currently users of real Twitter cannot edit their tweets, nor can they filter content based on keywords in combination with geotagging. By building our own Twitter-like application, we will have a foundation where we can extend functionality to include machine learning and natural language processing features to improve content management by the user rather than the platform.
 
-Additionally, Gritter is a relatively simple app that has features sophisticated enough to meet project objectives. It would require development of several different database tables, with relationships between each. It would have a backend and front-end and lends itself to development using an agile approach, which is important to the team. 
+Additionally, Gritter is a relatively simple app that will have features sophisticated enough to meet project objectives. It would require development of several different database tables, with relationships between each. It would have a backend and front-end and lends itself to development using an agile approach, which is important to the team. 
 
 Moreover, Gritter is easy to explain to new users and developers examining project results. Furthermore, Gritter can be a good discussion point in technical interviews later on.
-
-Lastly, if built well, Gritter can serve as a platform for future project work where students can implement data science-like features that allow users to filter out unwanted content (whether it be from spam farms, automation, or topics that do not interest).
-
-# Vision statement
-We all have a voice in the public square.
-
-# Motivation
-An approachable technical project that is a sign of the times.
-
 
 # Risks to project completion
 - Accomodating the skills across the team
@@ -44,21 +39,24 @@ An approachable technical project that is a sign of the times.
 
 # Risk Mitigations
 ## Managing technical scope to be achievable
-- Use of Scrum to manage progress, challenges/hurdles, stories
-- Use Trello to track stories and progress
+- 3 week-long sprints with weekly standups to ensure progress on priority user stories without getting stalled with roadblocks.
+- Use Trello to track stories and backlog. 
+- Asychronous communication to facilitate team updates within each week.
+- Keeping features simple enough to be useful to users but easy enough for development timeframes (i.e. filter content rather than sophisticated ML modelling)
+- Simplify database data if time constraints require it (i.e. use static data rather than connecting to the Twitter API)
 
 ## Navigating large time zone differences
 - Leverage Slack/email for asynchronous communication
 - Plan meetings (Zoom) at mutually achievable time
 - Use github to asynchronously managing the code base: https://github.com/jasonweidner/twitter_clone
-- Use Scrum to facilitate progress with asynchronous work
 - Two out of four team members are located in US time zone while two are located in Asia/Pacific region - may be possible to progress around the clock. 
 
 ## Accomodating the skills across the team
-- Choose a technology stack that is as simple as possible but not simpler than what is needed
-- Choose a technology stack that leverages the interests and existing skills of the team
+- Choose a technology stack that is as simple as possible but not simpler than what is needed (Flask vs Django/Rails/Springboot)
+- Choose a technology stack that leverages the interests and existing skills of the team (Python vs Ruby/Java)
 - Choose a project concept that is as simple as possible but not simpler than what is needed to meet project objectives
-- Distribute components among team members according to their knowledge, skill and previous experience.
+  - We discussed the possibility of a Covid-related app, but decided against it because of the challenges associated with data mining/scraping data from existing sources.
+- Distribute user stories among team members according to their knowledge, skill and previous experience.
 
 # Development method
 We will use a Scrum process with 3 week sprints, with standups weekly. While 1 week between standups is a long time, we will be sure to communicate with one another asynchronously to overcome roadblocks. At the end of the sprint we will review the progress for each sprint with a sprint retrospective, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
