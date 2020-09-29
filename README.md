@@ -8,18 +8,18 @@ Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 We aim to build a simple Twitter clone called Gritter.
 
 In the app users will be able to:
-- login to an account using a password that is encrypted,
-- read a feed of public tweets, 
-- tweet to their own feed (which also adds content to the public feed),
-- browse the feeds of other users,
+- login to an account using a password that is encrypted
+- read a feed of public tweets
+- tweet to their own feed (which also adds content to the public feed)
+- browse the feeds of other users
 - 'follow' other users (i.e. generate a feed from content authored by users they are 'following') 
-- 'like' tweets (a binary on/off like button), 
-- reply to tweets,
-- retweet tweets by others (i.e. add another's tweet to their own feed),
-- edit their own tweets (not a feature currently available in real Twitter),
-- delete their own tweets,
+- 'like' tweets (a binary on/off like button)
+- reply to tweets
+- retweet tweets by others (i.e. add another's tweet to their own feed)
+- edit their own tweets (not a feature currently available in real Twitter)
+- delete their own tweets
 - create a filter for content that is viewable in their feeds
-  - will 'mute' content by either by keyword, tweet location, tweet author
+- will 'mute' content either by keyword, tweet location, tweet author
 
 Tweets will be limited to 240 characters in length.
 
@@ -28,14 +28,15 @@ We will seed our database with real Twitter data, which includes the metadata re
 # Motivation
 Our motivation is to build a foundation for fleeting social media that can be filtered and edited in ways more useful to users. Currently users of real Twitter cannot edit their tweets, nor can they filter content based on keywords in combination with geotagging. By building our own Twitter-like application, we will have a foundation where we can extend functionality to include machine learning and natural language processing features to improve content management by the user rather than the platform.
 
-Additionally, Gritter is a relatively simple app that will have features sophisticated enough to meet project objectives. It would require development of several different database tables, with relationships between each. It would have a backend and front-end and lends itself to development using an agile approach, which is important to the team. 
+Additionally, Gritter is a relatively simple app that will have features sophisticated enough to meet project objectives. It will require development of several different database tables, with relationships between each. It will have a backend and frontend, and lends itself to development using an agile approach, which is important to the team. 
 
-Moreover, Gritter is easy to explain to new users and developers examining project results. Furthermore, Gritter can be a good discussion point in technical interviews later on.
+Gritter is easy to explain to new users and developers examining project results. Furthermore, Gritter can be a good discussion point in technical interviews later on.
 
 # Risks to project completion
-- Accomodating the skills across the team
+- Accomodating the skillsets across the team
 - Navigating large time zone differences
 - Managing technical scope to be achievable
+- Successful management and prioritization of backlog will be critical
 
 # Risk Mitigations
 ## Managing technical scope to be achievable
@@ -55,7 +56,7 @@ Moreover, Gritter is easy to explain to new users and developers examining proje
 - Choose a technology stack that is as simple as possible but not simpler than what is needed (Flask vs Django/Rails/Springboot)
 - Choose a technology stack that leverages the interests and existing skills of the team (Python vs Ruby/Java)
 - Choose a project concept that is as simple as possible but not simpler than what is needed to meet project objectives
-  - We discussed the possibility of a Covid-related app, but decided against it because of the challenges associated with data mining/scraping data from existing sources.
+- We discussed the possibility of a Covid-related app, but decided against it because of the challenges associated with data mining/scraping data from existing sources.
 - Distribute user stories among team members according to their knowledge, skill and previous experience.
 
 # Development method
