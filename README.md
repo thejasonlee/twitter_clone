@@ -68,7 +68,7 @@ Work flow of our Agile Software Development Methodology:
 3. Work on the features decided - Everyone will work on a specfic task 
 4. Demonstration and Testing - Demonstrating progression of features and running unit-tested functionalities
 5. Sprint Retrospective and plan for following sprint - Analyze the completed sprint to improve the next one
-6. Repeat from step 2
+6. Repeat steps 2 to 5 until completion
 
 # Project Tracking Software 
 We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. For version control, all code will be managed through a collaborative, public, github repo.
