@@ -71,4 +71,9 @@ Work flow of our Agile Software Development Methodology:
 6. Repeat steps 2 to 5 until completion
 
 # Project Tracking Software 
-We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. For version control, all code will be managed through a collaborative, public, github repo.
+We will be using Trello to track user stories, sprints and general progress visually. In the first meeting, we elected Aaron as the Scrum Master for backlog management. For version control, all code will be managed through a collaborative, public, github repo.
+
+Components of our Trello board with Kanban Methodology:
+- Story backlog including all the features and assigned points
+- General progress - To do, doing, done
+- Issues and blockages
