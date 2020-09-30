@@ -60,7 +60,15 @@ Gritter is easy to explain to new users and developers examining project results
 - Distribute user stories among team members according to their knowledge, skill and previous experience.
 
 # Development method
-We will use a Scrum process with 3 week sprints, with standups weekly. While 1 week between standups is a long time, we will be sure to communicate with one another asynchronously to overcome roadblocks. At the end of the sprint we will review the progress for each sprint with a sprint retrospective, even if briefly, to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
+We will use a Scrum process with 3 week sprints, with standups weekly. While 1 week between standups is a long time, we will be sure to communicate with one another asynchronously to overcome roadblocks. At the end of the sprint, we will review the progress for each sprint with a sprint retrospective to assess sprint sizing and story definitions going forward. These reviews may occur asynchronously to accomodate the global distribution of team members.
+
+Work flow of our Agile Software Development Methodology:
+1. Create our product backlog on Trello - Decide the features and assign points based on implementation difficulty
+2. Decide on the features for the sprint - This is based on implementation difficulty, presentation, dependency and other factors
+3. Work on the features decided - Everyone will work on a specfic task 
+4. Demonstration and Testing - Demonstrating progression of features and ensuring that functionalities are unit tested
+5. Sprint Retrospective and plan for following sprint - Analyze the completed sprint to improve the next one
+6. Repeat from step 2
 
 # Project Tracking Software 
-We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. All code will be managed through a collaborative, public, github repo.
+We will be using Trello to track stories, sprints and a story backlog. In the first meeting, we elected Aaron as the Scrum Master for backlog management. For version control, all code will be managed through a collaborative, public, github repo.
