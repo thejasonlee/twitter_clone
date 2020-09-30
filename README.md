@@ -55,7 +55,7 @@ Gritter is easy to explain to new users and developers examining project results
 ## Accomodating the skillsets across the team
 - Choose a technology stack that is as simple as possible but not simpler than what is needed (Flask vs Django/Rails/Springboot)
 - Choose a technology stack that leverages the interests and existing skills of the team (Python vs Ruby/Java)
-- Most members have limited experience in web development and using frameworks.
+- Most members have limited experience in web development and using frameworks class material is supplemented with self-learning.
 - We discussed the possibility of a Covid-related app, but decided against it because of the challenges associated with data mining/scraping data from existing sources.
 - Distribute user stories among team members according to their knowledge, skill and web development experience.
 
