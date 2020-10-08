@@ -34,6 +34,5 @@ def passing_a_simple_value_from_a_route(my_value):
     return render_template('showing_a_value.html', context=i_am_going_to_pass_this_variable)
 
 
-
 if __name__ == '__main__':
     app.run(debug=True)
