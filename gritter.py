@@ -20,12 +20,12 @@ def home():
     """A starting place."""
     return render_template('home.html')
 
-@app.route('/route1')
-def test():
+@app.route('/signin')
+def signin():
     return 'Just a test'
 
-@app.route('/route2/')
-def fascinating():
+@app.route('/signup')
+def signup():
     return 'Just a fascinating second route. Really is something.'
 
 @app.route('/route3/<int:my_value>')

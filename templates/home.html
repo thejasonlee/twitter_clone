@@ -1,3 +1,5 @@
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 
@@ -6,6 +8,15 @@
 
 <body>
     <h1>Just a stub of a homepage</h1>
+	<div>
+		<a href="{{ url_for('home') }}">Home</a>
+	</div>
+	<div>
+		<a href="{{ url_for('signup') }}">Sign Up</a>
+	</div>
+	<div>
+		<a href="{{ url_for('signin') }}">Sign In</a>
+	</div>
 </body>
 
 <footer>
@@ -14,7 +25,7 @@
 
 </html>
 
-
+{% endblock content %}
 
 
 
