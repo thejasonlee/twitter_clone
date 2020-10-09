@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+		<title>Gritter</title>
+	</head>
+	<body text="#2d7051">
+		<!-- NAV -->
+<nav class="navbar navbar-expand-md bg-light navbar-light fixed-left">
+    <div class="container">
+      <a class="navbar-brand mr-4" href="{{ url_for('home') }}">Gritter</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggle">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signin') }}">Sign In</a>
+          <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signup') }}">Sign Up</a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+	</body>
+</html>
