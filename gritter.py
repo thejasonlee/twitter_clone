@@ -1,8 +1,10 @@
-from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
+from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from structures import SignUpForm 
  
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'blahblahblah'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
 db = SQLAlchemy(app)
 
@@ -29,9 +31,14 @@ def home():
 def signin():
     return 'Just a test'
 
-@app.route('/signup')
+@app.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    return 'Just a fascinating second route. Really is something.'
+    form = SignUpForm()
+    if form.is_submitted():
+        getback = request.form
+        return render_template('user.html', getback = getback)
+    return render_template('signUp.html', form = form)   
+
 
 @app.route('/route3/<int:my_value>')
 def passing_a_simple_value_from_a_route(my_value):
