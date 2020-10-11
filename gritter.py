@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, redirect, flash, send_from_di
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-import psycoph2
+import psycopg2
 from forms import SignUpForm, UserPost
 from flask_migrate import Migrate
 
