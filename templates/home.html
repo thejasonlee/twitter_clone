@@ -3,12 +3,19 @@
 
 {% block content %}
 
-<!-- HOME SECTION -->
-<section>
-<p>
-<h1>Just a stub of a homepage</h1>
-</p>
+<form method="POST" action="" novalidate>
+    {{ form.content.label }} <br>
+    {{ form.content(size=20) }} <br>
+    {{ form.submit }} <br>
+ </form>
+
+
+{% for post in posts %}
+<div>
+{{ post.content }} <br>
+{{ post.timestamp }} <br>
+</div>
+{% endfor %}
+
 {% endblock content %}
-
-
 
