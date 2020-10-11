@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<form method="POST" action="" novalidate>
+    {{ form.content.label }} <br>
+    {{ form.content(size=20) }} <br>
+    {{ form.submit }} <br>
+ </form>
+
+{% endblock %}
