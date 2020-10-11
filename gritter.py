@@ -1,9 +1,10 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
+import psycoph2
  
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
 db = SQLAlchemy(app)
 
 # Create user model
