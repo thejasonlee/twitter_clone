@@ -1,12 +1,15 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
+import psycopg2
 from forms import SignUpForm, UserPost
 from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -36,12 +39,19 @@ class Post(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    form = UserPost()
+    if form.is_submitted():
+        post = Post(content=form.content.data)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('user_home'))
+    posts = Post.query.all()
+    return render_template('user_home.html', form=form, posts=posts)
 
 
 @app.route('/signin')
 def signin():
-    return 'Just a test'
+    return render_template('signIn.html')
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
