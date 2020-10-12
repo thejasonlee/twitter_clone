@@ -51,11 +51,7 @@ def home():
 
 @app.route('/signin')
 def signin():
-    form = SignUpForm()
-    if form.is_submitted():
-        getback = request.form
-        return render_template('user.html', getback = getback)
-    return render_template('signUp.html', form = form)
+    return render_template('signIn.html')
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
