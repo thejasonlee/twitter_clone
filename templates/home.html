@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-
 {% block content %}
 
 <form method="POST" action="" novalidate>
@@ -9,13 +8,14 @@
     {{ form.submit }} <br>
  </form>
 
-
-{% for post in posts %}
-<div>
-{{ post.content }} <br>
-{{ post.timestamp }} <br>
+<div class="container">
+    {% for post in posts %}
+        <div>
+            {{ post.content }} <br>
+            {{ post.timestamp }} <br>
+        </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 {% endblock content %}
 
