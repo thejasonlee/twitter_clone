@@ -1,29 +1,29 @@
 {% extends "layout.html" %}
 
-
-
 {% block content %}
 
-<h2> Sign Up Now! </h2>
-<form action="" method="post">
-    <p>
-        {{form.username.label}} <br>
-        {{form.username(size=30)}}
-    </p>
+<div class="container">
+    <h2> Sign Up Now! </h2>
+    <form action="" method="post">
+        <p>
+            {{form.username.label}} <br>
+            {{form.username(size=30)}}
+        </p>
 
-    <p>
-        {{form.email.label}} <br>
-        {{form.email(size=30)}}
-    </p>
-    
-    <p>
-        {{form.password.label}} <br>
-        {{form.password(size=30)}}
-    </p>
+        <p>
+            {{form.email.label}} <br>
+            {{form.email(size=30)}}
+        </p>
 
-    <p>{{form.submit()}}</p>
+        <p>
+            {{form.password.label}} <br>
+            {{form.password(size=30)}}
+        </p>
 
-</form>
+        <p>{{form.submit()}}</p>
+
+    </form>
+</div>
 
 {% endblock %}
 
