@@ -47,9 +47,8 @@ def signin():
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     form = SignUpForm()
-    if form.is_submitted():
-        getback = request.form
-        return render_template('user.html', getback = getback)
+    if form.validate_on_submit():
+        return render_template('user.html')    
     return render_template('signUp.html', form = form)
 
 
