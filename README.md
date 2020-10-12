@@ -4,7 +4,7 @@ Gritter, a Grep-Team Twitter clone with enhancements.
 # Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
 
-# Vision statement
+# Vision statement.
 Gritter is a social media platform that focuses on user experience. Users will be able to share short posts with each other, as well as be able to share links to articles, blogs, and videos. Users can follow other users in order to automate and customize their feeds. Our streamlined platform allows for easier navigation and less clutter, giving every user the ability to get to what really matters - connecting and sharing with other users.
 
 In the app users will be able to:

@@ -4,11 +4,13 @@ from datetime import datetime
 from forms import SignUpForm, UserPost
 from flask_migrate import Migrate
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 
 # Create user model
 class User(db.Model):
@@ -71,5 +73,5 @@ def user_home():
     return render_template('user_home.html', form=form, posts=posts)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
