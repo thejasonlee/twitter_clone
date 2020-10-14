@@ -8,7 +8,6 @@ from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -63,6 +62,7 @@ def signup():
     form = SignUpForm()
     if form.is_submitted():
         getback = request.form
+        # line here to save the form data into the database
         return render_template('user.html', getback = getback)
     return render_template('signUp.html', form = form)
 

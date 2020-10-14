@@ -44,3 +44,15 @@ def downgrade():
     op.drop_column('post', 'id')
     op.drop_column('post', 'content')
     # ### end Alembic commands ###
+
+# Create table User
+# create attribute user_name as string, validation requirement 1, validation requirement 2
+# create attribute password
+#
+
+# Create tweet
+# Attribute body
+# Attribute like count
+
+# -----
+# to tweet table, add attribute author
