@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for, redirect, flash, send_from_di
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-import psycopg2
 from forms import SignUpForm, UserPost
 from flask_migrate import Migrate
 
@@ -50,11 +49,7 @@ def home():
 
 @app.route('/signin')
 def signin():
-    form = SignUpForm()
-    if form.is_submitted():
-        getback = request.form
-        return render_template('user.html', getback = getback)
-    return render_template('signUp.html', form = form)
+    return render_template('signIn.html')
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -64,6 +59,9 @@ def signup():
         getback = request.form
         # line here to save the form data into the database
         return render_template('user.html', getback = getback)
+
+    if form.validate_on_submit():
+        return render_template('user.html')
     return render_template('signUp.html', form = form)
 
 
