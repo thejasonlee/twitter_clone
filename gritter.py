@@ -11,8 +11,6 @@ app.config['SECRET_KEY'] = 'blahblahblah'
 '''Database configuration
 If the environment variable 'DATABASE_URL' is defined, then use it.
 Otherwise, default to the sqlite database.
-
-Currently I've got DATABASE_URL saved as a PG database on Heroku. -JW
 '''
 _default_sqlite_db = "userDatabase.db"
 SQLALCHEMY_DATABASE_URI = os.environ.get(
