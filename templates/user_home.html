@@ -13,8 +13,8 @@
 <div class="container">
     {% for post in posts %}
         <div>
-            {{ "hello" }} <br>
-            {{ "world" }} <br>
+            {{ post.content }} <br>
+            {{ post.timestamp }} <br>
         </div>
     {% endfor %}
 </div>
