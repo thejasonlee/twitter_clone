@@ -8,10 +8,20 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
 
+'''Database configuration
+If the environment variable 'DATABASE_URL' is defined, then use it.
+Otherwise, default to the sqlite database.
+
+Currently I've got DATABASE_URL saved as a PG database on Heroku. -JW
+'''
+_default_sqlite_db = "userDatabase.db"
+SQLALCHEMY_DATABASE_URI = os.environ.get(
+    "DATABASE_URL", f"sqlite:///{_default_sqlite_db}"
+)
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Create user model
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
@@ -37,7 +47,8 @@ class Post(db.Model):
 
 @app.route('/')
 def home():
-    form = UserPost()
+    form = UserPost() # <-- UserPost() object being instantiated here.
+
     if form.is_submitted():
         post = Post(content=form.content.data)
         db.session.add(post)
