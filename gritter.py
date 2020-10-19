@@ -7,8 +7,10 @@ from flask_migrate import Migrate, MigrateCommand
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
-migrate = Migrate(app, db)
+
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 
 @app.route('/')
 def home():
