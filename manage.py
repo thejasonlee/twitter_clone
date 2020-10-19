@@ -51,7 +51,6 @@ class Post(db.Model):
         return f"Post('{self.timestamp}', '{self.content}')"
 
 
-
 if __name__ == '__main__':
     manager.run()
 
