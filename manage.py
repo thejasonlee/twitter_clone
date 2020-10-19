@@ -8,6 +8,7 @@ import os
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'blahblahblah'
 
 '''Database configuration
 If the environment variable 'DATABASE_URL' is defined, then use it.

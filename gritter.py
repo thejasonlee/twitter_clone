@@ -5,12 +5,6 @@ from manage import User, Post
 
 from flask_migrate import Migrate, MigrateCommand
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'blahblahblah'
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
 
 @app.route('/')
 def home():
