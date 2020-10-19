@@ -6,6 +6,7 @@ from datetime import datetime
 import os
 
 
+
 app = Flask(__name__)
 
 '''Database configuration
@@ -54,5 +55,6 @@ class Post(db.Model):
 
 
 if __name__ == '__main__':
+    db.create_all()
     manager.run()
 
