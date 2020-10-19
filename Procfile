@@ -1,2 +1,2 @@
-web: flask db upgrade; flask trasnlate comile; gunicorn gritter:app --log-file=-
+web: flask db upgrade; flask translate compile; gunicorn gritter:app --log-file=-
 
