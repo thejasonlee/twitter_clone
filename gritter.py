@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from forms import SignUpForm, UserPost
-from manage import User, Post
+from manage import User, Post, app
 
 from flask_migrate import Migrate, MigrateCommand
 
