@@ -3,9 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from forms import SignUpForm, UserPost
 from manage import User, Post
 
+from flask_migrate import Migrate, MigrateCommand
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'blahblahblah'
-
+migrate = Migrate(app, db)
 db = SQLAlchemy(app)
 
 @app.route('/')
