@@ -1,15 +1,39 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
-from flask_sqlalchemy import SQLAlchemy
 from forms import SignUpForm, UserPost
 from models import User, Post
 from app import app
+import db_schema as db_schema
+import db_seed as db_seed
 
 from flask_migrate import Migrate, MigrateCommand
 from app import db
 
+
+@app.route('/db_build')
+def start_our_database_over():
+    # drop all tables
+
+    # re-build all tables by calling appropriate function in db_schema.py
+    db_schema.buildTables()
+
+    # fill in all dummy data by calling function in db_seed.py
+    db_seed.fillAllTables()
+
+    # redirect to https://gritter-3308.herokuapp.com/
+    redirect(url_for('home'))
+    return
+
+'''
+MVC -- 
+Model: Define tables in the database (db_schema.py)
+View: UI that a user sees (templates)
+Controller: 'business logic' -- what methods/functions are run when a route is visited.
+'''
+
+
 @app.route('/')
 def home():
-    form = UserPost() # <-- UserPost() object being instantiated here.
+    form = UserPost()
 
     if form.is_submitted():
         post = Post(content=form.content.data)
@@ -52,7 +76,3 @@ def user_home():
         return redirect(url_for('user_home'))
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

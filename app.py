@@ -12,9 +12,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 If the environment variable 'DATABASE_URL' is defined, then use it.
 Otherwise, default to the sqlite database.
 '''
-_default_sqlite_db = "userDatabase.db"
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        "DATABASE_URL", f"sqlite:///{_default_sqlite_db}"
+        "DATABASE_URL", f"sqlite:///userDatabase.db"
     )
 
 db = SQLAlchemy(app)
