@@ -1,33 +1,5 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
+from app import db
 from datetime import datetime
-import os
-
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'blahblahblah'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-'''Database configuration
-If the environment variable 'DATABASE_URL' is defined, then use it.
-Otherwise, default to the sqlite database.
-'''
-_default_sqlite_db = "userDatabase.db"
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        "DATABASE_URL", f"sqlite:///{_default_sqlite_db}"
-    )
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
-
-
-
 '''
         ***************************
         **** MODEL DEFINITIONS ****
@@ -54,9 +26,4 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.timestamp}', '{self.content}')"
-
-
-if __name__ == '__main__':
-    db.create_all()
-    manager.run()
 

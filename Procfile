@@ -1,2 +1,2 @@
-web: flask db upgrade; gunicorn manage:app --log-file=-
+web: flask db upgrade; gunicorn app:app --log-file=-
 

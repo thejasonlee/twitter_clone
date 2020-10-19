@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from forms import SignUpForm, UserPost
-from manage import User, Post, app
+from models import User, Post
+from app import app
 
 from flask_migrate import Migrate, MigrateCommand
-
+from app import db
 
 @app.route('/')
 def home():
@@ -18,11 +19,9 @@ def home():
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
 
-
 @app.route('/signin')
 def signin():
     return render_template('signIn.html')
-
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
