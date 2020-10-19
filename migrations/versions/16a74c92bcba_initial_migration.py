@@ -19,7 +19,7 @@ depends_on = None
 def upgrade():
     op.create_table('post',
                     sa.Column('id', sa.INTEGER(), nullable=False),
-                    sa.Column('timestamp', sa.DATETIME(), nullable=True),
+                    sa.Column('timestamp', sa.TIMESTAMP(timezone=True), nullable=True),
                     sa.Column('body', sa.TEXT(), nullable=True),
                     sa.PrimaryKeyConstraint('id')
                     )
