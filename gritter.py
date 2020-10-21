@@ -1,12 +1,10 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
 import os
-from forms import SignUpForm, UserPost
-from models import User, Post
-import db_schema as db_schema
-import db_seed as db_seed
+from flask_migrate import Migrate
+#from forms import SignUpForm, UserPost
+#from models import User, Post
+
 
 # create a Flask object
 app = Flask(__name__)
@@ -33,7 +31,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
 
 '''
     **********************************
-    SQLAlchemy Setup and Configuration
+            SQLAlchemy Setup 
     **********************************
 '''
 # create SQLAlchemy object
@@ -41,15 +39,6 @@ db = SQLAlchemy(app)
 
 # create Migrate object. See https://flask-migrate.readthedocs.io/en/latest/
 migrate = Migrate(app, db)
-
-''' Uses flask_script to create a new flask command 'db'. See https://flask-script.readthedocs.io/en/latest/
-    Example usage: $ python gritter.py db --help
-    This would look in the gritter.py file for a flask-script 'db' and execute the '--help' option
-'''
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
-
-
 
 '''
     **********************************
