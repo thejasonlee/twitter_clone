@@ -13,7 +13,8 @@ from flask_migrate import Migrate, MigrateCommand
 from . import gritter
 
 # Uses flask_script to create a new flask command 'db'. See https://flask-script.readthedocs.io/en/latest/
-# Example usage: $ flask db --help
+# Example usage local: $ flask db --help
+# Example usage remote: $ heroku run flask db --help --app gritter-3308
 # This executes the db command (using flask-script) with the '--help' option
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
