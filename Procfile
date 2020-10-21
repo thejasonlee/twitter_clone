@@ -1,2 +1,2 @@
-web: gunicorn -b 0.0.0.0:$PORT gritter:app --log-file=-
+web: flask db upgrade; gunicorn gritter:app --log-file=-
 

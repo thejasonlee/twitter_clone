@@ -1,39 +1,44 @@
 from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from forms import SignUpForm, UserPost
+import os
 from flask_migrate import Migrate
+from forms import SignUpForm, UserPost
+from models import User, Post, db
+
+
+
+    # ******************************
+    # Flask app object configuration
+    # ******************************
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'blahblahblah'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///userDatabase.db'
-db = SQLAlchemy(app)
+db.init_app(app)
+
+# create Migrate object. See https://flask-migrate.readthedocs.io/en/latest/
 migrate = Migrate(app, db)
 
 
-# Create user model
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
-    password = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    profile_photo = db.Column(db.String(20), nullable=False, default='default.jpg')
-    when_joined = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    #posts = db.relationship('Post', backref='author', lazy='dynamic')
-
-    def __repr__(self):
-        return f"User('{self.username}', '{self.email}')"
+# Establish a secret key
+app.config['SECRET_KEY'] = 'blahblahblah'
 
 
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    content = db.Column(db.Text)
-    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+# # Suppress the SQLALCHEMY_TRACK_MODIFICATIONS warnings in server loggin
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    def __repr__(self):
-        return f"Post('{self.timestamp}', '{self.content}')"
+
+# Database configuration
+# If the environment variable 'DATABASE_URL' is defined, then use it.
+# Otherwise, default to the sqlite database.
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+        "DATABASE_URL", f"sqlite:///userDatabase.db")
+
+
+
+    
+    # **********************************
+    #             ROUTES
+    # **********************************
 
 
 @app.route('/')
@@ -41,9 +46,11 @@ def home():
     return render_template('home.html')
 
 
+
 @app.route('/signin')
 def signin():
-    return 'Just a test'
+    return render_template('signIn.html')
+
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -51,14 +58,13 @@ def signup():
     form = SignUpForm()
     if form.is_submitted():
         getback = request.form
+        # line here to save the form data into the database
         return render_template('user.html', getback = getback)
+
+    if form.validate_on_submit():
+        return render_template('user.html')
     return render_template('signUp.html', form = form)
 
-
-# @app.route('/user/home')
-# def user_home():
-#     posts = Post.query.all()
-#     return render_template('user_home.html', posts=posts)   
 
 
 @app.route('/user/home', methods=['GET', 'POST'])
@@ -73,5 +79,29 @@ def user_home():
     return render_template('user_home.html', form=form, posts=posts)
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+
+
+# @app.route('/db_build')
+# def start_our_database_over():
+#     """ An example function to show how a route can be used to rebuild and reseed the database.
+
+#     This route can be associated with a button in the navbar to make it easy to rebuild.
+#     Note: The button, and its associated route, has not been implemented in a template file.
+#     """
+
+#     # drop all tables (has not been implemented yet)
+
+#     # re-build all tables by calling appropriate function in db_schema.py
+#     db_schema.buildTables()
+
+#     # fill in all dummy data by calling function in db_seed.py
+#     db_seed.fill_all_tables()
+
+#     # redirect to https://gritter-3308.herokuapp.com/
+#     redirect(url_for('home'))
+#     return
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

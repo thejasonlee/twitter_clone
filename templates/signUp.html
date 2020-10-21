@@ -1,8 +1,7 @@
 {% extends "layout.html" %}
 
-
-
 {% block content %}
+
 
 <h2> Sign Up Now! </h2>
 <form action="" method="post">
@@ -10,20 +9,40 @@
         {{form.username.label}} <br>
         {{form.username(size=30)}}
     </p>
+    
+    <ul>
+    {% for error in form.username.errors %}
+        <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
 
     <p>
         {{form.email.label}} <br>
         {{form.email(size=30)}}
     </p>
-    
+   
+    <ul>
+    {% for error in form.email.errors %}
+        <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+ 
     <p>
         {{form.password.label}} <br>
         {{form.password(size=30)}}
     </p>
 
+   
+    <ul>
+    {% for error in form.password.errors %}
+        <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>  
+
     <p>{{form.submit()}}</p>
 
 </form>
+
 
 {% endblock %}
 

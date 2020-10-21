@@ -1,5 +1,5 @@
 # Project title
-Gritter, a Grep-Team Twitter clone with enhancements.
+Gritter, a Grep-Team Twitter clone with enhancements..
 
 # Team members' names
 Jason Weidner, Aaron Shyuu, Michael Shippee, Francis Kim
