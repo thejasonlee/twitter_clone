@@ -31,7 +31,7 @@ app.config['SECRET_KEY'] = 'blahblahblah'
 # If the environment variable 'DATABASE_URL' is defined, then use it.
 # Otherwise, default to the sqlite database.
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        "DATABASE_URL", f"sqlite:///userDatabase.db")
+        "DATABASE_URL", f"sqlite:///app.db")
 
 
 
