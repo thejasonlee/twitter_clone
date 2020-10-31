@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, flash, send_from_directory, request
+from flask import Flask, render_template, url_for, redirect, flash, g, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
@@ -64,9 +64,14 @@ def signup():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
-   # form = SignInForm()
+    error = None
+    if request.method == 'POST':
+        if request.form['user'] != 'admin' or request.form['password'] != 'admin':
+            error = "Invalid credentials"
+        else:
+            return redirect(url_for('home'))
     
-    return render_template('signIn.html')
+    return render_template('signIn.html', error=error)
 
 
 @app.route('/user/home', methods=['GET', 'POST'])
