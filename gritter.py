@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, redirect, flash, g, send_from
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
-from .forms import SignUpForm, SignInForm, UserPost
-from .models import User, Post, db
+from forms import SignUpForm, SignInForm, UserPost
+from models import User, Post, db
 
 
 
