@@ -74,6 +74,14 @@ def signin():
     return render_template('signIn.html', error=error)
 
 
+@app.route('/signout')
+@login_required
+def signout():
+    # Sign out using flask-login built in function
+    logout_user()
+    return redirect(url_for('home'))
+
+
 @app.route('/user/home', methods=['GET', 'POST'])
 def user_home():
     form = UserPost()
