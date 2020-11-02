@@ -4,8 +4,7 @@ import os
 from flask_migrate import Migrate
 from forms import SignUpForm, SignInForm, UserPost
 from models import User, Post, db
-
-
+from flask_login import LoginManager, login_required
 
     # ******************************
     # Flask app object configuration
@@ -14,6 +13,7 @@ from models import User, Post, db
 
 app = Flask(__name__)
 db.init_app(app)
+login_manager = LoginManager()
 
 # create Migrate object. See https://flask-migrate.readthedocs.io/en/latest/
 migrate = Migrate(app, db)
@@ -75,7 +75,7 @@ def signin():
 
 
 @app.route('/signout')
-#@login_required
+@login_required
 def signout():
     # Sign out using flask-login built in function
     logout_user()
