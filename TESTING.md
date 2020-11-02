@@ -122,17 +122,17 @@ user = User.id(1) #Tommy
 - liking is binary (1/0)
 
 Use case name
-    Lorem ipsum
+    'Liking' a post
 Description
-    Lorem ipsum
+    A user should be able to 'like' a tweet exactly once or not at all.
 Pre-conditions
-    Lorem ipsum
+    User should be registerd and logged-in.
 Test steps
-    1. Lorem ipsum
-    2. Lorem ipsum
+    1. Find a post they would like to promote. 
+    2. Click the 'like' button beneath the post, if it isn't liked already.
 
 Expected result
-    Lorem ipsum
+    The 'like' button transitions from default to '+1', and the total number of likes increases by 1.
 Actual result
     Lorem ipsum
 Status (Pass/Fail)
@@ -143,9 +143,15 @@ Post-conditions
     Lorem ipsum
 
 ### AUTOMATED TESTING
-1. 
+1. User can 'like' a post.
 
-2. Sign-in *can* access Post form
+2. User can unlike a post that's been liked.
+
+3. Total number of likes reflects the likes from all users.
+
+4. A post's like status can only be yes/no for a given user.
+
+5. Non-signedin users cannot like a post.
 
 
 
