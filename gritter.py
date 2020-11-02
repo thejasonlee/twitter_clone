@@ -75,7 +75,7 @@ def signin():
 
 
 @app.route('/signout')
-@login_required
+#@login_required
 def signout():
     # Sign out using flask-login built in function
     logout_user()
