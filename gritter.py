@@ -43,6 +43,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         "DATABASE_URL", f"sqlite:///app.db")
 
 # Set up a class for the login form
+# note to self: move this to forms.py
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=3, max=12)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=1, max=20)])
