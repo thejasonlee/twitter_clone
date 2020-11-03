@@ -2,9 +2,14 @@ from flask import Flask, render_template, url_for, redirect, flash, g, send_from
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
-from forms import SignUpForm, SignInForm, UserPost
-from models import User, Post, db
-from flask_login import LoginManager, login_required
+from .forms import SignUpForm, SignInForm, UserPost
+from .models import User, Post, db
+from flask_login import LoginManager, login_required, login_user, logout_user
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.validators import InputRequired, Email, Length
+from flask_bootstrap import Bootstrap
+
 
     # ******************************
     # Flask app object configuration
@@ -13,7 +18,11 @@ from flask_login import LoginManager, login_required
 
 app = Flask(__name__)
 db.init_app(app)
+
+# set up LoginManager and initialize - used for def signIn()
 login_manager = LoginManager()
+login_manager.init_app(app)
+bootstrap = Bootstrap(app)
 
 # create Migrate object. See https://flask-migrate.readthedocs.io/en/latest/
 migrate = Migrate(app, db)
@@ -33,12 +42,17 @@ app.config['SECRET_KEY'] = 'blahblahblah'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         "DATABASE_URL", f"sqlite:///app.db")
 
-
+# Set up a class for the login form
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(), Length(min=3, max=12)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=1, max=20)])
+    remember = BooleanField('remember me')
 
     
     # **********************************
     #             ROUTES
     # **********************************
+
 
 
 @app.route('/')
@@ -62,16 +76,25 @@ def signup():
     return render_template('signUp.html', form = form)
 
 
+# helper function for signIn to find a user id
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
-    error = None
-    if request.method == 'POST':
-        if request.form['user'] != 'admin' or request.form['password'] != 'admin':
-            error = "Invalid credentials"
-        else:
-            return redirect(url_for('home'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            if(user.password == form.password.data):
+                login_user(user, remember=form.remember.data)
+                return redirect(url_for('/'))
+
+        return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
+        
     
-    return render_template('signIn.html', error=error)
+    return render_template('signIn.html', form=form)
 
 
 @app.route('/signout')
