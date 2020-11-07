@@ -130,8 +130,7 @@ def user_home():
 
 #     # drop all tables (has not been implemented yet)
 
-#     # re-build all tables by calling appropriate function in db_schema.py
-#     db_schema.buildTables()
+#     # re-build all tables
 
 #     # fill in all dummy data by calling function in db_seed.py
 #     db_seed.fill_all_tables()
