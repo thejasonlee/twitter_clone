@@ -1,48 +1,85 @@
+<!--Render the signup form -->
 {% extends "layout.html" %}
 
 {% block content %}
 
-<div class="container" >
-<h2> Sign Up Now! </h2>
-<form action="" method="post">
-    <p>
-        {{form.username.label}} <br>
-        {{form.username(size=30)}}
-    </p>
-    
-    <ul>
-    {% for error in form.username.errors %}
-        <li style="color:red;">{{ error }}</li>
-    {% endfor %}
-    </ul>
-
-    <p>
-        {{form.email.label}} <br>
-        {{form.email(size=30)}}
-    </p>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_signUp.css') }}">
+    </head>
    
-    <ul>
-    {% for error in form.email.errors %}
-        <li style="color:red;">{{ error }}</li>
-    {% endfor %}
-    </ul>
- 
-    <p>
-        {{form.password.label}} <br>
-        {{form.password(size=30)}}
-    </p>
+    <body>
+    <div class="content">
 
-   
-    <ul>
-    {% for error in form.password.errors %}
-        <li style="color:red;">{{ error }}</li>
-    {% endfor %}
-    </ul>  
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
 
-    <p>{{form.submit()}}</p>
+            <fieldset class="formz">
+                <legend class="border-bottom mb-4">Sign Up Now!</legend>
 
-	</form>
-</div>
+                <div class="formz">
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control form-control-lg") }}
+                </div>
+
+                <ul>
+                    {% for error in form.username.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+
+                <div class="formz">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg") }}
+                </div>
+
+                <ul>
+                    {% for error in form.email.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+
+                <div class="formz">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}
+                </div>
+
+                <ul>
+                    {% for error in form.password.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                    {% endfor %}
+                </ul>  
+
+                <div class="formz">
+                    {{ form.confirmPassword.label(class="form-control-label") }}
+                    {{ form.confirmPassword(class="form-control form-control-lg") }}
+                </div>
+
+                <ul>
+                    {% for error in form.confirmPassword.errors %}
+                    <li style="color:red;">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+
+            </fieldset>
+
+            <div class="formz">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="border-top pt-3">
+
+        <small class="textz">
+            Already got an account? Yay!<a class="ml-2" href="{{ url_for('signin') }}" >Sign In</a>
+        </small>
+
+    </div>
+
+    <img src="{{url_for('static', filename='images/GforGritter.jpg')}}" alt="Gritter logo" width="350" height="350">
+
+    </body>
 {% endblock content %}
-
 
