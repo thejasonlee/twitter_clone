@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, redirect, flash, g, send_from
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
-from forms import *
-from models import User, Post, db
+from .forms import SignUpForm, SignInForm, UserPost
+from .models import User, Post, db
 from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -41,12 +41,6 @@ bootstrap = Bootstrap(app)
 migrate = Migrate(app, db)
 
 
-
-print("**************************************")
-print('SQLALCHEMY_DATABASE_URI: ', app.config['SQLALCHEMY_DATABASE_URI'])
-print("**************************************")
-
-
 # Set up a class for the login form
 # note to self: move this to forms.py
 class LoginForm(FlaskForm):
@@ -58,8 +52,6 @@ class LoginForm(FlaskForm):
     # **********************************
     #             ROUTES
     # **********************************
-
-
 
 @app.route('/')
 def home():

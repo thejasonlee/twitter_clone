@@ -4,6 +4,16 @@ This file can be used to seed the sqlite3 database used in Gritter with fake dat
 
 import sqlite3
 
+def fill_user():
+    conn = sqlite3.connect("gritter")
+    c = conn.cursor()
+
+    # Start filling tables here
+    users = ['admin']
+    query = "INSERT INTO USER(tweet_id, body) VALUES(19, " + placeholder_body + ");"
+    c.execute(query)
+    return
+
 
 def fill_tweet():
     """ Function that seeds all tables in the sqlite3 database with filename 'dbname'.
