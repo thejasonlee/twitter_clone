@@ -61,17 +61,11 @@ def home():
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     form = SignUpForm()
-   # if form.is_submitted():
-    #    getback = request.form
-        # line here to save the form data into the database
-     #   return render_template('user.html', getback = getback)
-
     if form.validate_on_submit():
-        user = User(username=form.username.data, password=form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return render_template('user.html')
-    return render_template('signUp.html', form = form)
+      # flash(f'Account created for {form.username.data}!', 'success')
+      # print("Account creation success")
+        return redirect(url_for('home')) 
+    return render_template('signUp.html', form=form)
 
 
 # helper function for signIn to find a user id
