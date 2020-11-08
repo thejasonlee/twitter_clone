@@ -2,8 +2,8 @@ from flask import Flask, render_template, url_for, redirect, flash, g, send_from
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
-from .forms import SignUpForm, SignInForm, UserPost
-from .models import User, Post, db
+from forms import SignUpForm, SignInForm, UserPost
+from models import User, Post, db
 from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -43,6 +43,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         "DATABASE_URL", f"sqlite:///app.db")
 
 # Set up a class for the login form
+# note to self: move this to forms.py
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=3, max=12)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=1, max=20)])
@@ -129,8 +130,7 @@ def user_home():
 
 #     # drop all tables (has not been implemented yet)
 
-#     # re-build all tables by calling appropriate function in db_schema.py
-#     db_schema.buildTables()
+#     # re-build all tables
 
 #     # fill in all dummy data by calling function in db_seed.py
 #     db_seed.fill_all_tables()

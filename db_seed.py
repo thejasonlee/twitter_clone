@@ -2,19 +2,17 @@
 This file can be used to seed the sqlite3 database used in Gritter with fake data.
 """
 
-from db_schema import tweet
-
 import sqlite3
 
 
 def fill_tweet():
     """ Function that seeds all tables in the sqlite3 database with filename 'dbname'.
 
-            Parameters:
+        Parameters:
 
-            Returns:
-                 N/A
-            """
+        Returns:
+             N/A
+        """
     conn = sqlite3.connect("gritter")
     c = conn.cursor()
 
