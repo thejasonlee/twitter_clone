@@ -17,6 +17,19 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+
+# Database configuration
+# If the environment variable 'DATABASE_URL' is defined, then use it.
+# Otherwise, default to the sqlite database.
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+        "DATABASE_URL", f"sqlite:///app.db")
+
+# Establish a secret key
+app.config['SECRET_KEY'] = 'blahblahblah'
+
+# # Suppress the SQLALCHEMY_TRACK_MODIFICATIONS warnings in server loggin
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db.init_app(app)
 
 # set up LoginManager and initialize - used for def signIn()
@@ -28,26 +41,11 @@ bootstrap = Bootstrap(app)
 migrate = Migrate(app, db)
 
 
-# Establish a secret key
-app.config['SECRET_KEY'] = 'blahblahblah'
-
-
-# # Suppress the SQLALCHEMY_TRACK_MODIFICATIONS warnings in server loggin
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-
-# Database configuration
-# If the environment variable 'DATABASE_URL' is defined, then use it.
-# Otherwise, default to the sqlite database.
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-        "DATABASE_URL", f"sqlite:///app.db")
 
 print("**************************************")
 print('SQLALCHEMY_DATABASE_URI: ', app.config['SQLALCHEMY_DATABASE_URI'])
 print("**************************************")
-print("**************************************")
-print("**************************************")
-print("**************************************")
+
 
 # Set up a class for the login form
 # note to self: move this to forms.py
