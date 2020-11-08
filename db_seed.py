@@ -25,10 +25,23 @@ def fill_tweet():
 
     return
 
+def fill_likes():
+    """Generates fake 'like' data in the database."""
+    return
+
+def empty_likes():
+    """Empties existing 'like' table of any data."""
+
+    return
 
 def fill_all_tables():
     """ Master function, that calls all other db_seed functions, to fill in dummy data in the database."""
 
     fill_tweet()
+
+    # list all other fix_XXX() functions here
+    # example 1: fill_users()
+    # example 2: fill_posts()
+    # example 3: fill_likes()
 
     return
