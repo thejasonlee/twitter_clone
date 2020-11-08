@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, redirect, flash, g, send_from
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
-from forms import SignUpForm, SignInForm, UserPost
+from forms import *
 from models import User, Post, db
 from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
@@ -41,6 +41,13 @@ app.config['SECRET_KEY'] = 'blahblahblah'
 # Otherwise, default to the sqlite database.
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         "DATABASE_URL", f"sqlite:///app.db")
+
+print("**************************************")
+print('SQLALCHEMY_DATABASE_URI: ', app.config['SQLALCHEMY_DATABASE_URI'])
+print("**************************************")
+print("**************************************")
+print("**************************************")
+print("**************************************")
 
 # Set up a class for the login form
 # note to self: move this to forms.py
