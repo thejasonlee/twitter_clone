@@ -8,6 +8,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
+from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 
 
@@ -17,6 +18,9 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+
+# Set up for password hashing
+bcrypt = Bcrypt(app)
 
 # Database configuration
 # If the environment variable 'DATABASE_URL' is defined, then use it.
@@ -62,11 +66,15 @@ def home():
 def signup():
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email =form.email.data, password=form.password.data)
+        username=form.username.data
+        email =form.email.data
+        hashed_pw = bcrypt.generate_password_hash(form.password.data)
+      # print(username, email, hashed_pw)
+        user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-      # flash(f'Account created for {form.username.data}!', 'success')
-      # print("Account creation success")
+      # flash(f'Account created for {username}!', 'success')
+      # print("Account created!")
         return redirect(url_for('home')) 
     return render_template('signUp.html', form=form)
 
