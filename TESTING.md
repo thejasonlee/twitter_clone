@@ -108,7 +108,10 @@ Pre-conditions
 Test steps
     1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)
     2. Enter the correct username/password (test: fred/password )
-    3. Click sign in button
+    3. Click sign in button -> should see homepage with "hello, fred" at bottom
+    4. Navigate back to sign-in
+    5. Enter incorrect username/password (test: fred/wrongpassword)
+    6. Should be taken back to sign in page. This indicates signin was not successful.
 
 Expected result
     "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.
