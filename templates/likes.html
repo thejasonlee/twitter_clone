@@ -11,10 +11,10 @@
         <div>
             <h2>Posts</h2>
             {% for post in posts %}
-                <h3>{{ post.id }}</h3>
-                <li>{{ post.content }}</li>
+                <h3>post ID: {{ post.id }}</h3>
+                <li>post content: {{ post.content }}</li>
                 <!-- UPDATE LIKE COUNTS -->
-                <li>{{ post.like_count }}</li>
+                <li>post like_count: {{ post.like_count }}</li>
             {% endfor %}
         </div>
 

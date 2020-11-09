@@ -168,7 +168,7 @@ def delete_likes():
     # get likes and posts for context
     likes = Like.query.all()
     posts = Post.query.all()
-    flash(message='Deleted likes.')
+    flash('Deleted likes.', 'error')
     return render_template('likes.html', likes=likes, posts=posts)
 
 if __name__ == '__main__':
