@@ -112,16 +112,17 @@ Test steps
 
 Expected result
     "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.
+    An incorrect username/password will direct the user back to the Signin page. 
 Actual result
     User is navigated to the homepage if credentials are correct.
 Status (Pass/Fail)
     Pass
 Notes
-    Attempting to sign in with incorrect credentials will take user to a stub page.
+    Attempting to sign in with incorrect credentials will take user back to the signin page.
 Post-conditions
     Correct credentials give different behavior than incorrect credentials. 
     Querying database with proper credentials leads to a successful sign-in.
-    After sign in, homepage will say "Hello, fred"
+    After sign in, homepage will say "Hello, (user)"
 
 ### AUTOMATED TESTING
  - navbar changes a bit

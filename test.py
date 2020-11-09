@@ -18,6 +18,7 @@ class FlaskTestCase(unittest.TestCase):
         c = conn.cursor()
         c.execute("DELETE FROM user WHERE username = '1aron';")
         c.execute("DELETE FROM user WHERE username = '023456789012345678901234567890';")
+        c.execute("DELETE FROM post WHERE content = 'test';")
         conn.commit()
         conn.close()
 
@@ -90,7 +91,6 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post('/signin', data=dict(username="jason", password="notadmin"), follow_redirects=True)
         self.assertIn(b'Please sign in', response.data)
-
 
 
   #  def test_instantiatiation_of_new_form(self):
