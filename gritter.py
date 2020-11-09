@@ -84,7 +84,7 @@ def signin():
         if user:
             if(user.password == form.password.data):
                 #login_user(user, remember=form.remember.data)
-                return render_template('home.html')
+                return render_template('home.html') + 'Hello, ' + form.username.data
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
