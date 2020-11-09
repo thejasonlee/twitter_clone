@@ -84,12 +84,12 @@ def signin():
         if user:
             if(user.password == form.password.data):
                 #login_user(user, remember=form.remember.data)
-                return redirect(url_for('home.html'))
+                return redirect(url_for('user_home.html'))
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
     
-    return render_template('user_home.html', form=form)
+    return render_template('signIn.html', form=form)
 
 
 @app.route('/signout')
