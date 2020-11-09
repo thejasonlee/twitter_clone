@@ -8,6 +8,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
+from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 
 
@@ -17,6 +18,9 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+
+# Set up for password hashing
+bcrypt = Bcrypt(app)
 
 # Database configuration
 # If the environment variable 'DATABASE_URL' is defined, then use it.
@@ -62,10 +66,14 @@ def home():
 def signup():
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email =form.email.data, password=form.password.data)
+        username=form.username.data
+        email =form.email.data
+        hashed_pw = bcrypt.generate_password_hash(form.password.data)
+      # print(username, email, hashed_pw)
+        user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('home')) 
+        return redirect(url_for('home'))
     return render_template('signUp.html', form=form)
 
 
@@ -128,29 +136,6 @@ def user_home():
         return redirect(url_for('user_home'))
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
-
-
-
-
-# @app.route('/db_build')
-# def start_our_database_over():
-#     """ An example function to show how a route can be used to rebuild and reseed the database.
-
-#     This route can be associated with a button in the navbar to make it easy to rebuild.
-#     Note: The button, and its associated route, has not been implemented in a template file.
-#     """
-
-#     # drop all tables (has not been implemented yet)
-
-#     # re-build all tables
-
-#     # fill in all dummy data by calling function in db_seed.py
-#     db_seed.fill_all_tables()
-
-#     # redirect to https://gritter-3308.herokuapp.com/
-#     redirect(url_for('home'))
-#     return
-
 
 
 if __name__ == '__main__':
