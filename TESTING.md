@@ -29,7 +29,7 @@ User is redirected to the home page with successful registration
 Pass
 
 #### Notes<br>
-Validation conditions -&gt; <br>No fields allowed to be left empty<br>
+Validation conditions => <br>No fields allowed to be left empty<br>
 username with a min of 5 characters and a max of 30 characters<br>
 email in a valid email form<br>
 password with a min of 5 characters and a max of 30 characters<br>
@@ -83,19 +83,18 @@ User has their password protected with a hash function for security.<br>
 <br>
 
 ### AUTOMATED TESTING
-1. new User in db
-	test: 
+1. Validation for sign up form inputs
+ - all fields must be non-empty
+ - username, password and email must be strings
+ - username, password and password confirmation must satisfy character length between 5 and 30 inclusive
+ - email must satisfy email form
+ - password must match password confirmation
 
-2. pw encrypted?
-	test: 
+2. Partial form doesn't create new user
 
-3. validation for form inputs is working
- - username must be strings
- - username non-empty
- - password non-empty
- - pw has a length requirement
+3. New user added in db
 
-4. Partial form doesn't create new user
+4. User password is encrypted with hash function
 
 --------
 # Signed-in
