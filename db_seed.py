@@ -73,6 +73,13 @@ def empty_likes():
     """Empties existing 'like' table of any data."""
     Like.query.delete()
     db.session.commit()
+
+    # set all post.like_count to 0
+    posts = Post.query.all()
+    for post in posts:
+        if post.like_count != 0:
+            post.like_count = 0
+    db.session.commit()
     return
 
 def fill_all_tables():
