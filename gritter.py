@@ -94,7 +94,7 @@ def signin():
                 context['form_pwd_data'] = form.password.data
 
                 #login_user(user, remember=form.remember.data)
-                return render_template('home.html', context) + 'Hello, ' + form.username.data
+                return render_template('home.html', context=context) + 'Hello, ' + form.username.data
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
