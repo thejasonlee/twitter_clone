@@ -41,25 +41,26 @@ Post-conditions
 # Signed-in
 ### USER ACCEPTANCE TESTING
 Use case name
-    Lorem ipsum
+    Verify login with valid username and password
 Description
-    Lorem ipsum
+    Test Gritter sign-in feature/page
 Pre-conditions
-    Lorem ipsum
+    A user exists in the user table with a given username and password
 Test steps
-    1. Lorem ipsum
-    2. Lorem ipsum
+    1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)
+    2. Enter the correct username/password (test: fred/password )
+    3. Click sign in button
 
 Expected result
-    Lorem ipsum
+    "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.
 Actual result
-    Lorem ipsum
+    User is navigated to the homepage if credentials are correct.
 Status (Pass/Fail)
-    Lorem ipsum
+    Pass
 Notes
-    Lorem ipsum
+    Attempting to sign in with incorrect credentials will take user to a stub page.
 Post-conditions
-    Lorem ipsum
+    Correct credentials give different behavior than incorrect credentials. Querying database with proper credentials leads to a successful sign-in.
 
 ### AUTOMATED TESTING
  - navbar changes a bit
