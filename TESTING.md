@@ -60,7 +60,9 @@ Status (Pass/Fail)
 Notes
     Attempting to sign in with incorrect credentials will take user to a stub page.
 Post-conditions
-    Correct credentials give different behavior than incorrect credentials. Querying database with proper credentials leads to a successful sign-in.
+    Correct credentials give different behavior than incorrect credentials. 
+    Querying database with proper credentials leads to a successful sign-in.
+    After sign in, homepage will say "Hello, fred"
 
 ### AUTOMATED TESTING
  - navbar changes a bit
