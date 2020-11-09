@@ -1,13 +1,13 @@
 # Sign Up
 ### USER ACCEPTANCE TESTING
 
-Use case name
+#### Use case name<br>
 Verify sign up with valid username, email, password and confirmation password
 
-Description
+Description<br>
 Test the Gritter sign up page
 
-Pre-conditions
+Pre-conditions<br>
 User has valid username, email, password and confirmation password
 
 Test steps
@@ -19,20 +19,20 @@ Test steps
 6. Provide valid confirmation password
 7. Click submit button
 
-Expected result
+Expected result<br>
 User should be able to sign up
 
-Actual result
+Actual result<br>
 User is redirected to the home page with successful registration
 
-Status (Pass/Fail)
+Status (Pass/Fail)<br>
 Pass
 
-Notes
-Validation conditions -&gt; No fields allowed to be left empty
-username with a min of 5 characters and a max of 30 characters
-email in a valid email form
-password with a min of 5 characters and a max of 30 characters
+Notes<br>
+Validation conditions -&gt; <br>No fields allowed to be left empty<br>
+username with a min of 5 characters and a max of 30 characters<br>
+email in a valid email form<br>
+password with a min of 5 characters and a max of 30 characters<br>
 password confirmation with a min of 5 characters and a max of 30 characters, must match password
 
 Upon any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
@@ -40,43 +40,43 @@ Upon any failed validation conditions, the same page is rendered and correspondi
 
 User Sample Test Run ->
 
-Try => Username:
-       Email: Aaron@gmail.com
-       Password: hahawhat
-       Password Confirmation: hahawhat
+Try => <br>Username:<br>
+       Email: Aaron@gmail.com<br>
+       Password: hahawhat<br>
+       Password Confirmation: hahawhat<br>
        * Should fail the username validation for being empty
 
-Try => Username: Jon
-       Email: jonnyboy@blue.net
-       Password: as0
-       Password Confirmation: as0
+Try => <br>Username: Jon<br>
+       Email: jonnyboy@blue.net<br>
+       Password: as0<br>
+       Password Confirmation: as0<br>
        * Should fail username and password validations, character lengths < 5
 
-Try => Username: goodMorning
-       Email: jonnyboy@blue.net
-       Password: 1111111111222222222233333333330000000000
-       Password Confirmation: 1111111111222222222233333333330000000000
+Try => <br>Username: goodMorning<br>
+       Email: jonnyboy@blue.net<br>
+       Password: 1111111111222222222233333333330000000000<br>
+       Password Confirmation: 1111111111222222222233333333330000000000<br>
        * Should fail password and confirmation validation, character lengths > 30
 
-Try => Username: goodboy
-       Email: a@a.a
-       Password: imnotthere345
-       Password Confirmation: iamhere123
+Try => <br>Username: goodboy<br>
+       Email: a@a.a<br>
+       Password: imnotthere345<br>
+       Password Confirmation: iamhere123<br>
        * Should fail the validation for non-match between password and password confirmation
 
-Try => Username: whatisUp9
-       Email: abc
-       Password: eeeek
-       Password Confirmation: eeeek
+Try => <br>Username: whatisUp9<br>
+       Email: abc<br>
+       Password: eeeek<br>
+       Password Confirmation: eeeek<br>
        * Should fail email validation
 
-Try => Username: Aaron
-       Email: AaronIsEvil@gmail.com
-       Password: Unhappybaby
-       Password Confirmation: Unhappybaby
+Try => <br>Username: Aaron<br>
+       Email: AaronIsEvil@gmail.com<br>
+       Password: Unhappybaby<br>
+       Password Confirmation: Unhappybaby<br>
        * Should pass the validations
 
-Post-conditions
+Post-conditions<br>
 User is validated with sign up form and passes all requirements for registration.
 User is added to the database and successfully registered as a user.
 User has their password protected with a hash function for security.
