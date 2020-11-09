@@ -35,7 +35,7 @@ email in a valid email form<br>
 password with a min of 5 characters and a max of 30 characters<br>
 password confirmation with a min of 5 characters and a max of 30 characters, must match password
 
-Upon any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
+Given any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
 
 
 #### User Sample Test Run ->
@@ -77,10 +77,10 @@ Try => <br>Username: Aaron<br>
        * Should pass the validations
 
 #### Post-conditions<br>
-User is validated with sign up form and passes all requirements for registration.
-User is added to the database and successfully registered as a user.
-User has their password protected with a hash function for security.
-
+User is validated with sign up form and passes all requirements for registration.<br>
+User is added to the database and successfully registered as a user.<br>
+User has their password protected with a hash function for security.<br>
+<br>
 
 ### AUTOMATED TESTING
 1. new User in db
