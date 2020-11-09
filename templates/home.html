@@ -1,28 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Welcome to the Home Page!</h1>
-
-    <div>
-    {% if context %}
-        <p>
-            context['user'] is {{ context['user'] }}
-        </p>
-        <p>
-            context['form_pwd_data'] is {{ context['form_pwd_data'] }}
-        </p>
-        <p>
-            context['user_pwd'] is {{ context['user_pwd'] }}
-        </p>
-        <p>
-            {%  for user in context['users'] %}
-                <h3>{{ user.id }}</h3>
-                <li>user.username: {{ user.username }}</li>
-                <li>user.password: {{ user.password }}</li>
-                <li>user.email: {{ user.email }}</li>
-            {% endfor %}
-        </p>
-    {% endif %}
+    <div class="container">
+        <h1>Welcome to the Home Page!</h1>
+        {% if context %}
+            <p>
+                context['user'] is {{ context['user'] }}
+            </p>
+            <p>
+                context['form_pwd_data'] is {{ context['form_pwd_data'] }}
+            </p>
+            <p>
+                context['user_pwd'] is {{ context['user_pwd'] }}
+            </p>
+            <p>
+                {%  for user in context['users'] %}
+                    <h3>{{ user.id }}</h3>
+                    <li>user.username: {{ user.username }}</li>
+                    <li>user.password: {{ user.password }}</li>
+                    <li>user.email: {{ user.email }}</li>
+                {% endfor %}
+            </p>
+        {% endif %}
     </div>
 {% endblock content %}
 
