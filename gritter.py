@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, flash, g, send_from_directory, request
+from flask import Flask, render_template, url_for, redirect, g, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
@@ -8,6 +8,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
+from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 
 
@@ -17,6 +18,9 @@ from flask_bootstrap import Bootstrap
 
 
 app = Flask(__name__)
+
+# Set up for password hashing
+bcrypt = Bcrypt(app)
 
 # Database configuration
 # If the environment variable 'DATABASE_URL' is defined, then use it.
@@ -62,12 +66,14 @@ def home():
 def signup():
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email =form.email.data, password=form.password.data)
+        username=form.username.data
+        email =form.email.data
+        hashed_pw = bcrypt.generate_password_hash(form.password.data)
+      # print(username, email, hashed_pw)
+        user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-      # flash(f'Account created for {form.username.data}!', 'success')
-      # print("Account creation success")
-        return redirect(url_for('home')) 
+        return redirect(url_for('home'))
     return render_template('signUp.html', form=form)
 
 
@@ -78,14 +84,34 @@ def load_user(user_id):
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    #creating a dictionary to store various kinds of data to be passed to the template.
+    # If the data is passed to the template, then I can 'print' it to the page.
+    context = {}
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            if(user.password == form.password.data):
-                #login_user(user, remember=form.remember.data)
-                return render_template('home.html') + 'Hello, ' + form.username.data
 
+        # I want a list of all users. If there are any, save to context.
+        users = User.query.all()
+        if users:
+            context['users'] = users
+
+        if user:
+            # I'm curious what 'user' is, so I'll save it to context.
+            context['user_value'] = user
+
+            if(user.password == form.password.data):
+                # save some of the data in context
+                context['user_pwd'] = user.password
+                context['form_pwd_data'] = form.password.data
+
+                #login_user(user, remember=form.remember.data)
+
+                # return with context dictionary, which holds data for template 'printing'
+                return render_template('home.html', context=context) + 'Hello, ' + form.username.data
+
+        # this path only occurs if the login fails
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
     
@@ -110,29 +136,6 @@ def user_home():
         return redirect(url_for('/user/home'))
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
-
-
-
-
-# @app.route('/db_build')
-# def start_our_database_over():
-#     """ An example function to show how a route can be used to rebuild and reseed the database.
-
-#     This route can be associated with a button in the navbar to make it easy to rebuild.
-#     Note: The button, and its associated route, has not been implemented in a template file.
-#     """
-
-#     # drop all tables (has not been implemented yet)
-
-#     # re-build all tables
-
-#     # fill in all dummy data by calling function in db_seed.py
-#     db_seed.fill_all_tables()
-
-#     # redirect to https://gritter-3308.herokuapp.com/
-#     redirect(url_for('home'))
-#     return
-
 
 
 if __name__ == '__main__':
