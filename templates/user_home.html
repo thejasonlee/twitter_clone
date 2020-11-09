@@ -12,9 +12,23 @@
 
 <div class="container">
     {% for post in posts %}
-        <div>
-            {{ post.content }} <br>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">Post id:{{ post.id }}</h4>
+                <p class="card-text">
+                    {{ post.content }}
+                </p>
+                <p>
+                    <h6 class="card-subtitle text-muted">Likes: ### </h6>
+                </p>
+
+                <a class="btn btn-outline-primary" href="#">Like</a>
+                <a class="btn btn-outline-secondary" href="#">Retweet (dead link)</a>
+
+                <a class="btn btn-outline-danger" href="#">Report (dead link)</a>
+            </div>
         </div>
+
     {% endfor %}
 </div>
 
