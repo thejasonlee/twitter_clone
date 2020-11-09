@@ -1,26 +1,86 @@
-
-# Registration
+# Sign Up
 ### USER ACCEPTANCE TESTING
+
 Use case name
-    User creates account with username and password
+Verify sign up with valid username, email, password and confirmation password
+
 Description
-    Lorem ipsum
+Test the Gritter sign up page
+
 Pre-conditions
-    Lorem ipsum
+User has valid username, email, password and confirmation password
+
 Test steps
-    1. Lorem ipsum
-    2. Lorem ipsum
+1. Navigate to sign up page
+2. Click sign in button if already have an account, otherwise continue to next step
+3. Provide valid username
+4. Provide valid email
+5. Provide valid password
+6. Provide valid confirmation password
+7. Click submit button
 
 Expected result
-    Lorem ipsum
+User should be able to sign up
+
 Actual result
-    Lorem ipsum
+User is redirected to the home page with successful registration
+
 Status (Pass/Fail)
-    Lorem ipsum
+Pass
+
 Notes
-    Lorem ipsum
+Validation conditions -&gt; No fields allowed to be left empty
+username with a min of 5 characters and a max of 30 characters
+email in a valid email form
+password with a min of 5 characters and a max of 30 characters
+password confirmation with a min of 5 characters and a max of 30 characters, must match password
+
+Upon any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
+
+
+User Sample Test Run ->
+
+Try => Username:
+       Email: Aaron@gmail.com
+       Password: hahawhat
+       Password Confirmation: hahawhat
+       * Should fail the username validation for being empty
+
+Try => Username: Jon
+       Email: jonnyboy@blue.net
+       Password: as0
+       Password Confirmation: as0
+       * Should fail username and password validations, character lengths < 5
+
+Try => Username: goodMorning
+       Email: jonnyboy@blue.net
+       Password: 1111111111222222222233333333330000000000
+       Password Confirmation: 1111111111222222222233333333330000000000
+       * Should fail password and confirmation validation, character lengths > 30
+
+Try => Username: goodboy
+       Email: a@a.a
+       Password: imnotthere345
+       Password Confirmation: iamhere123
+       * Should fail the validation for non-match between password and password confirmation
+
+Try => Username: whatisUp9
+       Email: abc
+       Password: eeeek
+       Password Confirmation: eeeek
+       * Should fail email validation
+
+Try => Username: Aaron
+       Email: AaronIsEvil@gmail.com
+       Password: Unhappybaby
+       Password Confirmation: Unhappybaby
+       * Should pass the validations
+
 Post-conditions
-    Lorem ipsum
+User is validated with sign up form and passes all requirements for registration.
+User is added to the database and successfully registered as a user.
+User has their password protected with a hash function for security.
+
 
 ### AUTOMATED TESTING
 1. new User in db
