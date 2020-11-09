@@ -133,7 +133,7 @@ def user_home():
         post = Post(content=form.content.data)
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('/user/home'))
+        return redirect(url_for('user_home'))
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
 
