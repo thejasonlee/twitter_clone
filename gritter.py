@@ -83,7 +83,7 @@ def signin():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             if(user.password == form.password.data):
-                login_user(user, remember=form.remember.data)
+                #login_user(user, remember=form.remember.data)
                 return redirect(url_for('/'))
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
