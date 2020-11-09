@@ -85,6 +85,12 @@ def signin():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
+
+        # I want a list of all users. If there are any, save to context.
+        users = User.query.all()
+        if users:
+            context['users'] = users
+
         if user:
             # I'm curious what 'user' is, so I'll save it to context.
             context['user_value'] = user
@@ -94,6 +100,7 @@ def signin():
                 context['form_pwd_data'] = form.password.data
 
                 #login_user(user, remember=form.remember.data)
+                # when I return, pass in the context variable.
                 return render_template('home.html', context=context) + 'Hello, ' + form.username.data
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'

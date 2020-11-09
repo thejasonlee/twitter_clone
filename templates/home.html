@@ -14,6 +14,14 @@
         <p>
             context['user_pwd'] is {{ context['user_pwd'] }}
         </p>
+        <p>
+            {%  for user in context['users'] %}
+                <h3>{{ user.id }}</h3>
+                <li>user.username: {{ user.username }}</li>
+                <li>user.password: {{ user.password }}</li>
+                <li>user.email: {{ user.email }}</li>
+            {% endfor %}
+        </p>
     {% endif %}
     </div>
 {% endblock content %}
