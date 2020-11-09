@@ -35,7 +35,7 @@ email in a valid email form<br>
 password with a min of 5 characters and a max of 30 characters<br>
 password confirmation with a min of 5 characters and a max of 30 characters, must match password
 
-Given any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
+(Given any failed validation conditions, the same page is rendered and corresponding error msgs are displayed)
 
 
 #### User Sample Test Run ->
