@@ -11,6 +11,7 @@ from wtforms.validators import InputRequired, Email, Length
 from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 from db_seed import *
+from db_queries import *
 
     # ******************************
     # Flask app object configuration
@@ -128,14 +129,24 @@ def signout():
 
 @app.route('/user/home', methods=['GET', 'POST'])
 def user_home():
+
     form = UserPost()
+
     if form.is_submitted():
         post = Post(content=form.content.data)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('user_home'))
+
+    # get all posts
     posts = Post.query.all()
-    return render_template('user_home.html', form=form, posts=posts)
+
+    # calculate the number of likes for each post
+    like_counts = []
+    for post in posts:
+        like_counts.append(get_likes_by_post_id(post.id))
+
+    return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
 
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():

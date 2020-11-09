@@ -18,9 +18,16 @@
                 <p class="card-text">
                     {{ post.content }}
                 </p>
-                <p>
-                    <h6 class="card-subtitle text-muted">Likes: ### </h6>
-                </p>
+                {% for like in likes %}
+                    {# like[0] is the post.id #}
+                    {% if like[0] == post.id %}
+                        <p>
+                            {# like[1] is like count #}
+                            <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
 
                 <a class="btn btn-outline-primary" href="#">Like</a>
                 <a class="btn btn-outline-secondary" href="#">Retweet (dead link)</a>
