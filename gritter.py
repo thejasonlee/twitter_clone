@@ -78,13 +78,23 @@ def load_user(user_id):
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    #creating a dictionary to store various kinds of data to be passed to the template.
+    # If the data is passed to the template, then I can 'print' it to the page.
+    context = {}
+
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
+            # I'm curious what 'user' is, so I'll save it to context.
+            context['user_value'] = user
+
             if(user.password == form.password.data):
+                context['user_pwd'] = user.password
+                context['form_pwd_data'] = form.password.data
+
                 #login_user(user, remember=form.remember.data)
-                return render_template('home.html') + 'Hello, ' + form.username.data
+                return render_template('home.html', context) + 'Hello, ' + form.username.data
 
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         

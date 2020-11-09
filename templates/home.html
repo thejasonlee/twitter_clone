@@ -3,5 +3,16 @@
 {% block content %}
 <h1>Welcome to the Home Page!</h1>
 
+    <div>
+        <p>
+            context['user'] is {{ context['user'] }}
+        </p>
+        <p>
+            context['form_pwd_data'] is {{ context['form_pwd_data'] }}
+        </p>
+        <p>
+            context['user_pwd'] is {{ context['user_pwd'] }}
+        </p>
+    </div>
 {% endblock content %}
 
