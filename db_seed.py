@@ -72,6 +72,7 @@ def fill_likes():
 def empty_likes():
     """Empties existing 'like' table of any data."""
     Like.query.delete()
+    db.session.commit()
     return
 
 def fill_all_tables():
