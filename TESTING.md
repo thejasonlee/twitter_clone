@@ -4,13 +4,13 @@
 #### Use case name<br>
 Verify sign up with valid username, email, password and confirmation password
 
-Description<br>
+#### Description<br>
 Test the Gritter sign up page
 
-Pre-conditions<br>
+#### Pre-conditions<br>
 User has valid username, email, password and confirmation password
 
-Test steps
+#### Test steps
 1. Navigate to sign up page
 2. Click sign in button if already have an account, otherwise continue to next step
 3. Provide valid username
@@ -19,16 +19,16 @@ Test steps
 6. Provide valid confirmation password
 7. Click submit button
 
-Expected result<br>
+#### Expected result<br>
 User should be able to sign up
 
-Actual result<br>
+#### Actual result<br>
 User is redirected to the home page with successful registration
 
-Status (Pass/Fail)<br>
+#### Status (Pass/Fail)<br>
 Pass
 
-Notes<br>
+#### Notes<br>
 Validation conditions -&gt; <br>No fields allowed to be left empty<br>
 username with a min of 5 characters and a max of 30 characters<br>
 email in a valid email form<br>
@@ -38,7 +38,7 @@ password confirmation with a min of 5 characters and a max of 30 characters, mus
 Upon any failed validation conditions, the same page is rendered and corresponding error msgs are displayed
 
 
-User Sample Test Run ->
+#### User Sample Test Run ->
 
 Try => <br>Username:<br>
        Email: Aaron@gmail.com<br>
@@ -76,7 +76,7 @@ Try => <br>Username: Aaron<br>
        Password Confirmation: Unhappybaby<br>
        * Should pass the validations
 
-Post-conditions<br>
+#### Post-conditions<br>
 User is validated with sign up form and passes all requirements for registration.
 User is added to the database and successfully registered as a user.
 User has their password protected with a hash function for security.
