@@ -1,3 +1,9 @@
+### Project Title: Gritter
+### members: Aaron Shyuu, Francis Kim, Jason Weidner, Michael Shippee
+### github repo: https://github.com/jasonweidner/twitter_clone
+### steps for automated tests: run test.py in repo
+
+
 # Sign Up
 ### USER ACCEPTANCE TESTING
 
