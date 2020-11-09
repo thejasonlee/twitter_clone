@@ -4,6 +4,7 @@
 <h1>Welcome to the Home Page!</h1>
 
     <div>
+    {% if context %}
         <p>
             context['user'] is {{ context['user'] }}
         </p>
@@ -13,6 +14,7 @@
         <p>
             context['user_pwd'] is {{ context['user_pwd'] }}
         </p>
+    {% endif %}
     </div>
 {% endblock content %}
 
