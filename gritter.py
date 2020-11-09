@@ -89,7 +89,7 @@ def signin():
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
     
-    return render_template('signIn.html', form=form)
+    return render_template('user_home.html', form=form)
 
 
 @app.route('/signout')
