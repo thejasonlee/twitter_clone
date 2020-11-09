@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, flash, g, send_from_directory, request
+from flask import Flask, render_template, url_for, redirect, g, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
@@ -65,8 +65,6 @@ def signup():
         user = User(username=form.username.data, email =form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-      # flash(f'Account created for {form.username.data}!', 'success')
-      # print("Account creation success")
         return redirect(url_for('home')) 
     return render_template('signUp.html', form=form)
 
@@ -96,13 +94,16 @@ def signin():
             context['user_value'] = user
 
             if(user.password == form.password.data):
+                # save some of the data in context
                 context['user_pwd'] = user.password
                 context['form_pwd_data'] = form.password.data
 
                 #login_user(user, remember=form.remember.data)
-                # when I return, pass in the context variable.
+
+                # return with context dictionary, which holds data for template 'printing'
                 return render_template('home.html', context=context) + 'Hello, ' + form.username.data
 
+        # this path only occurs if the login fails
         return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
         
     

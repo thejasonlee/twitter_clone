@@ -4,9 +4,12 @@
     {% block head %}
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    		<!-- local css -->
+
+        <!-- local css -->
 		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-	<title>Gritter</title>
+
+        <title>Gritter</title>
+
     {% endblock %}
 	</head>
 
@@ -34,6 +37,7 @@
         </div>
 
         {% block content %}
+
         {% endblock %}
 	</body>
 </html>
