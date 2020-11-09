@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+	<div class="container">
+        <a href="{{  url_for('create_likes') }}" class="btn btn-secondary" type="button">Generate likes</a>
+        <a href="{{ url_for('delete_likes') }}" class="btn btn-danger" type="button">Delete likes</a>
+
+    <!-- POSTS -->
+        <div>
+            <h2>Posts</h2>
+            {% for post in posts %}
+                <h3>{{ post.id }}</h3>
+                <li>{{ post.content }}</li>
+                <!-- UPDATE LIKE COUNTS -->
+                <li>{{ post.like_count }}</li>
+            {% endfor %}
+        </div>
+
+
+    <!-- LIKES -->
+        <div>
+            <h2>Likes</h2>
+            {% for like in likes %}
+                <h3>{{ like.id }}</h3>
+                <li>{{ like.post_id }}</li>
+                <li>{{ like.user_id }}</li>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+

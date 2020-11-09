@@ -23,17 +23,17 @@ class User(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text)
-    like = db.Column(db.Integer)
+    like_count = db.Column(db.Integer, default=0)
 
     def __repr__(self):
-        return f"Post('{self.content}')"
+        return f"Post('id: {self.id}, content:{self.content}, likes:{self.like_count}')"
 
 
 class Like(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    post_id = db.Column(db.Text)
-    # user_id = db.Column(db.Integer, foreign_key
-    count = db.Column(db.Integer)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 
     def __repr__(self):
         return f"Post('{self.content}')"

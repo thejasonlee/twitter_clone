@@ -3,6 +3,10 @@ This file can be used to seed the sqlite3 database used in Gritter with fake dat
 """
 
 import sqlite3
+from models import User, Post, Like
+from random import seed, randint
+from gritter import db
+
 
 def fill_user():
     conn = sqlite3.connect("gritter")
@@ -37,6 +41,25 @@ def fill_tweet():
 
 def fill_likes():
     """Generates fake 'like' data in the database."""
+
+    posts = Post.query.all() # get all posts
+    users = User.query.all() # get all users
+
+    likes = []
+    seed(1)  # seed the random number generator
+    for post in posts:
+        # for each user
+        for user in users:
+            # 50% of the time..
+            if randint(0, 10) > 4:
+                # generate a like
+                likes.append(Like(post_id=post.id, user_id=user.id))
+
+    db.session.add_all(likes) # add the likes to the session
+    db.session.commit()       # commit the session to the database
+
+    # update post.like_count values
+
     return
 
 def empty_likes():

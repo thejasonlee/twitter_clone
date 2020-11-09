@@ -1,21 +1,20 @@
-from flask import Flask, render_template, url_for, redirect, g, send_from_directory, request
+from flask import flash, Flask, render_template, url_for, redirect, g, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_migrate import Migrate
 from forms import SignUpForm, SignInForm, UserPost
-from models import User, Post, db
+from models import User, Post, Like, db
 from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
 from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
-
+from db_seed import *
 
     # ******************************
     # Flask app object configuration
     # ******************************
-
 
 app = Flask(__name__)
 
@@ -137,6 +136,40 @@ def user_home():
     posts = Post.query.all()
     return render_template('user_home.html', form=form, posts=posts)
 
+@app.route('/likes', methods=['POST', 'GET'])
+def show_likes():
+
+    # get likes and posts for context
+    likes = Like.query.all()
+    posts = Post.query.all()
+
+    return render_template('likes.html', likes=likes, posts=posts)
+
+
+@app.route('/likes/fill', methods=['GET'])
+def create_likes():
+    # drop all likes (this is imported from db_seed)
+    empty_likes()
+
+    # create likes (this is imported from db_seed)
+    fill_likes()
+
+    # get likes and posts for context
+    likes = Like.query.all()
+    posts = Post.query.all()
+    flash(message='Created likes.')
+    return render_template('likes.html', likes=likes, posts=posts)
+
+@app.route('/likes/delete', methods=['GET'])
+def delete_likes():
+    # drop all likes (this is imported from db_seed)
+    empty_likes()
+
+    # get likes and posts for context
+    likes = Like.query.all()
+    posts = Post.query.all()
+    flash(message='Deleted likes.')
+    return render_template('likes.html', likes=likes, posts=posts)
 
 if __name__ == '__main__':
     app.run(debug=False)
