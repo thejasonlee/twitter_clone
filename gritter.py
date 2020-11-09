@@ -155,22 +155,16 @@ def create_likes():
     # create likes (this is imported from db_seed)
     fill_likes()
 
-    # get likes and posts for context
-    likes = Like.query.all()
-    posts = Post.query.all()
     flash(message='Created likes.')
-    return render_template('likes.html', likes=likes, posts=posts)
+    return redirect(url_for('show_likes'))
 
 @app.route('/likes/delete', methods=['GET'])
 def delete_likes():
     # drop all likes (this is imported from db_seed)
     empty_likes()
 
-    # get likes and posts for context
-    likes = Like.query.all()
-    posts = Post.query.all()
-    flash(message='Deleted likes.')
-    return render_template('likes.html', likes=likes, posts=posts)
+    flash('Deleted likes.', 'error')
+    return redirect(url_for('show_likes'))
 
 if __name__ == '__main__':
     app.run(debug=False)
