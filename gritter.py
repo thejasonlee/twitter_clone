@@ -111,7 +111,8 @@ def signin():
                 return render_template('home.html', context=context) + 'Hello, ' + form.username.data
 
         # this path only occurs if the login fails
-        return '<h1>' + form.username.data + ' ' + form.password.data + '</h1>'
+
+        return render_template('signIn.html', form=form)
         
     
     return render_template('signIn.html', form=form)

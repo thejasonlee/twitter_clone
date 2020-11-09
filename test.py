@@ -3,6 +3,8 @@ from gritter import app
 from forms import SignUpForm
 import os
 import unittest
+import sqlite3
+
 
 class FlaskTestCase(unittest.TestCase):
 
@@ -10,6 +12,14 @@ class FlaskTestCase(unittest.TestCase):
     def setUp(self):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
+
+    def tearDown(self):
+        conn = sqlite3.connect('app.db')
+        c = conn.cursor()
+        c.execute("DELETE FROM user WHERE username = '1aron';")
+        c.execute("DELETE FROM user WHERE username = '023456789012345678901234567890';")
+        conn.commit()
+        conn.close()
 
 
     # Test Response of home route
@@ -49,6 +59,37 @@ class FlaskTestCase(unittest.TestCase):
         follow_redirects=True)
         self.assertIn(b'Welcome to the Home Page!', response.data)
 
+    def test_too_few_chars_user(self):
+        tester = app.test_client(self)
+        response = tester.post('/signup', data = dict(username='tom', email="goodemail@email.com", password="longenough", confirmPassword="longenough", SignUpForm=""))
+        self.assertIn(b'Must be between 5 and 30', response.data)
+
+    def test_too_many_chars_user(self):
+        tester = app.test_client(self)
+        response = tester.post('/signup', data=dict(username='x' * 31, email="goodemail@email.com", password="longenough", confirmPassword="longenough", SignUpForm=""))
+        self.assertIn(b'Must be between 5 and 30', response.data)
+
+    def test_too_few_chars_pw(self):
+        tester = app.test_client(self)
+        response = tester.post('/signup', data=dict(username='timtom', email="goodemail@email.com", password="pass",
+                                                    confirmPassword="pass", SignUpForm=""))
+        self.assertIn(b'Must be between 5 and 30', response.data)
+
+    def test_pw_confirm(self):
+        tester = app.test_client(self)
+        response = tester.post('/signup', data=dict(username="1aron", email="badkid@gmail.com", password="abcde",
+                                                    confirmPassword="abcde1", SignUpForm=""), follow_redirects=True)
+        self.assertIn(b'Field must be equal to password.', response.data)
+
+    def test_signin_pass(self):
+        tester = app.test_client(self)
+        response = tester.post('/signin', data=dict(username="jason", password="admin"), follow_redirects=True)
+        self.assertIn(b'Hello, jason', response.data)
+
+    def test_signin_fail(self):
+        tester = app.test_client(self)
+        response = tester.post('/signin', data=dict(username="jason", password="notadmin"), follow_redirects=True)
+        self.assertIn(b'Please sign in', response.data)
 
 
 
