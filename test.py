@@ -92,6 +92,15 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.post('/signin', data=dict(username="jason", password="notadmin"), follow_redirects=True)
         self.assertIn(b'Please sign in', response.data)
 
+    def test_post_response(self):
+        tester = app.test_client(self)
+        response = tester.post('/user/home', data=dict(content="testing response"), follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_content(self):
+        tester = app.test_client(self)
+        response = tester.post('/user/home', data=dict(content="testing response"), follow_redirects=True)
+        self.assertIn(b'testing response', response.data)
 
   #  def test_instantiatiation_of_new_form(self):
    #     app = Flask(__name__)
