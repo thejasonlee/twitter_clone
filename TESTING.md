@@ -107,31 +107,31 @@ User has their password protected with a hash function for security.<br>
 ### USER ACCEPTANCE TESTING
 Use case name\
     Verify login with valid username and password\
-Description
-    Test Gritter sign-in feature/page
-Pre-conditions
-    A user exists in the user table with a given username and password
-Test steps
-    1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)
-    2. Enter the correct username/password (test: fred/password )
-    3. Click sign in button -> should see homepage with "hello, fred" at bottom
-    4. Navigate back to sign-in
-    5. Enter incorrect username/password (test: fred/wrongpassword)
-    6. Should be taken back to sign in page. This indicates signin was not successful.
+Description\
+    Test Gritter sign-in feature/page\
+Pre-conditions\
+    A user exists in the user table with a given username and password\
+Test steps\
+    1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)\
+    2. Enter the correct username/password (test: fred/password )\
+    3. Click sign in button -> should see homepage with "hello, fred" at bottom\
+    4. Navigate back to sign-in\
+    5. Enter incorrect username/password (test: fred/wrongpassword)\
+    6. Should be taken back to sign in page. This indicates signin was not successful.\
 
-Expected result
-    "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.
-    An incorrect username/password will direct the user back to the Signin page. 
-Actual result
-    User is navigated to the homepage if credentials are correct.
-Status (Pass/Fail)
-    Pass
-Notes
-    Attempting to sign in with incorrect credentials will take user back to the signin page.
-Post-conditions
-    Correct credentials give different behavior than incorrect credentials. 
-    Querying database with proper credentials leads to a successful sign-in.
-    After sign in, homepage will say "Hello, (user)"
+Expected result\
+    "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.\
+    An incorrect username/password will direct the user back to the Signin page. \
+Actual result\
+    User is navigated to the homepage if credentials are correct.\
+Status (Pass/Fail)\
+    Pass\
+Notes\
+    Attempting to sign in with incorrect credentials will take user back to the signin page.\
+Post-conditions\
+    Correct credentials give different behavior than incorrect credentials. \
+    Querying database with proper credentials leads to a successful sign-in.\
+    After sign in, homepage will say "Hello, (user)"\
 
 ### AUTOMATED TESTING
  - navbar changes a bit
