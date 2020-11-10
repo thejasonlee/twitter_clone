@@ -105,8 +105,8 @@ User has their password protected with a hash function for security.<br>
 --------
 # Signed-in
 ### USER ACCEPTANCE TESTING
-Use case name
-    Verify login with valid username and password
+Use case name\
+    Verify login with valid username and password\
 Description
     Test Gritter sign-in feature/page
 Pre-conditions
