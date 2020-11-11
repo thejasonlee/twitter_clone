@@ -1,11 +1,14 @@
+### Team name: Grep
 ### Project Title: Gritter
-### members: Aaron Shyuu, Francis Kim, Jason Weidner, Michael Shippee
+### Members: Aaron Shyuu, Francis Kim, Jason Weidner, Michael Shippee
 ### github repo: https://github.com/jasonweidner/twitter_clone
-### steps for automated tests: run test.py in repo
+### steps for automated tests: run test.py from within .../twitter_clone/ subdirectory.
 
+#### Note to Instr. Knox: There are details about automated testing within the UAT#1 section.
 
-# Sign Up
-### USER ACCEPTANCE TESTING
+--------
+
+## UAT #1: Sign Up
 
 #### Use case name<br>
 Verify sign up with valid username, email, password and confirmation password
@@ -42,7 +45,6 @@ password with a min of 5 characters and a max of 30 characters<br>
 password confirmation with a min of 5 characters and a max of 30 characters, must match password
 
 (Given any failed validation conditions, the same page is rendered and corresponding error msgs are displayed)
-
 
 #### User Sample Test Run ->
 
@@ -103,127 +105,91 @@ User has their password protected with a hash function for security.<br>
 4. User password is encrypted with hash function
 
 --------
-# Signed-in
-### USER ACCEPTANCE TESTING
-Use case name\
-    Verify login with valid username and password\
-Description\
-    Test Gritter sign-in feature/page\
-Pre-conditions\
-    A user exists in the user table with a given username and password\
-Test steps\
-    1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)\
-    2. Enter the correct username/password (test: fred/password )\
-    3. Click sign in button -> should see homepage with "hello, fred" at bottom\
-    4. Navigate back to sign-in\
-    5. Enter incorrect username/password (test: fred/wrongpassword)\
-    6. Should be taken back to sign in page. This indicates signin was not successful.\
 
-Expected result\
-    "Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.\
-    An incorrect username/password will direct the user back to the Signin page. \
-Actual result\
-    User is navigated to the homepage if credentials are correct.\
-Status (Pass/Fail)\
-    Pass\
-Notes\
-    Attempting to sign in with incorrect credentials will take user back to the signin page.\
-Post-conditions\
-    Correct credentials give different behavior than incorrect credentials. \
-    Querying database with proper credentials leads to a successful sign-in.\
-    After sign in, homepage will say "Hello, (user)"\
+## UAT #2: Signed-In
 
-### AUTOMATED TESTING
- - navbar changes a bit
- - flash alert / sign-in message
+#### Use case name
+Verify login with valid username and password
 
-1. un/pw that's in the db *can* sign-in
+#### Description
+Test Gritter sign-in feature/page
+    
+#### Pre-conditions
+A user exists in the user table with a given username and password\
 
-2. un/pw not in db *cannot* sign-in
- - redirected on failure to same page with flash
+#### Test steps
+1. Navigate to sign-in (https://gritter-3308.herokuapp.com/signin)\
+2. Enter the correct username/password (test: fred/password )\
+3. Click sign in button -> should see homepage with "hello, fred" at bottom\
+4. Navigate back to sign-in
+5. Enter incorrect username/password (test: fred/wrongpassword)\
+6. Should be taken back to sign in page. This indicates signin was not successful.\
 
-3. flash success on success
+#### Expected result
+"Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.\
+An incorrect username/password will direct the user back to the Signin page. \
 
-4. flash failure on failure
+#### Actual result
+User is navigated to the homepage if credentials are correct.\
+
+#### Status (Pass/Fail)
+Pass
+
+#### Notes
+Attempting to sign in with incorrect credentials will take user back to the signin page.\
+
+#### Post-conditions
+Correct credentials give different behavior than incorrect credentials. \
+Querying database with proper credentials leads to a successful sign-in.\
+After sign in, homepage will say "Hello, (user)"
 
 --------
-# Create a Post
-### USER ACCEPTANCE TESTING
-Use case name
-    Lorem ipsum
-Description
-    Lorem ipsum
-Pre-conditions
-    Lorem ipsum
-Test steps
-    1. Lorem ipsum
-    2. Lorem ipsum
 
-Expected result
-    Lorem ipsum
-Actual result
-    Lorem ipsum
-Status (Pass/Fail)
-    Lorem ipsum
-Notes
-    Lorem ipsum
-Post-conditions
-    Lorem ipsum
+## UAT #3: 'Likes', en masse
 
-### AUTOMATED TESTING
+#### Use case name
+A developer needs to be able to generate many 'likes' easily for testing logic and UI.
 
-- need to be signed-in
-- fill-in form, submit
+#### Description
+A developer should be able to generate 'likes' on existing posts, en masse, with a couple of clicks.
+This would help the developer and developer team be able to visualise and test the logic related to post likes.
 
-1. new Post in the db
+#### Pre-conditions
+This is intermediary functionality only for use during app development. It would be inappropriate to have this functinality available for non-developers in a public-facing app ready for production.
 
-2. validation on Post form working
- - character limit restricts Post generation
- - empty post OK
+#### Test steps
+1. Navigate a web browser to https://gritter-3308.herokuapp.com/likes
+2. Click the 'Delete likes' button to delete all 'likes' currently in the database.
+3. Click the 'Generate likes' button to generate 'likes' for posts (and users) currently in the database.
 
-3. Not signed-in can't access Post form (i.e. the route)
-user = User.id(1) #Tommy
+#### Expected result
+Clicking 'Delete likes' should:
+ - reload the https://gritter-3308.herokuapp.com/likes page (after removing all likes from the database, which won't be visible to the user).
+ - When reloaded, an orange flash message should appear indicating the user deleted the likes. 
+ - Also, no likes should be listed on the page (as they've been deleted)
+ - Additionally, the same posts should remain when the page reloads even though likes are now gone.
+ - The posts listed on the page should remain if the page is refreshed. 
+ - Also, the flash message should be dismissible (by clicking the 'x' on the right)
+ Clicking 'Generate likes' should:
+ - reload the https://gritter-3308.herokuapp.com/likes page
+ - When reloaded, a green flash message should appear indicating the user has created new likes. 
+ - Also, the new likes should be listed on the page (as they've been added to the database)
+ - Additionally, the same posts should remain when the page reloads as they have not been modified during like creation.
+ - The posts and likes listed on the page should remain if the page is refreshed. 
+ - Also, the flash message should be dismissible (by clicking the 'x' on the right)
+The logic automating 'like' creation, identifies every post and every user, and 50% of the time has a user like a post. So like totals per post should reflect this logic.
 
-4. Sign-in *can* access Post form
+#### Actual result
+The page behaves as expected.
 
---------
-# 'Liking' a post
-### USER ACCEPTANCE TESTING
-- need to be signed-in
-- can only like once
-- liking is binary (1/0)
+#### Status (Pass/Fail)
+Pass
 
-Use case name
-    'Liking' a post
-Description
-    A user should be able to 'like' a tweet exactly once or not at all.
-Pre-conditions
-    User should be registerd and logged-in.
-Test steps
-    1. Find a post they would like to promote. 
-    2. Click the 'like' button beneath the post, if it isn't liked already.
+#### Notes
+This functionality will be moved to testing features later, as the app progresses. Currently the app is in a developer-only state.
 
-Expected result
-    The 'like' button transitions from default to '+1', and the total number of likes increases by 1.
-Actual result
-    Lorem ipsum
-Status (Pass/Fail)
-    Lorem ipsum
-Notes
-    Lorem ipsum
-Post-conditions
-    Lorem ipsum
-
-### AUTOMATED TESTING
-1. User can 'like' a post.
-
-2. User can unlike a post that's been liked.
-
-3. Total number of likes reflects the likes from all users.
-
-4. A post's like status can only be yes/no for a given user.
-
-5. Non-signedin users cannot like a post.
+#### Post-conditions
+N/A
 
 
 

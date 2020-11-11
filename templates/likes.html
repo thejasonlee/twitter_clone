@@ -23,9 +23,9 @@
         <div>
             <h2>Likes</h2>
             {% for like in likes %}
-                <h3>{{ like.id }}</h3>
-                <li>{{ like.post_id }}</li>
-                <li>{{ like.user_id }}</li>
+                <h3>Like ID: {{ like.id }}</h3>
+                <li>Like.post_id: {{ like.post_id }}</li>
+                <li>Like.user_id: {{ like.user_id }}</li>
             {% endfor %}
         </div>
 

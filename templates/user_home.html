@@ -29,7 +29,7 @@
                 {% endfor %}
 
 
-                <a class="btn btn-outline-primary" href="#">Like</a>
+                <a class="btn btn-outline-primary" href="{{ url_for('click_like'), usr_id=g.id, pst_id=post.id }}">Like</a>
                 <a class="btn btn-outline-secondary" href="#">Retweet (dead link)</a>
 
                 <a class="btn btn-outline-danger" href="#">Report (dead link)</a>

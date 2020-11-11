@@ -177,5 +177,21 @@ def delete_likes():
     flash('Deleted likes.', 'error')
     return redirect(url_for('show_likes'))
 
+@app.route('/click_like', methods=['GET'])
+def click_like(pst_id, usr_id):
+
+    like = Like.query.filter(post_id=pst_id, user_id=usr_id)
+    if like.count() == 0:
+        # create and save like object
+        temp_like = Like(user_id=usr_id, post_id=pst_id)
+        db.session.add(temp_like)
+
+    else:
+        # delete like object
+        like.delete()
+    db.session.commit()
+
+    return redirect(url_for('user_home'))
+
 if __name__ == '__main__':
     app.run(debug=False)
