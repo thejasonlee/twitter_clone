@@ -12,12 +12,18 @@ from flask_bcrypt import Bcrypt
 from flask_bootstrap import Bootstrap
 from db_seed import *
 from db_queries import *
+from flask_wtf.csrf import CSRFProtect
+
+
 
     # ******************************
     # Flask app object configuration
     # ******************************
 
 app = Flask(__name__)
+
+# Enable CSRF protection
+csrf = CSRFProtect(app)
 
 # Set up for password hashing
 bcrypt = Bcrypt(app)
@@ -131,8 +137,7 @@ def signout():
 def user_home():
 
     form = UserPost()
-
-    if form.is_submitted():
+    if form.validate_on_submit():
         post = Post(content=form.content.data)
         db.session.add(post)
         db.session.commit()
@@ -147,6 +152,7 @@ def user_home():
         like_counts.append(get_likes_by_post_id(post.id))
 
     return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
+
 
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():
