@@ -4,13 +4,8 @@ from project.forms import SignUpForm, SignInForm, UserPost
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
-
 from flask_login import current_user, login_user, logout_user, login_required
 from project import bcrypt
-
-# from flask_bootstrap import Bootstrap
-# from db_seed import *
-# from db_queries import *
 
 
 
@@ -20,7 +15,7 @@ def signup():
     if form.validate_on_submit():
         username=form.username.data
         email =form.email.data
-        hashed_pw = bcrypt.generate_password_hash(form.password.data)
+        hashed_pw = bcrypt.generate_password_hash(form.password.data.encode('utf-8'))
         user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
@@ -33,22 +28,16 @@ def signup():
 def signin():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-
     form = SignInForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        
         pw_check = bcrypt.check_password_hash(user.password, form.password.data.encode('utf-8'))
-
-        # pw_check = (user.password == form.password.data)
-
         if user is None or not pw_check:
             flash('Invalid username or password')
             return redirect(url_for('signin'))
         login_user(user)
         return redirect(url_for('home'))
     return render_template('signIn.html', form=form)
-
 
 
     # #creating a dictionary to store various kinds of data to be passed to the template.
