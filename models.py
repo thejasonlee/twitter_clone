@@ -43,3 +43,6 @@ class Follow(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     follower_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
     follow_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+
+     def __repr__(self):
+        return f"Follow('{self.follower_id}', '{self.follow_id}')"
