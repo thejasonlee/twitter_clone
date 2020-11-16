@@ -16,7 +16,7 @@ def signup():
         username=form.username.data
         email =form.email.data
         password = form.password.data.encode('utf-8')
-        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8'))
+        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
         user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
