@@ -3,9 +3,9 @@ This file can be used to seed the sqlite3 database used in Gritter with fake dat
 """
 
 import sqlite3
-from models import User, Post, Like
+from project.models import User, Post, Like
 from random import seed, randint
-from gritter import db
+from project import db
 
 
 def fill_user():
