@@ -126,7 +126,7 @@ A user exists in the user table with a given username and password\
 6. Should be taken back to sign in page. This indicates signin was not successful.\
 
 #### Expected result
-"Welcome to the Gritter Homepage!". Successful sign-in will navigate a user to the Gritter homepage.\
+Successful sign-in will navigate a user to the Gritter homepage which will show posts.\
 An incorrect username/password will direct the user back to the Signin page. \
 
 #### Actual result
