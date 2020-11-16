@@ -1,6 +1,5 @@
 from flask import Flask
 from gritter import app
-from forms import SignUpForm
 import os
 import unittest
 import sqlite3
@@ -14,7 +13,7 @@ class FlaskTestCase(unittest.TestCase):
         app.config['WTF_CSRF_ENABLED'] = False
 
     def tearDown(self):
-        conn = sqlite3.connect('app.db')
+        conn = sqlite3.connect('project/app.db')
         c = conn.cursor()
         c.execute("DELETE FROM user WHERE username = '1aron';")
         c.execute("DELETE FROM user WHERE username = '023456789012345678901234567890';")
@@ -51,14 +50,14 @@ class FlaskTestCase(unittest.TestCase):
     def test_correct_redirect_if_successful_signup_minCharLength(self):
         tester = app.test_client(self)
         response = tester.post('/signup', data = dict(username="1aron", email="badkid@gmail.com", password="abcde", confirmPassword="abcde", SignUpForm=""), follow_redirects=True)
-        self.assertIn(b'Welcome to the Home Page!', response.data)
+        self.assertIn(b'Message', response.data)
 
     # Check form validation when username and password fields are at max length of 30 -> should redirect to home page
     def test_correct_redirect_if_successful_signup_maxCharLength(self):
         tester = app.test_client(self)
         response = tester.post('/signup', data = dict(username="023456789012345678901234567890", email="baddude@gmail.com", password="323456789012345678901234567890", confirmPassword="323456789012345678901234567890", SignUpForm=""), 
         follow_redirects=True)
-        self.assertIn(b'Welcome to the Home Page!', response.data)
+        self.assertIn(b'Message', response.data)
 
     def test_too_few_chars_user(self):
         tester = app.test_client(self)
@@ -84,12 +83,12 @@ class FlaskTestCase(unittest.TestCase):
 
     def test_signin_pass(self):
         tester = app.test_client(self)
-        response = tester.post('/signin', data=dict(username="jason", password="admin"), follow_redirects=True)
-        self.assertIn(b'Hello, jason', response.data)
+        response = tester.post('/signin', data=dict(username="admin", password="admin"), follow_redirects=True)
+        self.assertIn(b'Message', response.data)
 
     def test_signin_fail(self):
         tester = app.test_client(self)
-        response = tester.post('/signin', data=dict(username="jason", password="notadmin"), follow_redirects=True)
+        response = tester.post('/signin', data=dict(username="admin", password="notadmin"), follow_redirects=True)
         self.assertIn(b'Please sign in', response.data)
 
     def test_post_response(self):
