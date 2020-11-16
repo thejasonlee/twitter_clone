@@ -15,7 +15,8 @@ def signup():
     if form.validate_on_submit():
         username=form.username.data
         email =form.email.data
-        hashed_pw = bcrypt.generate_password_hash(form.password.data.encode('utf-8'))
+        password = form.password.data.encode('utf-8')
+        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8'))
         user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
@@ -31,7 +32,8 @@ def signin():
     form = SignInForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        pw_check = bcrypt.check_password_hash(user.password, form.password.data.encode('utf-8'))
+        password = form.password.data.encode('utf-8')
+        pw_check = bcrypt.check_password_hash(user.password, password)
         if user is None or not pw_check:
             flash('Invalid username or password')
             return redirect(url_for('signin'))
