@@ -38,7 +38,7 @@ def signin():
             flash('Invalid username or password')
             return redirect(url_for('signin'))
         login_user(user)
-        return redirect(url_for('home'))
+        return redirect(url_for('user_home'))
     return render_template('signIn.html', form=form)
 
 
