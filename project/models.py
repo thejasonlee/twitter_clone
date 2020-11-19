@@ -8,11 +8,11 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-followers = db.Table(
-    'followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)
-)
+#followers = db.Table(
+ #   'followers',
+  #  db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True),
+   # db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)
+#)
 
 
 class User(UserMixin, db.Model):
