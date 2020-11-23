@@ -90,15 +90,15 @@ def fill_posts():
     for i in range(100):
         new_posts.append(makePosts.text())
 
+    # iterate through random strings and commit to db
     for j in new_posts:
-        db.session.execute('INSERT INTO post (content) VALUES (?);', (j))
-        #db.session.add_all(post)  # add the likes to the session
+        db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':j})
         db.session.commit()  # commit the session to the database
 
 
     return
 
-
+fill_posts()
 
 def fill_all_tables():
     """ Master function, that calls all other db_seed functions, to fill in dummy data in the database."""
