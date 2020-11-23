@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1irAxBvFi5YI9Z8fOjzerYEZNFa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/forms" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="" />
+      <created>1602655580474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602655580474</updated>
+      <workItem from="1602655582340" duration="1426000" />
+      <workItem from="1603062672337" duration="13540000" />
+      <workItem from="1603170369811" duration="3488000" />
+      <workItem from="1603260989585" duration="4835000" />
+      <workItem from="1603335834027" duration="990000" />
+      <workItem from="1604291261728" duration="796000" />
+      <workItem from="1604727515834" duration="177000" />
+      <workItem from="1604727725137" duration="28666000" />
+      <workItem from="1605501326255" duration="2322000" />
+      <workItem from="1606088961615" duration="520000" />
+      <workItem from="1606103932495" duration="1238000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="540" y="288" key="#Inspections" timestamp="1603068209540">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="540" y="288" key="#Inspections/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603068209540" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604727545796">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604727545796" />
+    <state x="415" y="241" key="SettingsEditor" timestamp="1603065357960">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="415" y="241" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603065357960" />
+    <state x="466" y="90" width="1223" height="974" key="dock-window-1" timestamp="1604898141270">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="-1428" y="197" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1604896696723" />
+    <state x="466" y="90" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604898141269" />
+    <state x="744" y="303" width="910" height="490" key="find.popup" timestamp="1604889391427">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="744" y="303" width="910" height="490" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604889391427" />
+  </component>
+</project>

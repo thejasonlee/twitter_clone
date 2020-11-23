@@ -3,8 +3,8 @@ This file defines any queries needed to retrieve data from the sqlite3 database 
 """
 
 import sqlite3
-from models import User, Post, Like
-from gritter import db
+from project.models import User, Post, Like
+from project import db
 
 
 def get_likes_by_post_id(post_id):
