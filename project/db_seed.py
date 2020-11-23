@@ -83,6 +83,7 @@ def empty_likes():
     return
 
 def empty_posts():
+    empty_likes()
     db.session.execute('DELETE FROM post;')
     db.session.commit()
 
