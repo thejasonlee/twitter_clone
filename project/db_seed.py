@@ -22,8 +22,6 @@ def fill_user():
     makeUsers.unique.clear()
     return
 
-fill_user()
-
 def fill_tweet():
     """ Function that seeds all tables in the sqlite3 database with filename 'dbname'.
 
