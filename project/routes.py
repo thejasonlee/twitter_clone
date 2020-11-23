@@ -149,3 +149,11 @@ def click_like(pst_id, usr_id):
     db.session.commit()
 
     return redirect(url_for('user_home'))
+
+@app.route('/posts/fill', methods=['GET'])
+def create_posts():
+    # create likes (this is imported from db_seed)
+    fill_posts()
+
+    flash(message='Created posts.')
+    return redirect(url_for('user_home'))

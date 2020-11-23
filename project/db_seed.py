@@ -6,7 +6,7 @@ import sqlite3
 from project.models import User, Post, Like
 from random import seed, randint
 from project import db
-
+from faker import Faker
 
 def fill_user():
     conn = sqlite3.connect("gritter")
@@ -81,6 +81,24 @@ def empty_likes():
             post.like_count = 0
     db.session.commit()
     return
+
+def fill_posts():
+    """Generates post data in database"""
+    #use faker to generate 100 random strings
+    makePosts = Faker()
+    new_posts = []
+    for i in range(100):
+        new_posts.append(makePosts.text())
+
+    for j in new_posts:
+        post = Post(j, 0)
+        db.session.add_all(post)  # add the likes to the session
+        db.session.commit()  # commit the session to the database
+
+
+    return
+
+
 
 def fill_all_tables():
     """ Master function, that calls all other db_seed functions, to fill in dummy data in the database."""
