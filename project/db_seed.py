@@ -82,7 +82,13 @@ def empty_likes():
     db.session.commit()
     return
 
+def empty_posts():
+    posts = Post.query.all()
+    for post in posts:
+        db.session.execute('DELETE FROM post;')
+
 def fill_posts():
+    empty_posts()
     """Generates post data in database"""
     #use faker to generate 100 random strings
     makePosts = Faker()
@@ -98,7 +104,6 @@ def fill_posts():
 
     return
 
-fill_posts()
 
 def fill_all_tables():
     """ Master function, that calls all other db_seed functions, to fill in dummy data in the database."""
