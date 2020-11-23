@@ -9,8 +9,8 @@ from project import db
 from faker import Faker
 
 def empty_user():
-    db.session.execute('DELETE FROM user;')
-    db.session.commit()
+    #db.session.execute('DELETE FROM user;')
+    #db.session.commit()
     return
 
 def fill_user():
