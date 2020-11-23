@@ -91,7 +91,7 @@ def fill_posts():
         new_posts.append(makePosts.text())
 
     for j in new_posts:
-        post = Post(j, 0)
+        post = Post.content(j)
         db.session.add_all(post)  # add the likes to the session
         db.session.commit()  # commit the session to the database
 
