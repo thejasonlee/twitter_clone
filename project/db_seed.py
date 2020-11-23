@@ -83,9 +83,8 @@ def empty_likes():
     return
 
 def empty_posts():
-    posts = Post.query.all()
-    for post in posts:
-        db.session.execute('DELETE FROM post;')
+    db.session.execute('DELETE FROM post;')
+    db.session.commit()
 
     return
 
