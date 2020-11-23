@@ -157,7 +157,6 @@ def show_likes():
 
     return render_template('likes.html', likes=likes, posts=posts)
 
-
 @app.route('/likes/fill', methods=['GET'])
 def create_likes():
     # drop all likes (this is imported from db_seed)
