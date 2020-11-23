@@ -8,16 +8,21 @@ from random import seed, randint
 from project import db
 from faker import Faker
 
-def fill_user():
-    conn = sqlite3.connect("gritter")
-    c = conn.cursor()
-
-    # Start filling tables here
-    users = ['admin']
-    query = "INSERT INTO USER(tweet_id, body) VALUES(19, " + placeholder_body + ");"
-    c.execute(query)
+def empty_user():
+    db.session.execute('DELETE FROM user;')
+    db.session.commit()
     return
 
+def fill_user():
+    empty_user()
+    makeUsers = Faker()
+    for i in range(100):
+        db.session.execute('INSERT INTO user (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
+        db.session.commit()  # commit the session to the database
+    makeUsers.unique.clear()
+    return
+
+fill_user()
 
 def fill_tweet():
     """ Function that seeds all tables in the sqlite3 database with filename 'dbname'.

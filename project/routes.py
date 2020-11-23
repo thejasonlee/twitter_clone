@@ -163,3 +163,17 @@ def delete_posts():
     empty_posts()
     flash(message='Deleted posts.')
     return redirect(url_for('user_home'))
+
+@app.route('/users/fill', methods=['GET'])
+def create_users():
+    # create likes (this is imported from db_seed)
+    fill_user()
+
+    flash(message='Created users.')
+    return redirect(url_for('user_home'))
+
+@app.route('/users/delete', methods=['GET'])
+def delete_users():
+    empty_user()
+    flash(message='Deleted users.')
+    return redirect(url_for('user_home'))
