@@ -91,18 +91,11 @@ def empty_posts():
 def fill_posts():
     empty_posts()
     """Generates post data in database"""
-    #use faker to generate 100 random strings
+    #use faker to generate 100 random strings and insert into db
     makePosts = Faker()
-    new_posts = []
     for i in range(100):
-        new_posts.append(makePosts.text())
-
-    # iterate through random strings and commit to db
-    for j in new_posts:
-        db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':j})
+        db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':makePosts.text()})
         db.session.commit()  # commit the session to the database
-
-
     return
 
 
