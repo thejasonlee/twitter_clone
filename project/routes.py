@@ -161,3 +161,5 @@ def create_posts():
 @app.route('/posts/delete', methods=['GET'])
 def delete_posts():
     empty_posts()
+    flash(message='Deleted posts.')
+    return redirect(url_for('user_home'))
