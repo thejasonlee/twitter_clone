@@ -9,15 +9,15 @@ from project import db
 from faker import Faker
 
 def empty_user():
-    #db.session.execute('DELETE FROM user;')
-    #db.session.commit()
+    db.session.execute('DELETE FROM "user";')
+    db.session.commit()
     return
 
 def fill_user():
     empty_user()
     makeUsers = Faker()
     for i in range(100):
-        db.session.execute('INSERT INTO user (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
+        db.session.execute('INSERT INTO "user" (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
         db.session.commit()  # commit the session to the database
     makeUsers.unique.clear()
     return
