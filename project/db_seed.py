@@ -87,6 +87,8 @@ def empty_posts():
     for post in posts:
         db.session.execute('DELETE FROM post;')
 
+    return
+
 def fill_posts():
     empty_posts()
     """Generates post data in database"""
