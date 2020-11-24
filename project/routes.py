@@ -20,6 +20,7 @@ def signup():
         user = User(username=username, email=email, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
+        flash('You have signed up succesfully!', 'success')
         login_user(user)
         return redirect(url_for('user_home'))
     return render_template('signUp.html', form=form)
