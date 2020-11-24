@@ -80,6 +80,7 @@ def signin():
 def signout():
     # Sign out using flask-login built in function
     logout_user()
+    flash('You are now signed out!', 'success')
     return redirect(url_for('signin'))
 
 
