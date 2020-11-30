@@ -192,7 +192,7 @@ def follow(username):
         user = user_get()
         current_user.follow(user)
         db.session.commit()
-        flash('You now follow {}!'.format(username))
+        flash(f'You are now following {username}!', success)
         return redirect(url_for('user_home', username=username))
     else:
         return redirect(url_for('user_home'))
