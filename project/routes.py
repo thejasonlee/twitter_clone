@@ -180,19 +180,13 @@ def delete_users():
     return redirect(url_for('user_home'))
 
 
-# Helper to get user
-def user_get():
-    return User.query.filter_by(username=username).first()
 
-@app.route('/follow/<username>', methods=['POST'])
+@app.route('/user/<username>')
 @login_required
-def follow(username):
+def user(username):
+    user = User.query.filter_by(username=username).first()
+    user = user_get()
     form = FollowForm()
-    if form.validate_on_submit():
-        user = user_get()
-        current_user.follow(user)
-        db.session.commit()
-        flash(f'You are now following {username}!', success)
-        return redirect(url_for('user_home', username=username))
-    else:
-        return redirect(url_for('user_home'))
+    return render_template('user.html', user=user, form=form)
+
+
