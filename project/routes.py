@@ -179,8 +179,20 @@ def delete_users():
     flash(message='Deleted users.')
     return redirect(url_for('user_home'))
 
+
 # Helper to get user
 def user_get():
     return User.query.filter_by(username=username).first()
 
-
+@app.route('/follow/<username>', methods=['POST'])
+@login_required
+def follow(username):
+    form = FollowForm()
+    if form.validate_on_submit():
+        user = user_get()
+        current_user.follow(user)
+        db.session.commit()
+        flash('You now follow {}!'.format(username))
+        return redirect(url_for('user_home', username=username))
+    else:
+        return redirect(url_for('user_home'))
