@@ -21,3 +21,10 @@ class SignInForm(FlaskForm):
 class UserPost(FlaskForm):
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+
+class FollowForm(FlaskForm):
+    submit = SubmitField('Follow')
+
+
+
