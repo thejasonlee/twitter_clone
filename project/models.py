@@ -21,6 +21,11 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     posts = db.relationship('Post', backref ='author', lazy='dynamic')
+    followed = db.relationship(
+        'User', secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
     
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
