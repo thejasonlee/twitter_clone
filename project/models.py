@@ -26,6 +26,9 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+
+    def already_follow(self, user):
+        return self.followed.filter(followers.c.followed_id == user.id).count() == 1   
     
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
