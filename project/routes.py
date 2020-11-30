@@ -185,7 +185,6 @@ def delete_users():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first()
-    user = user_get()
     form = FollowForm()
     return render_template('user.html', user=user, form=form)
 
@@ -196,7 +195,6 @@ def follow(username):
     form = FollowForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
-        user = user_get()
         current_user.follow(user)
         db.session.commit()
         flash(f'You are now following {username}!', 'success')
