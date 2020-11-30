@@ -1,12 +1,11 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, UnfollowForm
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
 from project import bcrypt
-
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -179,3 +178,29 @@ def delete_users():
     empty_user()
     flash(message='Deleted users.')
     return redirect(url_for('user_home'))
+
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first()
+    user = user_get()
+    form = FollowForm()
+    return render_template('user.html', user=user, form=form)
+
+
+@app.route('/follow/<username>', methods=['POST'])
+@login_required
+def follow(username):
+    form = FollowForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        user = user_get()
+        current_user.follow(user)
+        db.session.commit()
+        flash(f'You are now following {username}!', 'success')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('user_home'))
+
