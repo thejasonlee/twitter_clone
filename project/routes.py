@@ -190,3 +190,17 @@ def user(username):
     return render_template('user.html', user=user, form=form)
 
 
+@app.route('/follow/<username>', methods=['POST'])
+@login_required
+def follow(username):
+    form = FollowForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        user = user_get()
+        current_user.follow(user)
+        db.session.commit()
+        flash(f'You are now following {username}!', 'success')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('user_home'))
+
