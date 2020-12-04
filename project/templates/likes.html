@@ -6,10 +6,17 @@
 	<div class="container">
         <a href="{{  url_for('create_likes') }}" class="btn btn-secondary" type="button">Generate likes</a>
         <a href="{{ url_for('delete_likes') }}" class="btn btn-danger" type="button">Delete likes</a>
-
+    <!-- USERS -->
+        <div>
+            <h2>Users</h2>
+            <a href="{{ url_for('create_users') }}" class="btn btn-secondary" type="button">Generate users</a>
+            <a href="{{ url_for('delete_users') }}" class="btn btn-danger" type="button">Delete users</a>
+        </div>
     <!-- POSTS -->
         <div>
             <h2>Posts</h2>
+            <a href="{{ url_for('create_posts') }}" class="btn btn-secondary" type="button">Generate posts</a>
+            <a href="{{ url_for('delete_posts') }}" class="btn btn-danger" type="button">Delete posts</a>
             {% for post in posts %}
                 <h3>post ID: {{ post.id }}</h3>
                 <li>post content: {{ post.content }}</li>

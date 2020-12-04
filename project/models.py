@@ -8,11 +8,11 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-#followers = db.Table(
-   # 'followers',
-  #  db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True),
-   # db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)
-#)
+followers = db.Table(
+    'followers',
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True),
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)
+)
 
 
 class User(UserMixin, db.Model):
@@ -21,6 +21,23 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     posts = db.relationship('Post', backref ='author', lazy='dynamic')
+    followed = db.relationship(
+        'User', secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+
+    def already_follow(self, user):
+        return self.followed.filter(followers.c.followed_id == user.id).count() == 1   
+
+    def follow(self, user):
+        if self.already_follow(user) is False:
+            self.followed.append(user)
+
+    def unfollow(self, user):
+        if self.already_follow(user) is True:
+            self.followed.remove(user)
+
     
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
