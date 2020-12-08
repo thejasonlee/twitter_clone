@@ -7,19 +7,20 @@ from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
 from project import bcrypt
 
+
 @app.route('/', methods= ['GET'])
 def default():
     context = {}
     num_likes = len(Like.query.all())
     num_posts = len(Post.query.all())
     num_users = len(User.query.all())
-    context['likes'] = num_likes
-    context['posts'] = num_posts
-    context['users'] = num_users
+    context['num_likes'] = num_likes
+    context['num_posts'] = num_posts
+    context['num_users'] = num_users
 
-    #for rule in app.url_map.iter_rules():
-    #    print((rule, rule.endpoint))
-    #    context.append((rule, rule.endpoint))
+    all_posts = get_all_posts_with_like_counts()
+    context['posts'] = all_posts
+
     return render_template('home.html', context=context)
 
 @app.route('/signup', methods = ['GET', 'POST'])
