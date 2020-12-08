@@ -43,9 +43,7 @@ def get_all_posts_with_like_counts():
     posts = Post.query.all()
 
     for post in posts:
-        likes = Like.query.all()
-        if (len(likes) == 0):
-            likes = 0
+        likes = Like.query.filter(Like.post_id == post.id).all()
         result.append((post, likes))
 
     return result
