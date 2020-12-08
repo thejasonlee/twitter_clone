@@ -10,16 +10,16 @@ from project import bcrypt
 
 @app.route('/', methods= ['GET'])
 def default():
-    # context = {}
-    # num_likes = len(Like.query.all())
-    # num_posts = len(Post.query.all())
-    # num_users = len(User.query.all())
-    # context['num_likes'] = num_likes
-    # context['num_posts'] = num_posts
-    # context['num_users'] = num_users
-    # all_posts = get_all_posts_with_like_counts()
-    # context['posts'] = all_posts
-    return render_template('home.html')
+    context = {}
+    num_likes = len(Like.query.all())
+    num_posts = len(Post.query.all())
+    num_users = len(User.query.all())
+    context['num_likes'] = num_likes
+    context['num_posts'] = num_posts
+    context['num_users'] = num_users
+    all_posts = get_all_posts_with_like_counts()
+    context['posts'] = all_posts
+    return render_template('home.html', context=context)
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
