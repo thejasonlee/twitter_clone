@@ -1,1 +1,5 @@
-Grinberg, Miguel. "Flask Web Development: Developing Web Applications with Python 2nd Edition," O'Reilly Media, 2018.
+1. Grinberg, Miguel. "Flask Web Development: Developing Web Applications with Python 2nd Edition," O'Reilly Media, 2018.
+
+2. https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+
+3. https://flask.palletsprojects.com/en/1.1.x/tutorial/

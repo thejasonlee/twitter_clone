@@ -57,38 +57,6 @@ def signin():
     return render_template('signIn.html', form=form)
 
 
-    # #creating a dictionary to store various kinds of data to be passed to the template.
-    # # If the data is passed to the template, then I can 'print' it to the page.
-    # context = {}
-
-    # form = LoginForm()
-    # if form.validate_on_submit():
-    #     user = User.query.filter_by(username=form.username.data).first()
-
-    #     # I want a list of all users. If there are any, save to context.
-    #     users = User.query.all()
-    #     if users:
-    #         context['users'] = users
-
-    #     if user:
-    #         # I'm curious what 'user' is, so I'll save it to context.
-    #         context['user_value'] = user
-
-    #         if(user.password == form.password.data):
-    #             # save some of the data in context
-    #             context['user_pwd'] = user.password
-    #             context['form_pwd_data'] = form.password.data
-
-    #             #login_user(user, remember=form.remember.data)
-
-    #             # return with context dictionary, which holds data for template 'printing'
-    #             return render_template('home.html', context=context) + 'Hello, ' + form.username.data
-
-    #     # this path only occurs if the login fails
-    #     return render_template('signIn.html', form=form)
-    # return render_template('signIn.html', form=form)
-
-
 @app.route('/signout')
 @login_required
 def signout():
@@ -119,6 +87,7 @@ def user_home():
 
     return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
 
+
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():
 
@@ -127,6 +96,7 @@ def show_likes():
     posts = Post.query.all()
 
     return render_template('likes.html', likes=likes, posts=posts)
+
 
 @app.route('/likes/fill', methods=['GET'])
 def create_likes():
@@ -139,6 +109,7 @@ def create_likes():
     flash(message='Created likes.')
     return redirect(url_for('show_likes'))
 
+
 @app.route('/likes/delete', methods=['GET'])
 def delete_likes():
     # drop all likes (this is imported from db_seed)
@@ -146,6 +117,7 @@ def delete_likes():
 
     flash('Deleted likes.', 'error')
     return redirect(url_for('show_likes'))
+
 
 @app.route('/click_like', methods=['GET'])
 def click_like(pst_id, usr_id):
@@ -162,6 +134,7 @@ def click_like(pst_id, usr_id):
 
     return redirect(url_for('user_home'))
 
+
 @app.route('/posts/fill', methods=['GET'])
 def create_posts():
     # create likes (this is imported from db_seed)
@@ -170,11 +143,13 @@ def create_posts():
     flash(message='Created posts.')
     return redirect(url_for('user_home'))
 
+
 @app.route('/posts/delete', methods=['GET'])
 def delete_posts():
     empty_posts()
     flash(message='Deleted posts.')
     return redirect(url_for('user_home'))
+
 
 @app.route('/users/fill', methods=['GET'])
 def create_users():
@@ -184,11 +159,13 @@ def create_users():
     flash(message='Created users.')
     return redirect(url_for('user_home'))
 
+
 @app.route('/users/delete', methods=['GET'])
 def delete_users():
     empty_user()
     flash(message='Deleted users.')
     return redirect(url_for('user_home'))
+
 
 @app.route('/user/<username>')
 @login_required
@@ -196,6 +173,7 @@ def user(username):
     user = User.query.filter_by(username=username).first()
     form = FollowForm()
     return render_template('user.html', user=user, form=form)
+
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required
