@@ -7,6 +7,20 @@ from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
 from project import bcrypt
 
+@app.route('/', methods= ['GET'])
+def default():
+    context = {}
+    num_likes = len(Like.query.all())
+    num_posts = len(Post.query.all())
+    num_users = len(User.query.all())
+    context['likes'] = num_likes
+    context['posts'] = num_posts
+    context['users'] = num_users
+
+    #for rule in app.url_map.iter_rules():
+    #    print((rule, rule.endpoint))
+    #    context.append((rule, rule.endpoint))
+    return render_template('home.html', context=context)
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
@@ -104,7 +118,6 @@ def user_home():
 
     return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
 
-
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():
 
@@ -113,7 +126,6 @@ def show_likes():
     posts = Post.query.all()
 
     return render_template('likes.html', likes=likes, posts=posts)
-
 
 @app.route('/likes/fill', methods=['GET'])
 def create_likes():
@@ -126,7 +138,6 @@ def create_likes():
     flash(message='Created likes.')
     return redirect(url_for('show_likes'))
 
-
 @app.route('/likes/delete', methods=['GET'])
 def delete_likes():
     # drop all likes (this is imported from db_seed)
@@ -134,7 +145,6 @@ def delete_likes():
 
     flash('Deleted likes.', 'error')
     return redirect(url_for('show_likes'))
-
 
 @app.route('/click_like', methods=['GET'])
 def click_like(pst_id, usr_id):
@@ -179,15 +189,12 @@ def delete_users():
     flash(message='Deleted users.')
     return redirect(url_for('user_home'))
 
-
-
 @app.route('/user/<username>')
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first()
     form = FollowForm()
     return render_template('user.html', user=user, form=form)
-
 
 @app.route('/follow/<username>', methods=['POST'])
 @login_required

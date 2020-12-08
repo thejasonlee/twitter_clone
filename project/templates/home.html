@@ -2,52 +2,24 @@
 
 {% block content %}
     <div class="container">
-        <h1>Welcome to the Home Page!</h1>
-        <!-- {% if context %}
-            <p>
-                context['user_value'] is {{ context['user_value'] }}
-            </p>
-            <p>
-                context['form_pwd_data'] is {{ context['form_pwd_data'] }}
-            </p>
-            <p>
-                context['user_pwd'] is {{ context['user_pwd'] }}
-            </p>
-            <p>
-                {%  for user in context['users'] %}
-                    <h3>{{ user.id }}</h3>
-                    <li>user.username: {{ user.username }}</li>
-                    <li>user.password: {{ user.password }}</li>
-                    <li>user.email: {{ user.email }}</li>
-                {% endfor %}
-            </p>
-        {% endif %} -->
+
+
+    <div class="jumbotron bg-lt">
+        <h1 class="display-4">Welcome to Gritter!</h1>
+        <hr class="my-4">
+            {% if context %}
+                <h2>Total number of users: {{ context.users }}</h2>
+                <h2>Total number of posts: {{ context.posts }}</h2>
+                <h2>Total number of likes: {{ context.likes }}</h2>
+            {% endif %}
+    <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}" role="button">Sign up!</a>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('signin') }}" role="button">Log in</a>
+</div>
+
+
     </div>
 
-    <div class="container">
-        {% for post in posts %}
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h4 class="card-title">Post id:{{ post.id }}</h4>
-                    <p class="card-text">
-                        {{ post.content }}
-                    </p>
-                    {% for like in likes %}
-                        {# like[0] is the post.id #}
-                        {% if like[0] == post.id %}
-                            <p>
-                                {# like[1] is like count #}
-                                <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
-                            </p>
-                        {% endif %}
-                    {% endfor %}
-    
-    
-                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
-                </div>
-            </div>
-    
-        {% endfor %}
-    </div>
+
 {% endblock content %}
 

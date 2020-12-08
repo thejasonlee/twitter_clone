@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="" />
+    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final Presentation.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/Final Presentation.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$Final Presentation.pptx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1irAxBvFi5YI9Z8fOjzerYEZNFa" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -31,6 +37,30 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/forms" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="twitter_clone" type="PythonConfigurationType" factoryName="Python">
+      <module name="twitter_clone" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -53,6 +83,10 @@
       <workItem from="1605501326255" duration="2322000" />
       <workItem from="1606088961615" duration="520000" />
       <workItem from="1606103932495" duration="1492000" />
+      <workItem from="1607301671258" duration="57000" />
+      <workItem from="1607302431142" duration="928000" />
+      <workItem from="1607314020253" duration="1340000" />
+      <workItem from="1607389921500" duration="2648000" />
     </task>
     <servers />
   </component>
