@@ -10,18 +10,17 @@ from project import bcrypt
 
 @app.route('/', methods= ['GET'])
 def default():
-    context = {}
-    num_likes = len(Like.query.all())
-    num_posts = len(Post.query.all())
-    num_users = len(User.query.all())
-    context['num_likes'] = num_likes
-    context['num_posts'] = num_posts
-    context['num_users'] = num_users
+    # context = {}
+    # num_likes = len(Like.query.all())
+    # num_posts = len(Post.query.all())
+    # num_users = len(User.query.all())
+    # context['num_likes'] = num_likes
+    # context['num_posts'] = num_posts
+    # context['num_users'] = num_users
+    # all_posts = get_all_posts_with_like_counts()
+    # context['posts'] = all_posts
+    return render_template('home.html')
 
-    all_posts = get_all_posts_with_like_counts()
-    context['posts'] = all_posts
-
-    return render_template('home.html', context=context)
 
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
@@ -60,7 +59,6 @@ def signin():
 @app.route('/signout')
 @login_required
 def signout():
-    # Sign out using flask-login built in function
     logout_user()
     flash('You are now signed out!', 'success')
     return redirect(url_for('signin'))
@@ -69,77 +67,56 @@ def signout():
 @app.route('/user/home', methods=['GET', 'POST'])
 @login_required
 def user_home():
-
     form = UserPost()
     if form.validate_on_submit():
-        post = Post(content=form.content.data)
+        post = Post(content=form.content.data, author=current_user._get_current_object())
         db.session.add(post)
         db.session.commit()
-        return redirect(url_for('user_home'))
-
-    # get all posts
-    posts = Post.query.all()
-
-    # calculate the number of likes for each post
+        return redirect(url_for('user_home'))   
+    posts = Post.query.order_by(Post.timestamp.desc()).all() 
     like_counts = []
     for post in posts:
         like_counts.append(get_likes_by_post_id(post.id))
-
     return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
 
 
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():
-
-    # get likes and posts for context
     likes = Like.query.all()
     posts = Post.query.all()
-
     return render_template('likes.html', likes=likes, posts=posts)
 
 
 @app.route('/likes/fill', methods=['GET'])
 def create_likes():
-    # drop all likes (this is imported from db_seed)
     empty_likes()
-
-    # create likes (this is imported from db_seed)
     fill_likes()
-
     flash(message='Created likes.')
     return redirect(url_for('show_likes'))
 
 
 @app.route('/likes/delete', methods=['GET'])
 def delete_likes():
-    # drop all likes (this is imported from db_seed)
     empty_likes()
-
     flash('Deleted likes.', 'error')
     return redirect(url_for('show_likes'))
 
 
 @app.route('/click_like', methods=['GET'])
 def click_like(pst_id, usr_id):
-
     like = Like.query.filter(post_id=pst_id, user_id=usr_id)
     if like.count() == 0:
-        # create and save like object
         temp_like = Like(user_id=usr_id, post_id=pst_id)
         db.session.add(temp_like)
     else:
-        # delete like object
         like.delete()
     db.session.commit()
-
     return redirect(url_for('user_home'))
 
 
 @app.route('/posts/fill', methods=['GET'])
 def create_posts():
-    # create likes (this is imported from db_seed)
     fill_posts()
-
     flash(message='Created posts.')
     return redirect(url_for('user_home'))
 
@@ -153,9 +130,7 @@ def delete_posts():
 
 @app.route('/users/fill', methods=['GET'])
 def create_users():
-    # create likes (this is imported from db_seed)
     fill_user()
-
     flash(message='Created users.')
     return redirect(url_for('user_home'))
 

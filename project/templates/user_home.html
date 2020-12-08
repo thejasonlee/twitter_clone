@@ -32,7 +32,7 @@
     {% for post in posts %}
         <div class="card mt-4">
             <div class="card-body">
-                <h4 class="card-title">Post id:{{ post.id }}</h4>
+                <h4 class="card-title">{{ post.author.username }}</h4>
                 <p class="card-text">
                     {{ post.content }}
                 </p>
@@ -45,19 +45,12 @@
                         </p>
                     {% endif %}
                 {% endfor %}
-
-
+                {{ post.timestamp }} <br>
                 <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
             </div>
         </div>
-
     {% endfor %}
 </div>
-
-
-
-
-
 
 
 {% endblock content %}
