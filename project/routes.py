@@ -1,6 +1,6 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, UnfollowForm
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
@@ -210,3 +210,16 @@ def follow(username):
     else:
         return redirect(url_for('user_home'))
 
+
+@app.route('/unfollow/<username>', methods=['POST'])
+@login_required
+def unfollow(username):
+    form = FollowForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        current_user.unfollow(user)
+        db.session.commit()
+        flash(f'You are no longer following {username}!', 'success')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('user_home'))
