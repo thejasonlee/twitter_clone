@@ -24,8 +24,6 @@ class UserPost(FlaskForm):
 
 
 class FollowForm(FlaskForm):
-    submit = SubmitField('Follow')
+    submit = SubmitField('Submit')
 
 
-class UnfollowForm(FlaskForm):
-    submit = SubmitField('Unfollow')
