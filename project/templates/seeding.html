@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <hr class="my-4">
+        <h2> Reseeding All Data </h2>
+        <a href="{{  url_for('reseed_all') }}" class="btn btn-success" type="button">Generate all new data</a>
+        <a href="{{ url_for('erase_all_data') }}" class="btn btn-danger" type="button">Delete all existing data</a>
+        <hr class="my-4">
+    </div>
+
+    <!-- LIKES -->
+	<div class="container">
+        <h3> Like Objects </h3>
+        <a href="{{  url_for('create_likes') }}" class="btn btn-outline-success" type="button">Generate likes</a>
+        <a href="{{ url_for('delete_likes') }}" class="btn btn-outline-danger" type="button">Delete likes</a>
+        <a href="{{ url_for('list_likes') }}" class="btn btn-outline-primary" type="button">See all Like data</a>
+        <hr class="my-4">
+    </div>
+
+
+    <!-- USERS -->
+    <div class="container">
+        <h3> User Objects </h3>
+        <a href="{{ url_for('create_users') }}" class="btn btn-outline-success" type="button">Generate users</a>
+        <a href="{{ url_for('delete_users') }}" class="btn btn-outline-danger" type="button">Delete users</a>
+        <a href="{{ url_for('list_users') }}" class="btn btn-outline-primary" type="button">See all User data</a>
+    </div>
+
+    <!-- POSTS -->
+    <div class="container">
+        <hr class="my-4">
+        <h3> Post Objects </h3>
+        <a href="{{ url_for('create_posts') }}" class="btn btn-outline-success" type="button">Generate posts</a>
+        <a href="{{ url_for('delete_posts') }}" class="btn btn-outline-danger" type="button">Delete posts</a>
+        <a href="{{ url_for('list_posts') }}" class="btn btn-outline-primary" type="button">See all Post data</a>
+    </div>
+
+
+
+
+{% endblock content %}
+
+

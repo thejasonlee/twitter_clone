@@ -11,14 +11,22 @@ from project import bcrypt
 @app.route('/', methods= ['GET'])
 def default():
     context = {}
+
+    # Summary stats for the site
     num_likes = len(Like.query.all())
-    num_posts = len(Post.query.all())
-    num_users = len(User.query.all())
     context['num_likes'] = num_likes
+
+    num_posts = len(Post.query.all())
     context['num_posts'] = num_posts
+
+    num_users = len(User.query.all())
     context['num_users'] = num_users
+
+    # a list of dicts, where each dict represents a post and related data
+    # See db_queries.py >> get_all_posts_with_like_counts() for details.
     all_posts = get_all_posts_with_like_counts()
     context['posts'] = all_posts
+
     return render_template('home.html', context=context)
 
 
@@ -78,6 +86,11 @@ def user_home():
     for post in posts:
         like_counts.append(get_likes_by_post_id(post.id))
     return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
+
+
+@app.route('/seed', methods=['POST', 'GET'])
+def manage_seeding():
+    return render_template('seeding.html')
 
 
 @app.route('/likes', methods=['POST', 'GET'])
@@ -176,3 +189,33 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('user_home'))
+
+
+@app.route('/list_users', methods=['GET'])
+def list_users():
+    users = User.query.all()
+    return render_template('users.html', users=users)
+
+
+@app.route('/list_posts', methods=['GET'])
+def list_posts():
+    posts = Post.query.all()
+    return render_template('posts.html', posts=posts)
+
+
+@app.route('/list_likes', methods=['GET'])
+def list_likes():
+    likes = Like.query.all()
+    return render_template('likes.html', likes=likes)
+
+
+@app.route('/reseed_all', methods=['GET'])
+def reseed_all():
+    fill_all_tables()
+    return redirect(url_for('manage_seeding'))
+
+
+@app.route('/erase_all_data', methods=['GET'])
+def erase_all_data():
+    empty_all_tables()
+    return redirect(url_for('manage_seeding'))

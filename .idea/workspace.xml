@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/project/templates/posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/templates/seeding.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/templates/users.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/project/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/db_queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/db_queries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/db_seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/db_seed.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/templates/likes.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/likes.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +93,7 @@
       <workItem from="1607302431142" duration="928000" />
       <workItem from="1607314020253" duration="1340000" />
       <workItem from="1607389921500" duration="7407000" />
-      <workItem from="1607470418833" duration="876000" />
+      <workItem from="1607470418833" duration="5949000" />
     </task>
     <servers />
   </component>
@@ -118,5 +125,9 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="744" y="303" width="910" height="490" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604889391427" />
+    <state x="655" y="255" width="670" height="676" key="search.everywhere.popup" timestamp="1607476862470">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="655" y="255" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1607476862470" />
   </component>
 </project>

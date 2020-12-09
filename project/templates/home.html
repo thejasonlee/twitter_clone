@@ -16,6 +16,24 @@
         </div>
     <div class="container">
         <h2>Public feed</h2>
+        {% for post in context.posts %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{ post.content }}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">{{ post.author }}</small>
+                    </p>
+                    <p>
+                        {# like[1] is like count #}
+                        <h6 class="card-subtitle text-muted">Likes: {{ post.num_likes }} </h6>
+                    </p>
+                    {{ post.timestamp }} <br>
+                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
 
