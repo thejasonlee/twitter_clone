@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
@@ -20,10 +19,20 @@
 
 
 <div class="container" >
+    {# Jason's experimentation with new Post form #}
+    <div class="form-group">
+        <label for="message">{{ form.content.label }}</label>
+        <br>
+        <textarea class="form-control" id="message" rows="3">{{ form.content(size=20) }}</textarea>
+        <br>
+        <button class="btn btn-primary btn-block" type="submit">{{ form.submit }}</button>
+    </div>
+
+    {# legacy Post form #}
     <form method="POST" action="">
         {{ form.csrf_token }}
-        {{ form.content.label }} <br>
-        {{ form.content(size=20) }} <br>
+
+         <br>
         {{ form.submit }} <br>
     </form>
 </div>

@@ -39,30 +39,28 @@ def fill_all_tables():
 # --------------------------
 # SEED and EMPTY USER table
 # --------------------------
-def empty_user():
-
-    users = User.query.all()
-
-    for user in users:
-        # for each user that's not admin
-        if user.username != 'admin':
-            # delete their Likes
-            Like.query.filter(Like.user_id == user.id).delete()
-
-            # delete their Posts
-            Post.query.filter(Post.user_id == user.id).delete()
-
-            # delete the user
-            User.query.filter(User.id == user.id).delete()
-
-    # if no admin/admin account exists, create it.
-    admin_user_present = User.query.filter(User.username == 'admin').first()
-    if admin_user_present is None:
-        hashed_pw = bcrypt.generate_password_hash("admin").decode('utf-8')
-        user = User(username="admin", email="admin@gritter.com", password=hashed_pw)
-        db.session.add(user)
-        db.session.commit()
+def create_admin_user():
+    hashed_pw = bcrypt.generate_password_hash("admin").decode('utf-8')
+    user = User(username="admin", email="admin@gritter.com", password=hashed_pw)
+    db.session.add(user)
+    db.session.commit()
     return
+
+
+def empty_user():
+    users = User.query.all()
+    for user in users:
+        # delete their Likes
+        Like.query.filter(Like.user_id == user.id).delete()
+
+        # delete their Posts
+        Post.query.filter(Post.user_id == user.id).delete()
+
+        # delete the user
+        User.query.filter(User.id == user.id).delete()
+    create_admin_user()
+    return
+
 
 def fill_user():
     empty_user()
