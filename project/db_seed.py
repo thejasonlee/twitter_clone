@@ -7,6 +7,7 @@ from project.models import User, Post, Like
 from random import seed, randint
 from project import db
 from faker import Faker
+from project import bcrypt
 
 
 # --------------------------
@@ -47,8 +48,10 @@ def empty_user():
     # if no admin/admin account exists, create it.
     admin_user_present = User.query.filter(User.username == 'admin').first()
     if admin_user_present is None:
-        db.session.execute('INSERT INTO "user" (username, password, email) VALUES ("admin", "admin", "admin@gritter.com");')
-        db.session.commit()  # commit the session to the database
+        hashed_pw = bcrypt.generate_password_hash("admin").decode('utf-8')
+        user = User(username="admin", email="admin@gritter.com", password=hashed_pw)
+        db.session.add(user)
+        db.session.commit()
     return
 
 def fill_user():

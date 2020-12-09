@@ -37,9 +37,11 @@ def get_likes_by_post_id(post_id):
 
     return (post_id, likes)
 
+
 def get_username_by_id(user_id):
-    username = User.query.filter_by(id = user_id).first()
+    username = User.query.filter(User.id == user_id).first()
     return username
+
 
 def get_all_posts_with_like_counts():
     """returns a list of dictionaries, where each is a post that contains the post author and number of likes.
@@ -58,8 +60,12 @@ def get_all_posts_with_like_counts():
         post_dict = {}
         post_dict['post'] = post
 
-        username = get_username_by_id(post.user_id)
-        post_dict['author'] = username
+        user = get_username_by_id(post.user_id)
+        if user is None:
+            post_dict['author'] = 'placeholder'
+        else:
+            post_dict['author'] = user.username
+
 
         num_likes = len(Like.query.filter(Like.post_id == post.id).all())
         post_dict['num_likes'] = num_likes

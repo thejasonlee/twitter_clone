@@ -16,20 +16,20 @@
         </div>
     <div class="container">
         <h2>Public feed</h2>
-        {% for post in context.posts %}
+        {% for post_dict in context.posts %}
             <div class="card mt-4">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ post.content }}
+                        Content: {{ post_dict.post.content }}
+                        <br>
+                        <small class="text-muted">by: {{ post_dict }}</small>
+                        <br>
+                        <br>
+                        timestamp: {{ post_dict.post.timestamp }}
+                        <br>
+                        <h6 class="card-subtitle text-muted">Likes: {{ post_dict.num_likes }} </h6>
                     </p>
-                    <p class="card-text">
-                        <small class="text-muted">{{ post.author }}</small>
-                    </p>
-                    <p>
-                        {# like[1] is like count #}
-                        <h6 class="card-subtitle text-muted">Likes: {{ post.num_likes }} </h6>
-                    </p>
-                    {{ post.timestamp }} <br>
+                    <br>
                     <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
                 </div>
             </div>

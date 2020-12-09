@@ -22,9 +22,9 @@
             <nav class="navbar navbar-expand-md bg-light navbar-light fixed-left">
               <div class="container">
                 {% if current_user.is_anonymous  %}
-                <a class="navbar-brand mr-4" href="{{ url_for('home') }}">Gritter</a>
+                    <a class="navbar-brand mr-4" href="{{ url_for('home') }}">Gritter</a>
                 {% else %}
-                <a class="navbar-brand mr-4" href="{{ url_for('user_home') }}">Gritter</a>
+                    <a class="navbar-brand mr-4" href="{{ url_for('user_home') }}">Gritter</a>
                 {% endif %}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                   aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
 
         <!-- ERROR MESSAGES -->
         <div class="container pt-2">
-            <!-- Flashed Error Messages -->
+            <!-- Error Messages -->
             {% with errors = get_flashed_messages(category_filter=["error"]) %}
                 {% if errors %}
                     <div class="container">
@@ -66,9 +66,8 @@
                 {% endif %}
             {% endwith %}
 
-
-        <div class="container pt-2">
-            <!-- Flashed Messages -->
+            <!-- Normal Messages -->
+            <div class="container pt-2">
             {% with messages = get_flashed_messages(category_filter=["message"]) %}
                 {% if messages %}
                     <div class="container">
@@ -84,9 +83,9 @@
                 {% endif %}
             {% endwith %}
         </div>
+        </div>
 
         {% block content %}
-
         {% endblock %}
 
           <!-- FOOTER -->
