@@ -2,64 +2,72 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <span>{{ message }}</span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <span>{{ message }}</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
 
+    {# Form to publish a Tweet/Post #}
+    {# This is currently in progress #}
+    <div class="container" >
+        {# Jason's experimentation with new Post form #}
+        {# Jason is trying to make the form look nicer #}
+        {# Bootstrap is responsive, so if we use it then it'll render on phones too #}
+        {# see https://medium.com/better-programming/how-to-use-flask-wtforms-faab71d5a034 #}
+        <div class="form-group">
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea>
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
+             </form>
+        </div>
 
-<div class="container" >
-    {# Jason's experimentation with new Post form #}
-    <div class="form-group">
-        <label for="message">{{ form.content.label }}</label>
-        <br>
-        <textarea class="form-control" id="message" rows="3">{{ form.content(size=20) }}</textarea>
-        <br>
-        <button class="btn btn-primary btn-block" type="submit">{{ form.submit }}</button>
+        {# legacy Post form #}
+        <!-- <form method="POST" action="">
+            {{ form.csrf_token }}
+            {{ form.content.label }}
+            {{ form.content(size=20) }}
+             <br>
+            {{ form.submit }} <br>
+        </form>
+        -->
     </div>
 
-    {# legacy Post form #}
-    <form method="POST" action="">
-        {{ form.csrf_token }}
-
-         <br>
-        {{ form.submit }} <br>
-    </form>
-</div>
-
-<div class="container">
-    {% for post in posts %}
-        <div class="card mt-4">
-            <div class="card-body">
-                <h4 class="card-title">{{ post.author.username }}</h4>
-                <p class="card-text">
-                    {{ post.content }}
-                </p>
-                {% for like in likes %}
-                    {# like[0] is the post.id #}
-                    {% if like[0] == post.id %}
-                        <p>
-                            {# like[1] is like count #}
-                            <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
-                        </p>
-                    {% endif %}
-                {% endfor %}
-                {{ post.timestamp }} <br>
-                <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
+    {# All public Tweets/Posts #}
+    <div class="container">
+        {% for post in posts %}
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.author.username }}</h4>
+                    <p class="card-text">
+                        {{ post.content }}
+                    </p>
+                    {% for like in likes %}
+                        {# like[0] is the post.id #}
+                        {% if like[0] == post.id %}
+                            <p>
+                                {# like[1] is like count #}
+                                <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                    {{ post.timestamp }} <br>
+                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 
 
 {% endblock content %}
