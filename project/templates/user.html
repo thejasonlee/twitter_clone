@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
@@ -15,8 +14,7 @@
   {% endif %}
 {% endwith %}
 
-
-
+<div class="container" >
 <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
 
 {% if not current_user.already_follow(user) %}
@@ -37,6 +35,34 @@
 
 
 {% endif %}
+</div>
+
+{% if current_user.username == user.username %}
+<div class="container" >
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        {{ postform.content }} <br>
+        {{ postform.submit }} <br>
+    </form>
+</div>
+{% endif %}
+
+<div class="container">
+    {% for post in posts %}
+        <div class="card mt-4">
+            <div class="card-body">
+                <!-- <h4 class="card-title">{{ post.author.username }}</h4> -->
+                <a class="card-text" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
+                <p class="card-text">
+                    {{ post.content }}
+                </p>
+                {{ post.timestamp }} <br>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 
 {% endblock content %}
+
+

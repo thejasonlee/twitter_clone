@@ -39,6 +39,7 @@
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signin') }}">Sign In</a>
                     {% else %}
                     <!-- <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user_home') }}">Home</a> -->
+                    <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user', username=current_user.username) }}">My Page</a>
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signout') }}">Sign Out</a>
                     {% endif %}
                   </div>
