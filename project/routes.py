@@ -19,6 +19,7 @@ def default():
     context['num_users'] = num_users
 
     all_posts = get_all_posts_with_like_counts()
+    all_posts = all_posts[::-1]
     context['posts'] = all_posts
 
     return render_template('home.html', context=context)
@@ -111,13 +112,13 @@ def user_home():
 
     # get all posts
     posts = Post.query.all()
-
+    posts_rev = posts[::-1]
     # calculate the number of likes for each post
     like_counts = []
     for post in posts:
         like_counts.append(get_likes_by_post_id(post.id))
 
-    return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
+    return render_template('user_home.html', form=form, posts=posts_rev, likes=like_counts)
 
 @app.route('/likes', methods=['POST', 'GET'])
 def show_likes():
