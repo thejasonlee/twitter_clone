@@ -5,10 +5,8 @@ This file can be used to seed the sqlite3 database used in Gritter with fake dat
 import sqlite3
 from project.models import User, Post, Like
 from random import seed, randint
-from project import db
+from project import db, bcrypt
 from faker import Faker
-from project import bcrypt
-
 
 # --------------------------
 # Master functions that call other functions.
@@ -144,9 +142,26 @@ def fill_posts():
     # empty legacy data
     empty_posts()
 
-    #use faker to generate 100 random strings and insert into db
-    makePosts = Faker()
-    for i in range(100):
-        db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':makePosts.text()})
-        db.session.commit()  # commit the session to the database
+    # Configuring for random data generation
+    seed(1) # for posts
+    fake = Faker() # for timestamp. See https://faker.readthedocs.io/en/master/index.html
+    Faker.seed(0) # See https://faker.readthedocs.io/en/master/providers/faker.providers.date_time.html
+
+    # Cycle through all users.
+    # Generate 0-9 posts per user.
+    # Use Faker library to randomise username generation and post timestamps.
+    users = User.query.all()
+    for user in users:
+        # 0-9 posts
+        for i in range(0, randint(0,10)):
+            # data for a temporary post
+            temp_content = fake.text()
+            temp_timestamp = fake.date_time()
+            temp_userid = user.id
+
+            # create and add temporary Post object to database
+            temp_post = Post(content = temp_content, timestamp=temp_timestamp, user_id=temp_userid)
+            db.session.add(temp_post)
+            # db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':makePosts.text()})
+            db.session.commit()  # commit the session to the database
     return
