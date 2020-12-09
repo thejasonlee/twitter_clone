@@ -106,14 +106,14 @@ def create_likes():
     empty_likes()
     fill_likes()
     flash(message='Created likes.')
-    return redirect(url_for('show_likes'))
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/likes/delete', methods=['GET'])
 def delete_likes():
     empty_likes()
     flash('Deleted likes.', 'error')
-    return redirect(url_for('show_likes'))
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/click_like', methods=['GET'])
@@ -132,28 +132,28 @@ def click_like(pst_id, usr_id):
 def create_posts():
     fill_posts()
     flash(message='Created posts.')
-    return redirect(url_for('user_home'))
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/posts/delete', methods=['GET'])
 def delete_posts():
     empty_posts()
-    flash(message='Deleted posts.')
-    return redirect(url_for('user_home'))
+    flash('Deleted posts.', 'error')
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/users/fill', methods=['GET'])
 def create_users():
     fill_user()
     flash(message='Created users.')
-    return redirect(url_for('user_home'))
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/users/delete', methods=['GET'])
 def delete_users():
     empty_user()
-    flash(message='Deleted users.')
-    return redirect(url_for('user_home'))
+    flash('Deleted users.', 'error')
+    return redirect(url_for('manage_seeding'))
 
 
 @app.route('/user/<username>')

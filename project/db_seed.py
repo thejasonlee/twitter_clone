@@ -42,8 +42,20 @@ def fill_all_tables():
 # SEED and EMPTY USER table
 # --------------------------
 def empty_user():
-    db.session.execute("""DELETE FROM "user" WHERE username != ('admin');""")
-    db.session.commit()
+
+    users = User.query.all()
+
+    for user in users:
+        # for each user that's not admin
+        if user.username != 'admin':
+            # delete their Likes
+            Like.query.filter(Like.user_id == user.id).delete()
+
+            # delete their Posts
+            Post.query.filter(Post.user_id == user.id).delete()
+
+            # delete the user
+            User.query.filter(User.id == user.id).delete()
 
     # if no admin/admin account exists, create it.
     admin_user_present = User.query.filter(User.username == 'admin').first()
