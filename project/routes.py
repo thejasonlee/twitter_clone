@@ -81,11 +81,12 @@ def user_home():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('user_home'))   
-    posts = Post.query.order_by(Post.timestamp.desc()).all() 
+    posts = Post.query.order_by(Post.id.desc()).all()
     like_counts = []
     for post in posts:
         like_counts.append(get_likes_by_post_id(post.id))
-    return render_template('user_home.html', form=form, posts=posts, likes=like_counts)
+    return render_template('user_home.html', posts=posts, form=form, likes=like_counts)
+
 
 
 @app.route('/seed', methods=['POST', 'GET'])
