@@ -26,7 +26,6 @@ def default():
     # See db_queries.py >> get_all_posts_with_like_counts() for details.
     all_posts = get_all_posts_with_like_counts()
     context['posts'] = all_posts[::-1]
-    print(context['posts'])
 
     return render_template('home.html', context=context)
 

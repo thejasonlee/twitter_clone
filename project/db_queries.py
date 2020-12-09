@@ -52,7 +52,7 @@ def get_all_posts_with_like_counts():
                 values: post object and related data, post author, number of likes for the post
         """
     result = []
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id.desc()).all()
 
     for post in posts:
         post_dict = {}
