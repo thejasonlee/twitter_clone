@@ -22,7 +22,7 @@
     {# legacy Post form #}
     <form method="POST" action="">
         {{ form.csrf_token }}
-        {{ form.content }} <br>
+        {{ form.content(rows='4',cols='50') }} <br>
         {{ form.submit }} <br>
     </form>
 </div>

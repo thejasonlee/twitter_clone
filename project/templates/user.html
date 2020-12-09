@@ -15,7 +15,14 @@
 {% endwith %}
 
 <div class="container" >
-<p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
+    <h3>{{ user.username }}</h3>
+</div>
+
+<div class="container" >
+<p>
+    {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
+    {{ user.followed.count() }} <a href="{{ url_for('following', username=current_user.username) }}">following</a>
+</p>
 
 {% if current_user.username != user.username %}
 {% if not current_user.already_follow(user) %}
@@ -43,7 +50,7 @@
 <div class="container" >
     <form method="POST" action="">
         {{ form.csrf_token }}
-        {{ postform.content }} <br>
+        {{ postform.content(rows='4',cols='50') }} <br>
         {{ postform.submit }} <br>
     </form>
 </div>

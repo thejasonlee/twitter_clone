@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                   <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('manage_seeding') }}">Manage seeding</a>
-                    <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user', username=username) }}">Followers</a>
+                    <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('followers', username=current_user.username) }}">Followers</a>
                     {% if current_user.is_anonymous  %}
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signup') }}">Sign Up</a>
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signin') }}">Sign In</a>

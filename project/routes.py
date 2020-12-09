@@ -206,6 +206,18 @@ def unfollow(username):
         return redirect(url_for('user_home'))
 
 
+@app.route('/user/<username>/followers', methods=['GET'])
+@login_required
+def followers(username):
+    return render_template('followers.html')
+
+
+@app.route('/user/<username>/following', methods=['GET'])
+@login_required
+def following(username):
+    return render_template('following.html')
+
+
 @app.route('/list_users', methods=['GET'])
 def list_users():
     users = User.query.all()
