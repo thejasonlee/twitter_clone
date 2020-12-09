@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/twitter_clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/twitter_clone.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/project/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/db_seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/db_seed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/db_queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/db_queries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,22 +191,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604727545796" />
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom" timestamp="1607480036639">
+    <state width="1825" height="244" key="GridCell.Tab.0.bottom" timestamp="1607551336255">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom/72.27.1848.957@72.27.1848.957" timestamp="1607480036639" />
-    <state width="1825" height="258" key="GridCell.Tab.0.center" timestamp="1607480036638">
+    <state width="1825" height="244" key="GridCell.Tab.0.bottom/72.27.1848.957@72.27.1848.957" timestamp="1607551336255" />
+    <state width="1825" height="244" key="GridCell.Tab.0.center" timestamp="1607551336254">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.center/72.27.1848.957@72.27.1848.957" timestamp="1607480036638" />
-    <state width="1825" height="258" key="GridCell.Tab.0.left" timestamp="1607480036638">
+    <state width="1825" height="244" key="GridCell.Tab.0.center/72.27.1848.957@72.27.1848.957" timestamp="1607551336254" />
+    <state width="1825" height="244" key="GridCell.Tab.0.left" timestamp="1607551336253">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.left/72.27.1848.957@72.27.1848.957" timestamp="1607480036638" />
-    <state width="1825" height="258" key="GridCell.Tab.0.right" timestamp="1607480036639">
+    <state width="1825" height="244" key="GridCell.Tab.0.left/72.27.1848.957@72.27.1848.957" timestamp="1607551336253" />
+    <state width="1825" height="244" key="GridCell.Tab.0.right" timestamp="1607551336254">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.right/72.27.1848.957@72.27.1848.957" timestamp="1607480036639" />
+    <state width="1825" height="244" key="GridCell.Tab.0.right/72.27.1848.957@72.27.1848.957" timestamp="1607551336254" />
     <state x="415" y="241" key="SettingsEditor" timestamp="1603065357960">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
@@ -211,10 +215,10 @@
       <screen x="72" y="27" width="1848" height="957" />
     </state>
     <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607483055522" />
-    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607482563619">
+    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607543833621">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.957@72.27.1848.957" timestamp="1607482563619" />
+    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.957@72.27.1848.957" timestamp="1607543833621" />
     <state x="466" y="90" width="1223" height="974" key="dock-window-1" timestamp="1604898141270">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>

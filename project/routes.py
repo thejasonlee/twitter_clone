@@ -1,6 +1,6 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
@@ -9,7 +9,7 @@ from project import bcrypt
 import time
 
 
-@app.route('/', methods= ['GET'])
+@app.route('/', methods= ['GET', 'POST'])
 def default():
     context = {}
 
@@ -246,3 +246,27 @@ def reseed_all():
 def erase_all_data():
     empty_all_tables()
     return redirect(url_for('manage_seeding'))
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    #data = request.form['search-fld']
+    context = {}
+
+    # Summary stats for the site
+    num_likes = len(Like.query.all())
+    context['num_likes'] = num_likes
+
+    num_posts = len(Post.query.all())
+    context['num_posts'] = num_posts
+
+    num_users = len(User.query.all())
+    context['num_users'] = num_users
+
+    expr = "test"
+    # a list of dicts, where each dict represents a post and related data
+    # See db_queries.py >> get_all_posts_with_like_counts() for details.
+    all_posts = get_posts_with_string(expr)
+
+    context['posts'] = all_posts
+    return render_template('home.html', context=context)
+
