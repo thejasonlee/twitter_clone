@@ -1,4 +1,3 @@
-<!--Render the signup form -->
 {% extends "layout.html" %}
 
 
@@ -18,15 +17,24 @@
 
 
 
-<p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+<p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following</p>
 
 {% if not current_user.already_follow(user) %}
-<p>
+        <p>
             <form action="{{ url_for('follow', username=user.username) }}" method="post">
                 {{ form.hidden_tag() }}
                 {{ form.submit(value='Follow') }}
             </form>
         </p>
+
+{% else %}
+        <p>
+            <form action="{{ url_for('unfollow', username=user.username) }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.submit(value='Unfollow') }}
+            </form>
+        </p>
+
 
 {% endif %}
 

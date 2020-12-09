@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="14948aff-c286-4b19-9094-a26a9e3f3190" name="Default Changelist" comment="fixing generate/delete users">
+    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/project/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/likes.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/likes.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,315 +15,108 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1kOsDzqUohp6ocSnv29NTM0t6cU" />
+  <component name="ProjectId" id="1irAxBvFi5YI9Z8fOjzerYEZNFa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.routes">
-    <configuration name="db_seed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/db_seed.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gritter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gritter.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="routes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/routes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unittests in test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.routes" />
-        <item itemvalue="Python.gritter" />
-        <item itemvalue="Python.db_seed" />
-        <item itemvalue="Python tests.Unittests in test.py" />
-      </list>
-    </recent_temporary>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/forms" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="RunManager">
+    <configuration name="twitter_clone" type="PythonConfigurationType" factoryName="Python">
+      <module name="twitter_clone" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="14948aff-c286-4b19-9094-a26a9e3f3190" name="Default Changelist" comment="" />
-      <created>1605582857112</created>
+      <changelist id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="" />
+      <created>1602655580474</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1605582857112</updated>
+      <updated>1602655580474</updated>
+      <workItem from="1602655582340" duration="1426000" />
+      <workItem from="1603062672337" duration="13540000" />
+      <workItem from="1603170369811" duration="3488000" />
+      <workItem from="1603260989585" duration="4835000" />
+      <workItem from="1603335834027" duration="990000" />
+      <workItem from="1604291261728" duration="796000" />
+      <workItem from="1604727515834" duration="177000" />
+      <workItem from="1604727725137" duration="28666000" />
+      <workItem from="1605501326255" duration="2322000" />
+      <workItem from="1606088961615" duration="520000" />
+      <workItem from="1606103932495" duration="1492000" />
+      <workItem from="1607301671258" duration="57000" />
+      <workItem from="1607302431142" duration="928000" />
+      <workItem from="1607314020253" duration="1340000" />
+      <workItem from="1607389921500" duration="7407000" />
+      <workItem from="1607470418833" duration="876000" />
     </task>
-    <task id="LOCAL-00001" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606111002075</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1606111002075</updated>
-    </task>
-    <task id="LOCAL-00002" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606111211393</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1606111211393</updated>
-    </task>
-    <task id="LOCAL-00003" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606111625742</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1606111625742</updated>
-    </task>
-    <task id="LOCAL-00004" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606111806743</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1606111806743</updated>
-    </task>
-    <task id="LOCAL-00005" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606112218408</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1606112218408</updated>
-    </task>
-    <task id="LOCAL-00006" summary="create_posts function in seed.db, changes to likes.html and routes">
-      <created>1606112970000</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1606112970000</updated>
-    </task>
-    <task id="LOCAL-00007" summary="adding empty post functionality">
-      <created>1606113449216</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1606113449217</updated>
-    </task>
-    <task id="LOCAL-00008" summary="adding empty post functionality">
-      <created>1606113629986</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1606113629988</updated>
-    </task>
-    <task id="LOCAL-00009" summary="adding empty post functionality">
-      <created>1606113753945</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1606113753945</updated>
-    </task>
-    <task id="LOCAL-00010" summary="adding empty post functionality">
-      <created>1606113795312</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1606113795312</updated>
-    </task>
-    <task id="LOCAL-00011" summary="adding empty post functionality">
-      <created>1606114019356</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1606114019356</updated>
-    </task>
-    <task id="LOCAL-00012" summary="consolodating loops in fill_posts">
-      <created>1606158019242</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606158019242</updated>
-    </task>
-    <task id="LOCAL-00013" summary="adding user fill and user empty">
-      <created>1606161816975</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1606161816975</updated>
-    </task>
-    <task id="LOCAL-00014" summary="adding user fill and user empty">
-      <created>1606161998276</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606161998276</updated>
-    </task>
-    <task id="LOCAL-00015" summary="adding user fill and user empty">
-      <created>1606162219793</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606162219793</updated>
-    </task>
-    <task id="LOCAL-00016" summary="adding user fill and user empty">
-      <created>1606162261767</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606162261767</updated>
-    </task>
-    <task id="LOCAL-00017" summary="adding user fill and user empty">
-      <created>1606162626124</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1606162626124</updated>
-    </task>
-    <task id="LOCAL-00018" summary="adding user fill and user empty">
-      <created>1606163060374</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1606163060374</updated>
-    </task>
-    <task id="LOCAL-00019" summary="adding user fill and user empty">
-      <created>1606163343175</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1606163343175</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fixing app.db">
-      <created>1606192509978</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1606192509978</updated>
-    </task>
-    <task id="LOCAL-00021" summary="fixing generate/delete users">
-      <created>1606193643437</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1606193643437</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create_posts function in seed.db, changes to likes.html and routes" />
-    <MESSAGE value="adding empty post functionality" />
-    <MESSAGE value="consolodating loops in fill_posts" />
-    <MESSAGE value="adding user fill and user empty" />
-    <MESSAGE value="fixing app.db" />
-    <MESSAGE value="fixing generate/delete users" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing generate/delete users" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="702" y="307" width="578" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606106119349">
-      <screen x="72" y="27" width="1848" height="957" />
+    <state x="540" y="288" key="#Inspections" timestamp="1603068209540">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state x="702" y="307" width="578" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.957@72.27.1848.957" timestamp="1606106119349" />
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom" timestamp="1607404907563">
-      <screen x="72" y="27" width="1848" height="957" />
+    <state x="540" y="288" key="#Inspections/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603068209540" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604727545796">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1825" height="550" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1606160856760" />
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom/72.27.1848.957@72.27.1848.957" timestamp="1607404907563" />
-    <state width="1825" height="258" key="GridCell.Tab.0.center" timestamp="1607404907562">
-      <screen x="72" y="27" width="1848" height="957" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604727545796" />
+    <state x="415" y="241" key="SettingsEditor" timestamp="1603065357960">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1825" height="550" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1606160856760" />
-    <state width="1825" height="258" key="GridCell.Tab.0.center/72.27.1848.957@72.27.1848.957" timestamp="1607404907562" />
-    <state width="1825" height="258" key="GridCell.Tab.0.left" timestamp="1607404907562">
-      <screen x="72" y="27" width="1848" height="957" />
+    <state x="415" y="241" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603065357960" />
+    <state x="466" y="90" width="1223" height="974" key="dock-window-1" timestamp="1604898141270">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1825" height="550" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1606160856760" />
-    <state width="1825" height="258" key="GridCell.Tab.0.left/72.27.1848.957@72.27.1848.957" timestamp="1607404907562" />
-    <state width="1825" height="258" key="GridCell.Tab.0.right" timestamp="1607404907563">
-      <screen x="72" y="27" width="1848" height="957" />
+    <state x="-1428" y="197" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1604896696723" />
+    <state x="466" y="90" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604898141269" />
+    <state x="744" y="303" width="910" height="490" key="find.popup" timestamp="1604889391427">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
-    <state width="1825" height="550" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1606160856760" />
-    <state width="1825" height="258" key="GridCell.Tab.0.right/72.27.1848.957@72.27.1848.957" timestamp="1607404907563" />
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1606193650189">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state x="587" y="237" key="Vcs.Push.Dialog.v2/72.27.1832.941@72.27.1832.941" timestamp="1606158023446" />
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1606193650189" />
-    <state x="777" y="420" width="438" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607403423672">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state x="777" y="420" width="438" height="184" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.957@72.27.1848.957" timestamp="1607403423672" />
+    <state x="744" y="303" width="910" height="490" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604889391427" />
   </component>
 </project>

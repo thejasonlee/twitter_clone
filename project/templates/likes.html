@@ -4,46 +4,53 @@
 {% block content %}
 
 	<div class="container">
+    <hr class="my-4">
+    <h2> Like Objects </h2>
         <a href="{{  url_for('create_likes') }}" class="btn btn-secondary" type="button">Generate likes</a>
         <a href="{{ url_for('delete_likes') }}" class="btn btn-danger" type="button">Delete likes</a>
         <!-- LIKES -->
         <div>
-            <h2>Likes</h2>
+            <h3>Likes</h3>
             {% for like in likes %}
                 <h3>Like ID: {{ like.id }}</h3>
                 <li>Like.post_id: {{ like.post_id }}</li>
                 <li>Like.user_id: {{ like.user_id }}</li>
             {% endfor %}
         </div>
+<hr class="my-4">
 
     </div>
 
 
     <!-- USERS -->
         <div class="container">
-            <h2>Users</h2>
+            <hr class="my-4">
+            <h2> User Objects </h2>
             <a href="{{ url_for('create_users') }}" class="btn btn-secondary" type="button">Generate users</a>
             <a href="{{ url_for('delete_users') }}" class="btn btn-danger" type="button">Delete users</a>
 
-        <div>
-            <h2>Users</h2>
-            {% for user in users %}
-                <h3>User.id: {{ user.id }}</h3>
-                <li>User.username: {{ user.username }}</li>
-            {% endfor %}
-        </div>
+            <div>
+                <h3>Users</h3>
+                {% for user in users %}
+                    <h3>User.id: {{ user.id }}</h3>
+                    <li>User.username: {{ user.username }}</li>
+                {% endfor %}
+            </div>
         </div>
 
     <!-- POSTS -->
         <div class="container">
-            <h2>Posts</h2>
+            <hr class="my-4">
+            <h2> Post Objects </h2>
+
             <a href="{{ url_for('create_posts') }}" class="btn btn-secondary" type="button">Generate posts</a>
             <a href="{{ url_for('delete_posts') }}" class="btn btn-danger" type="button">Delete posts</a>
 
             <div>
-            <h2>Total number of posts:</h2>
-            <h2>Avg number of posts per user:</h2>
-            <h2>To see posts, see <a href=" {{ url_for('default') }}">Public Posts</a></h2>
+            <h3>Posts</h3>
+            <h4>Total number of posts:</h4>
+            <h4>Avg number of posts per user:</h4>
+            <h4>To see posts, see <a href=" {{ url_for('default') }}">Public Posts</a></h4>
             {% for post in posts %}
                 <h3>post ID: {{ post.id }}</h3>
                 <li>post content: {{ post.content }}</li>
