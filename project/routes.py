@@ -82,7 +82,7 @@ def user_home():
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('user_home'))   
-    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    posts = Post.query.order_by(Post.id.desc()).all()
     like_counts = []
     for post in posts:
         like_counts.append(get_likes_by_post_id(post.id))
