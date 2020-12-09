@@ -65,12 +65,19 @@ def empty_user():
 def fill_user():
     empty_user()
 
-    # use Faker library to generate fake users.
-    makeUsers = Faker()
-    for i in range(100):
-        db.session.execute('INSERT INTO "user" (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
-        db.session.commit()  # commit the session to the database
-    makeUsers.unique.clear()
+    # use Faker to generate users.
+    num_users_to_generate = 100
+    fake = Faker()
+    for i in range(num_users_to_generate):
+        temp_username = fake.unique.last_name() + str(i)
+        temp_password = 'admin'
+        temp_hashed_pw = bcrypt.generate_password_hash(temp_password).decode('utf-8')
+        temp_email = fake.unique.email()
+        temp_user = User(username=temp_username, password=temp_hashed_pw, email=temp_email)
+        db.session.add(temp_user)
+        #db.session.execute('INSERT INTO "user" (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
+        db.session.commit()
+    fake.unique.clear() # see https://faker.readthedocs.io/en/master/index.html?highlight=unique#unique-values
 
     return
 
