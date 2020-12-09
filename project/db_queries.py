@@ -62,7 +62,7 @@ def get_all_posts_with_like_counts():
 
         user = get_username_by_id(post.user_id)
         if user is None:
-            post_dict['author'] = 'placeholder'
+            post_dict['author'] = 'user not found'
         else:
             post_dict['author'] = user.username
 
