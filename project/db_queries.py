@@ -3,7 +3,7 @@ This file defines any queries needed to retrieve data from the sqlite3 database 
 """
 
 import sqlite3
-from project.models import Post, Like
+from project.models import Post, Like, User
 from project import db, app
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -37,13 +37,32 @@ def get_likes_by_post_id(post_id):
 
     return (post_id, likes)
 
+def get_username_by_id(user_id):
+    username = User.query.filter_by(id = user_id).first()
+    return username
 
 def get_all_posts_with_like_counts():
+    """returns a list of dictionaries, where each is a post that contains the post author and number of likes.
+        Parameters:
+            None.
+
+        Returns:
+            list (dict): each dict represents a post.
+                keys: 'post', 'author', 'num_likes'
+                values: post object and related data, post author, number of likes for the post
+        """
     result = []
     posts = Post.query.all()
 
     for post in posts:
-        likes = Like.query.filter(Like.post_id == post.id).all()
-        result.append((post, likes))
+        post_dict = {}
+        post_dict['post'] = post
 
+        username = get_username_by_id(post.user_id)
+        post_dict['author'] = username
+
+        num_likes = len(Like.query.filter(Like.post_id == post.id).all())
+        post_dict['num_likes'] = num_likes
+
+        result.append(post_dict)
     return result

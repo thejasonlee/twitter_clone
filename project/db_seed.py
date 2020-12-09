@@ -8,40 +8,65 @@ from random import seed, randint
 from project import db
 from faker import Faker
 
+
+# --------------------------
+# Master functions that call other functions.
+# The subordinate functions control data at the table level.
+# Master functions will seed (and/or empty) all tables.
+# --------------------------
+
+def empty_all_tables():
+    """Empties data from all tables."""
+
+    empty_likes()
+    empty_posts()
+    empty_user()
+    return
+
+def fill_all_tables():
+    """Calls all other db_seed functions to fill in dummy data in the database."""
+
+    # remove all legacy data
+    empty_all_tables()
+
+    # seed all tables with new data
+    fill_user()
+    fill_posts()
+    fill_likes()
+
+    return
+
+
+# --------------------------
+# SEED and EMPTY USER table
+# --------------------------
 def empty_user():
     db.session.execute("""DELETE FROM "user" WHERE username != ('admin');""")
     db.session.commit()
+
+    # if no admin/admin account exists, create it.
+    admin_user_present = User.query.filter(User.username == 'admin').first()
+    if admin_user_present is None:
+        db.session.execute('INSERT INTO "user" (username, password, email) VALUES ("admin", "admin", "admin@gritter.com");')
+        db.session.commit()  # commit the session to the database
     return
 
 def fill_user():
     empty_user()
+
+    # use Faker library to generate fake users.
     makeUsers = Faker()
     for i in range(100):
         db.session.execute('INSERT INTO "user" (username, password, email) VALUES (:param1, :param2, :param3);', {'param1': makeUsers.unique.last_name() + str(i), 'param2': '$2b$12$8oFObtgF/omzn/5jD0YSpe.ZphcX2G3lqqym9drbwZjJE7o6ubMmi', 'param3': makeUsers.unique.email()})
         db.session.commit()  # commit the session to the database
     makeUsers.unique.clear()
-    return
-
-def fill_tweet():
-    """ Function that seeds all tables in the sqlite3 database with filename 'dbname'.
-
-        Parameters:
-
-        Returns:
-             N/A
-        """
-    conn = sqlite3.connect("gritter")
-    c = conn.cursor()
-
-    # Start filling tables here
-    placeholder_body = "sample tweets are awesome!"
-    query = "INSERT INTO TWEET(tweet_id, body) VALUES(19, " + placeholder_body + ");"
-    c.execute(query)
-
-    # fills in table function1
 
     return
 
+
+# --------------------------
+# SEED and EMPTY LIKE table
+# --------------------------
 def fill_likes():
     """Generates fake 'like' data in the database."""
 
@@ -85,6 +110,12 @@ def empty_likes():
     db.session.commit()
     return
 
+
+
+# --------------------------
+# SEED and EMPTY POST table
+# --------------------------
+
 def empty_posts():
     empty_likes()
     db.session.execute('DELETE FROM post;')
@@ -93,24 +124,14 @@ def empty_posts():
     return
 
 def fill_posts():
+    """Empties all Post data, then generates fake posts using Faker."""
+
+    # empty legacy data
     empty_posts()
-    """Generates post data in database"""
+
     #use faker to generate 100 random strings and insert into db
     makePosts = Faker()
     for i in range(100):
         db.session.execute('INSERT INTO post (content) VALUES (:param);', {'param':makePosts.text()})
         db.session.commit()  # commit the session to the database
-    return
-
-
-def fill_all_tables():
-    """ Master function, that calls all other db_seed functions, to fill in dummy data in the database."""
-
-    fill_tweet()
-
-    # list all other fix_XXX() functions here
-    # example 1: fill_users()
-    # example 2: fill_posts()
-    # example 3: fill_likes()
-
     return
