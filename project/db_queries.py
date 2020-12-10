@@ -72,3 +72,24 @@ def get_all_posts_with_like_counts():
 
         result.append(post_dict)
     return result
+
+def get_posts_with_string(expr):
+    result = []
+    posts = db.session.query(Post).filter(Post.content.contains(expr)).all()
+
+    for post in posts:
+        post_dict = {}
+        post_dict['post'] = post
+
+        user = get_username_by_id(post.user_id)
+        if user is None:
+            post_dict['author'] = 'user not found'
+        else:
+            post_dict['author'] = user.username
+
+
+        num_likes = len(Like.query.filter(Like.post_id == post.id).all())
+        post_dict['num_likes'] = num_likes
+
+        result.append(post_dict)
+    return result

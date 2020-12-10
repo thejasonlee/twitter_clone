@@ -3,18 +3,18 @@
 {% block content %}
 
     {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul class=flashes>
-        {% for message in messages %}
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <span>{{ message }}</span>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-        {% endfor %}
-        </ul>
-      {% endif %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <span>{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endwith %}
 
     {# Form to publish a Tweet/Post #}
@@ -32,42 +32,40 @@
                 <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
              </form>
         </div>
-
-        {# legacy Post form #}
-        <!-- <form method="POST" action="">
-            {{ form.csrf_token }}
-            {{ form.content.label }}
-            {{ form.content(size=20) }}
-             <br>
-            {{ form.submit }} <br>
-        </form>
-        -->
     </div>
 
-    {# All public Tweets/Posts #}
-    <div class="container">
-        {% for post in posts %}
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h4 class="card-title">{{ post.author.username }}</h4>
-                    <p class="card-text">
-                        {{ post.content }}
-                    </p>
-                    {% for like in likes %}
-                        {# like[0] is the post.id #}
-                        {% if like[0] == post.id %}
-                            <p>
-                                {# like[1] is like count #}
-                                <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
-                            </p>
-                        {% endif %}
-                    {% endfor %}
-                    {{ post.timestamp }} <br>
-                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
-                </div>
+<div class="container" >
+    {# legacy Post form #}
+    <form method="POST" action="">
+        {{ form.csrf_token }}
+        {{ form.content(rows='4',cols='50') }} <br>
+        {{ form.submit }} <br>
+    </form>
+</div>
+
+<div class="container">
+    {% for post in posts %}
+        <div class="card mt-4">
+            <div class="card-body">
+                <!-- <h4 class="card-title">{{ post.author.username }}</h4> -->
+                <a class="card-text" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
+                <p class="card-text">
+                    {{ post.content }}
+                </p>
+                {% for like in likes %}
+                    {# like[0] is the post.id #}
+                    {% if like[0] == post.id %}
+                        <p>
+                            {# like[1] is like count #}
+                            <h6 class="card-subtitle text-muted">Likes: {{ like[1] }} </h6>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+                {{ post.timestamp }} <br>
+                <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
             </div>
-        {% endfor %}
-    </div>
-
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}

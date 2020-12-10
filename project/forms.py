@@ -26,4 +26,8 @@ class UserPost(FlaskForm):
 class FollowForm(FlaskForm):
     submit = SubmitField('Submit')
 
+class SearchForm(FlaskForm):
+    content = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 
