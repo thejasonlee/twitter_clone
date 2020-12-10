@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="container" >
+
+    <p>
+        <h2>PICTURE</h2>
+        <a href="">Upload Picture</a>
+    </p>
+
+    <p>
+        {{ form.username.label }} <br>
+        {{ form.username }} <br>
+    </p>
+    <p>
+        {{ form.email.label }} <br>
+        {{ form.email }} <br>
+    </p>
+    <p>
+        {{ form.password.label }} <br>
+        {{ form.password }} <br>
+    </p>
+    <p>
+        {{ form.content.label }} <br>
+        {{ form.content(rows='4',cols='20') }} <br>
+    </p>
+
+
+</div>
+
+
+{% endblock %}
