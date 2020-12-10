@@ -258,7 +258,7 @@ def erase_all_data():
     empty_all_tables()
     return redirect(url_for('manage_seeding'))
 
-@app.route('/search', methods=['GET', 'POST'])
+@app.route('/search', methods=['POST'])
 def search():
     #data = request.form['search-fld']
     context = {}
@@ -273,11 +273,12 @@ def search():
     num_users = len(User.query.all())
     context['num_users'] = num_users
 
-    expr = "test"
+    expr = request.form.get('search', False)
+    print(expr)
     # a list of dicts, where each dict represents a post and related data
     # See db_queries.py >> get_all_posts_with_like_counts() for details.
     all_posts = get_posts_with_string(expr)
 
     context['posts'] = all_posts
-    return render_template('home.html', context=context)
+    return render_template('home.html', context=context, search=expr)
 

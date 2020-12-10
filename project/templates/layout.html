@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
 <html>
 	<head>
     {% block head %}
@@ -31,13 +32,10 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <form class="form-inline md-form mr-auto mb-4">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-fld">
-                    <a class="btn btn-elegant btn-rounded btn-sm my-0" type="submit" id="search-btn" href="{{ url_for('search') }}">
-                        Search
-                    </a>
-                </form>
-
+                  <form  class="form-inline" method="POST" action="{{ url_for('search') }}">
+                <input class="form-control" name="search" type="search" placeholder="Search">
+                <button class="btn btn-secondary btn-sm" type="submit">Search</button>
+                  </form>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav ml-auto">
                         {# if admin, show seeding tools #}
