@@ -1,19 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+    {# JUMBOTRON #}
     <div class="container">
         <div class="jumbotron bg-lt">
             <h1 class="display-4">Welcome to Gritter!</h1>
             <hr class="my-4">
-                 {% if context %}
-                    <h2>Total number of users: {{ context.num_users }}</h2>
-                    <h2>Total number of posts: {{ context.num_posts }}</h2>
-                    <h2>Total number of likes: {{ context.num_likes }}</h2>
-                {% endif %}
-            <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}" role="button">Sign up!</a>
-            <a class="btn btn-primary btn-lg" href="{{ url_for('signin') }}" role="button">Log in</a>
+             {% if context %}
+                <h2>Total number of users: {{ context.num_users }}</h2>
+                <h2>Total number of posts: {{ context.num_posts }}</h2>
+                <h2>Total number of likes: {{ context.num_likes }}</h2>
+            {% endif %}
+
+            {# hide sign-up and sign-in if user is logged-in #}
+            {% if not (current_user) %}
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}" role="button">Sign up!</a>
+                <a class="btn btn-primary btn-lg" href="{{ url_for('signin') }}" role="button">Log in</a>
+            {% endif %}
         </div>
+    </div>
+
+    {# PUBLIC FEED OF TWEETS #}
     <div class="container">
         <h2>Public feed</h2>
         {% for post_dict in context.posts %}
@@ -38,4 +47,3 @@
 
 
 {% endblock content %}
-

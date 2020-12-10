@@ -100,11 +100,11 @@ def fill_likes():
         likes = []          # holds all 'like' objects for a given post
         like_count = 0      # accumulator for post.like_count
 
-        # 50% of all users will like each post
+        # 10% of all users will like each post
         # for each user
         for user in users:
-            # 50% of the time..
-            if randint(0, 10) > 4:
+            # 10% of the time..
+            if randint(0, 10) > 8:
                 # generate a like object and save to 'likes', and +like_count
                 likes.append(Like(post_id=post.id, user_id=user.id))
                 like_count += 1
