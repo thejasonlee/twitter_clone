@@ -223,6 +223,9 @@ def following(username):
 @login_required
 def edit_profile(username):
     form = EditProfileForm()
+    if form.validate_on_submit():
+        return redirect(url_for('user', username=current_user.username))
+
     return render_template('edit_profile.html', form=form)
 
 
