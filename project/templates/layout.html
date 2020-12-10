@@ -30,8 +30,15 @@
                   aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
+
+                  <form class="form-inline md-form mr-auto mb-4">
+                          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-fld">
+                          <a class="btn btn-elegant btn-rounded btn-sm my-0" type="submit" id="search-btn" href="{{ url_for('search') }}">Search</a>
+                    </form>
+
                 <div class="collapse navbar-collapse" id="navbarToggle">
                   <div class="navbar-nav ml-auto">
+
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('manage_seeding') }}">Manage seeding</a>
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('followers', username=current_user.username) }}">Followers</a>
                     {% if current_user.is_anonymous  %}
@@ -42,10 +49,7 @@
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user', username=current_user.username) }}">My Page</a>
                     <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('signout') }}">Sign Out</a>
                     {% endif %}
-                      <form class="form-inline md-form mr-auto mb-4">
-                          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-fld">
-                          <a class="btn btn-elegant btn-rounded btn-sm my-0" type="submit" id="search-btn" href="{{ url_for('search') }}">Search</a>
-                      </form>
+
                   </div>
                 </div>
               </div>
