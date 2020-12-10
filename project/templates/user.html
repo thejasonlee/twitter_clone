@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
 
@@ -50,13 +50,15 @@
 </div>
 
 {% if current_user.username == user.username %}
-<div class="container" >
-    <form method="POST" action="">
-        {{ form.csrf_token }}
-        {{ postform.content(rows='4',cols='50') }} <br>
-        {{ postform.submit }} <br>
-    </form>
-</div>
+<div class="container">
+            <form method="POST" action="{{ url_for('user', username=user.username, form=postform) }}">
+                {{ postform.csrf_token }}
+                {{ wtf.form_field(postform.content) }}
+                <!-- <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea> -->
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
+             </form>
+        </div>
 {% endif %}
 
 <div class="container">
