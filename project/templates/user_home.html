@@ -2,21 +2,37 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <span>{{ message }}</span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <span>{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 
+    {# Form to publish a Tweet/Post #}
+    {# This is currently in progress #}
+    <div class="container" >
+        {# Jason's experimentation with new Post form #}
+        {# Jason is trying to make the form look nicer #}
+        {# Bootstrap is responsive, so if we use it then it'll render on phones too #}
+        {# see https://medium.com/better-programming/how-to-use-flask-wtforms-faab71d5a034 #}
+        <div class="form-group">
+            <form method="POST" action="">
+                {{ form.csrf_token }}
+                <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea>
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
+             </form>
+        </div>
+    </div>
 
 <div class="container" >
     {# legacy Post form #}
@@ -51,6 +67,5 @@
         </div>
     {% endfor %}
 </div>
-
 
 {% endblock content %}
