@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/layout.html" afterDir="false" />
-    </list>
+    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="moving search to left" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607483048961</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="moving search to left">
+      <created>1607571062802</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607571062802</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +179,8 @@
     <MESSAGE value="reversing post order" />
     <MESSAGE value="reversing post order - fixing by using id instead of timestamp" />
     <MESSAGE value="removing erroneous print message" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing erroneous print message" />
+    <MESSAGE value="moving search to left" />
+    <option name="LAST_COMMIT_MESSAGE" value="moving search to left" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="288" key="#Inspections" timestamp="1603068209540">
@@ -206,10 +211,10 @@
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="415" y="241" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603065357960" />
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607483055522">
+    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607571068114">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607483055522" />
+    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607571068114" />
     <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607543833621">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
