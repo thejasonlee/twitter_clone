@@ -26,8 +26,15 @@ class UserPost(FlaskForm):
 class FollowForm(FlaskForm):
     submit = SubmitField('Submit')
 
+
 class SearchForm(FlaskForm):
     content = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
+class EditProfileForm(FlaskForm):
+    username= StringField('Username',validators=[])
+    email= StringField('Email',validators=[Email()])
+    password= PasswordField('Password', validators=[])
+    content = TextAreaField('About Me', validators=[])
+    submit= SubmitField("Submit")

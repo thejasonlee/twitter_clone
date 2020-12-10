@@ -1,6 +1,6 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
@@ -217,6 +217,13 @@ def followers(username):
 @login_required
 def following(username):
     return render_template('following.html')
+
+
+@app.route('/user/<username>/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile(username):
+    form = EditProfileForm()
+    return render_template('edit_profile.html', form=form)
 
 
 @app.route('/list_users', methods=['GET'])
