@@ -19,10 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="">
+    <list default="true" id="6b9491a6-33dc-4c48-85be-551bb98e1c5e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/twitter_clone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/twitter_clone.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/project/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/user_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/user_home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,132 +33,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1irAxBvFi5YI9Z8fOjzerYEZNFa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1lTiGZKCDr283IR8sh9GnLvol6i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/forms" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.routes">
-    <configuration name="routes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/routes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="twitter_clone" type="PythonConfigurationType" factoryName="Python">
-      <module name="twitter_clone" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.routes" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b2124d9a-2fa7-4442-a4aa-865f17f24e32" name="Default Changelist" comment="" />
-      <created>1602655580474</created>
+      <changelist id="6b9491a6-33dc-4c48-85be-551bb98e1c5e" name="Default Changelist" comment="" />
+      <created>1607627387099</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602655580474</updated>
-      <workItem from="1602655582340" duration="1426000" />
-      <workItem from="1603062672337" duration="13540000" />
-      <workItem from="1603170369811" duration="3488000" />
-      <workItem from="1603260989585" duration="4835000" />
-      <workItem from="1603335834027" duration="990000" />
-      <workItem from="1604291261728" duration="796000" />
-      <workItem from="1604727515834" duration="177000" />
-      <workItem from="1604727725137" duration="28666000" />
-      <workItem from="1605501326255" duration="2322000" />
-      <workItem from="1606088961615" duration="520000" />
-      <workItem from="1606103932495" duration="1492000" />
-      <workItem from="1607301671258" duration="57000" />
-      <workItem from="1607302431142" duration="928000" />
-      <workItem from="1607314020253" duration="1340000" />
-      <workItem from="1607389921500" duration="7407000" />
-      <workItem from="1607470418833" duration="10066000" />
+      <updated>1607627387099</updated>
     </task>
-    <task id="LOCAL-00001" summary="reversing post order">
-      <created>1607480167463</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1607480167464</updated>
-    </task>
-    <task id="LOCAL-00002" summary="reversing post order - fixing by using id instead of timestamp">
-      <created>1607480683816</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1607480683816</updated>
-    </task>
-    <task id="LOCAL-00003" summary="removing erroneous print message">
-      <created>1607483048961</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1607483048961</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -169,75 +64,11 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="reversing post order" />
-    <MESSAGE value="reversing post order - fixing by using id instead of timestamp" />
-    <MESSAGE value="removing erroneous print message" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing erroneous print message" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="540" y="288" key="#Inspections" timestamp="1603068209540">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="540" y="288" key="#Inspections/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603068209540" />
-    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604727545796">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1604727545796" />
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom" timestamp="1607480036639">
+    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607627469544">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.bottom/72.27.1848.957@72.27.1848.957" timestamp="1607480036639" />
-    <state width="1825" height="258" key="GridCell.Tab.0.center" timestamp="1607480036638">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.center/72.27.1848.957@72.27.1848.957" timestamp="1607480036638" />
-    <state width="1825" height="258" key="GridCell.Tab.0.left" timestamp="1607480036638">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.left/72.27.1848.957@72.27.1848.957" timestamp="1607480036638" />
-    <state width="1825" height="258" key="GridCell.Tab.0.right" timestamp="1607480036639">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state width="1825" height="258" key="GridCell.Tab.0.right/72.27.1848.957@72.27.1848.957" timestamp="1607480036639" />
-    <state x="415" y="241" key="SettingsEditor" timestamp="1603065357960">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="415" y="241" key="SettingsEditor/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1603065357960" />
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607483055522">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607483055522" />
-    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607482563619">
-      <screen x="72" y="27" width="1848" height="957" />
-    </state>
-    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.957@72.27.1848.957" timestamp="1607482563619" />
-    <state x="466" y="90" width="1223" height="974" key="dock-window-1" timestamp="1604898141270">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="-1428" y="197" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@-1920.23.1920.1057" timestamp="1604896696723" />
-    <state x="466" y="90" width="1223" height="974" key="dock-window-1/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604898141269" />
-    <state x="744" y="303" width="910" height="490" key="find.popup" timestamp="1604889391427">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="744" y="303" width="910" height="490" key="find.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1604889391427" />
-    <state x="655" y="255" width="670" height="676" key="search.everywhere.popup" timestamp="1607476862470">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="655" y="255" width="670" height="676" key="search.everywhere.popup/0.23.1920.1057/-1920.23.1920.1057@0.23.1920.1057" timestamp="1607476862470" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/project/models.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.957@72.27.1848.957" timestamp="1607627469544" />
   </component>
 </project>
