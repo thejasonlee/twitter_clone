@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b9491a6-33dc-4c48-85be-551bb98e1c5e" name="Default Changelist" comment="changing user.html to new tweet form">
+    <list default="true" id="6b9491a6-33dc-4c48-85be-551bb98e1c5e" name="Default Changelist" comment="interactive search form actually works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/project/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607634333697</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="interactive search form actually works">
+      <created>1607639349440</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607639349440</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,13 +97,14 @@
     <MESSAGE value="finishing user/home tweet publish changes - commented out old stuff" />
     <MESSAGE value="changing line spacing in user_home" />
     <MESSAGE value="changing user.html to new tweet form" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing user.html to new tweet form" />
+    <MESSAGE value="interactive search form actually works" />
+    <option name="LAST_COMMIT_MESSAGE" value="interactive search form actually works" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607634341380">
+    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1607639355096">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
-    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607634341380" />
+    <state x="591" y="241" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.957@72.27.1848.957" timestamp="1607639355096" />
     <state x="777" y="420" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607627469544">
       <screen x="72" y="27" width="1848" height="957" />
     </state>
