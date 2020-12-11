@@ -26,6 +26,10 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+    received_messages = db.relationship('Message', foreign_keys='Message.receiver_id',
+                                         backref='receiver', lazy='dynamic')
+    sent_messages = db.relationship('Message', foreign_keys='Message.sender_id', 
+                                         backref='author', lazy='dynamic')
 
     def already_follow(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() == 1   
