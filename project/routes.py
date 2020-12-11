@@ -210,7 +210,8 @@ def unfollow(username):
 @app.route('/user/<username>/followers', methods=['GET'])
 @login_required
 def followers(username):
-    return render_template('followers.html')
+    user = User.query.filter_by(username=username).first()
+    return render_template('followers.html', user=user)
 
 
 @app.route('/user/<username>/following', methods=['GET'])
