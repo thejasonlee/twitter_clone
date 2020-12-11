@@ -2,7 +2,7 @@ from flask import current_app
 from project import db, login
 from datetime import datetime
 from flask_login import UserMixin
-
+import jwt
 
 @login.user_loader
 def load_user(id):
