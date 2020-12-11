@@ -1,7 +1,12 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm
-from project.models import User, Post, Like
+
+#from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm
+#from project.models import User, Post, Like
+=======
+#from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm
+#from project.models import User, Post, Like, Message
+
 from project.db_seed import *
 from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
@@ -40,11 +45,15 @@ def signup():
         password = form.password.data.encode('utf-8')
         hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
         user = User(username=username, email=email, password=hashed_pw)
-        db.session.add(user)
-        db.session.commit()
-        flash('You have signed up succesfully!', 'success')
-        login_user(user)
-        return redirect(url_for('user_home'))
+        if User.query.filter_by(username=form.username.data).first() == None:
+            db.session.add(user)
+            db.session.commit()
+            flash('You have signed up succesfully!', 'success')
+            login_user(user)
+            return redirect(url_for('user_home'))
+        else:
+            flash('Username taken')
+            return redirect(url_for('signup'))
     return render_template('signUp.html', form=form)
 
 
@@ -239,8 +248,26 @@ def edit_profile(username):
 @app.route('/user/<username>/inbox', methods=['GET'])
 @login_required
 def inbox(username):
-    
-    return render_template('inbox.html')
+    user = User.query.filter_by(username=username).first()
+    messages = Message.query.filter_by(receiver_id=user.id)
+    return render_template('inbox.html', messages=messages)
+
+
+@app.route('/user/<username>/message', methods=['GET', 'POST'])
+@login_required
+def message(username):
+    form = MessageForm()
+    user = User.query.filter_by(username=username).first()
+    if form.validate_on_submit():
+        title = form.title.data
+        body = form.body.data
+        receiver = user
+        sender = current_user._get_current_object()
+        message = Message(title=title, body=body, receiver_id=receiver.id, sender_id=sender.id)
+        db.session.add(message)
+        db.session.commit()
+        redirect(url_for(message))
+    return render_template('message.html', form=form, user=user)
 
 
 @app.route('/list_users', methods=['GET'])
@@ -274,7 +301,6 @@ def erase_all_data():
 
 @app.route('/search', methods=['POST'])
 def search():
-    #data = request.form['search-fld']
     context = {}
 
     # Summary stats for the site
@@ -288,7 +314,6 @@ def search():
     context['num_users'] = num_users
 
     expr = request.form.get('search', False)
-    print(expr)
     # a list of dicts, where each dict represents a post and related data
     # See db_queries.py >> get_all_posts_with_like_counts() for details.
     all_posts = get_posts_with_string(expr)
@@ -297,8 +322,34 @@ def search():
     return render_template('home.html', context=context, search=expr)
 
 
-@app.route('/send_password_reset_request', methods=['GET', 'POST'])
-def send_password_reset_request():
-    form = PasswordResetRequestForm()
-    return render_template('send_password_reset_request.html', form=form)
+
+#@app.route('/send_password_reset_request', methods=['GET', 'POST'])
+#def send_password_reset_request():
+ #   form = PasswordResetRequestForm()
+ #   return render_template('send_password_reset_request.html', form=form)
+
+=======
+#@app.route('/feed', methods=['GET', 'POST'])
+#def feed():
+ #   context = {}
+
+    # Summary stats for the site
+#    num_likes = len(Like.query.all())
+ #   context['num_likes'] = num_likes
+
+  #  num_posts = len(Post.query.all())
+   # context['num_posts'] = num_posts
+
+   # num_users = len(User.query.all())
+   # context['num_users'] = num_users
+
+   # expr = request.form.get('search', False)
+   # print(expr)
+    # a list of dicts, where each dict represents a post and related data
+    # See db_queries.py >> get_all_posts_with_like_counts() for details.
+
+    #all_posts = posts_of_following(User.query.filter_by(id))
+
+    #context['posts'] = all_posts
+    #return render_template('home.html', context=context, search=expr)
 

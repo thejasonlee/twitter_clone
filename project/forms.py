@@ -32,12 +32,13 @@ class SearchForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
-class EditProfileForm(FlaskForm):
-    username= StringField('Username', validators=[DataRequired()])
-    email= StringField('Email', validators=[Email()])
-    password= PasswordField('Password', validators=[])
-    content = TextAreaField('About Me', validators=[])
-    submit= SubmitField("Submit")
+#class EditProfileForm(FlaskForm):
+ #   username = StringField('Username', validators=[DataRequired()])
+  #  email = StringField('Email', validators=[Email()])
+   # password = PasswordField('Password', validators=[])
+    #content = TextAreaField('About Me', validators=[])
+
+   # submit= SubmitField("Submit")
 
 
 class PasswordResetRequestForm(FlaskForm):
@@ -48,3 +49,12 @@ class PasswordResetRequestForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if not user:
             raise ValidationError('Email does not exist')
+=======
+    submit = SubmitField("Submit")
+
+
+#class MessageForm(FlaskForm):
+ #   title = StringField('Title', validators=[DataRequired()])
+  #  body = TextAreaField('Message', validators=[DataRequired()])
+   # submit = SubmitField("Send")
+

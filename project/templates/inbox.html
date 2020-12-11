@@ -4,9 +4,15 @@
 {% block content %}
 
 <div class="container" >
-    From MessageTitle <br>
-    From MessageTitle <br>
-    From MessageTitle <br>
+    {% for message in messages %}
+        
+            
+                    {{ messages.title }}<br>
+                    {{ message.body }}
+             
+           
+       
+    {% endfor %}
 </div>
 
 
