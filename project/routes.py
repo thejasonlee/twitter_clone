@@ -40,11 +40,15 @@ def signup():
         password = form.password.data.encode('utf-8')
         hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
         user = User(username=username, email=email, password=hashed_pw)
-        db.session.add(user)
-        db.session.commit()
-        flash('You have signed up succesfully!', 'success')
-        login_user(user)
-        return redirect(url_for('user_home'))
+        if User.query.filter_by(username=form.username.data).first() == None:
+            db.session.add(user)
+            db.session.commit()
+            flash('You have signed up succesfully!', 'success')
+            login_user(user)
+            return redirect(url_for('user_home'))
+        else:
+            flash('Username taken')
+            return redirect(url_for('signup'))
     return render_template('signUp.html', form=form)
 
 
