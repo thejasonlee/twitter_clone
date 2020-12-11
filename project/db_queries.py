@@ -93,3 +93,17 @@ def get_posts_with_string(expr):
 
         result.append(post_dict)
     return result
+
+def get_posts_by_user(userid):
+    f_user = get_username_by_id(userid)
+    result = []
+    result.append(db.session.query(Post).filter(Post.user_id.contains(userid)).all())
+
+    return result
+
+def posts_of_following(following):
+    result = []
+    for users in following:
+        result.append(get_posts_by_user(users))
+    return result
+
