@@ -31,7 +31,7 @@
                     <p class="card-text">
                         <p>
                             <h3>{{ post_dict.post.content }} </h3><br>
-                            <small class="text-muted">by: {{ post_dict.author }}</small>
+                            <small>author: </small><a class="text-muted" href="{{ url_for('user', username=post_dict.post.author.username) }}">{{ post_dict.author }}</a>
                         </p>
                         <p>
                             time: {{ post_dict.post.timestamp }} <br>
