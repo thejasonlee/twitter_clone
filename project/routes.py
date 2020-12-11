@@ -1,6 +1,6 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm, DeleteMessageForm
 from project.models import User, Post, Like, Message
 from project.db_seed import *
 from project.db_queries import *
@@ -236,8 +236,9 @@ def edit_profile(username):
 @login_required
 def inbox(username):
     user = User.query.filter_by(username=username).first()
-    messages = Message.query.filter_by(receiver_id=user.id)
-    return render_template('inbox.html', messages=messages)
+    messages = Message.query.filter_by(receiver_id=user.id).order_by(Message.timestamp.desc()).all()
+    delete_form = DeleteMessageForm()
+    return render_template('inbox.html', messages=messages, delete_form=delete_form)
 
 
 @app.route('/user/<username>/message', methods=['GET', 'POST'])
@@ -255,6 +256,15 @@ def message(username):
         db.session.commit()
         redirect(url_for('user', username=username))
     return render_template('message.html', form=form, user=user)
+
+
+@app.route('/user/<username>/message/delete', methods=['GET', 'POST'])
+@login_required
+def delete_message(username, message_id):
+    deleteform = DeleteMessageForm()
+    Message.query.filter_by(id=message_id).delete()
+    db.session.commmit()
+    return redirect('inbox', username=username)
 
 
 @app.route('/list_users', methods=['GET'])
