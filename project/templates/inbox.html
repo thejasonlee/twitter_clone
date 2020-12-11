@@ -5,10 +5,34 @@
 
 <div class="container" >
     {% for message in messages %}
-        {{ messages.title }}<br>
-        {{ message.body }}
+
+    <p>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="{{ message.id }}" aria-expanded="true" aria-controls="collapseOne">
+                        <h3>{{ message.title }}</h3> 
+                      </button>
+                      <h6>{{ message.timestamp.strftime('%b-%d-%Y %H:%M:%S') }}</h6>
+                    </h2>
+                  </div>
+              
+                  <div id="{{ message.id }}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>
+                            {{ message.body }}
+                        </p>
+                        <a href="{{ url_for('message', username=message.author.username) }}" class="btn btn-primary">Reply</a>
+                    </div>
+                  </div>
+                </div>
+            
+       </div>
+
+    </p>
+
     {% endfor %}
-</div>
 
 
 {% endblock %}
