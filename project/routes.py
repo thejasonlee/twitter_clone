@@ -75,7 +75,7 @@ def signin():
             flash('Invalid username or password')
             return redirect(url_for('signin'))
         login_user(user)
-        return redirect(url_for('user_home'))
+        return redirect(url_for('home'))
     return render_template('signIn.html', form=form)
 
 
@@ -267,6 +267,7 @@ def message(username):
         message = Message(title=title, body=body, receiver_id=receiver.id, sender_id=sender.id)
         db.session.add(message)
         db.session.commit()
+        flash(f'Sent message to {username}!', 'success')
         redirect(url_for('user', username=username))
     return render_template('message.html', form=form, user=user)
 

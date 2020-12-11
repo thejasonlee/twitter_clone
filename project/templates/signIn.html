@@ -2,7 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
-
+<div class="container">
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
@@ -19,7 +19,7 @@
 {% endwith %}
 
 	<!-- html for login form -->
-	<div class="container">
+	
 
       <form class="form-signin" method="POST" action="/signin">
         <h2 class="form-signin-heading">Please sign in</h2>

@@ -46,7 +46,7 @@
                     </p>
                     
                     {% if post_dict.post.author.username != current_user.username %}
-                    {% if not current_user.already_follow(post_dict.post.author) %}
+                    {% if current_user.is_authenticated and not current_user.already_follow(post_dict.post.author) %}
 
                     <form action="{{ url_for('follow', username=post_dict.post.author.username) }}" method="post">
                         {{ follow_form.hidden_tag() }}
