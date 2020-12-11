@@ -21,6 +21,7 @@
     {% endif %}
 </div>
 
+
 <div class="container" >
 <p>
     {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
@@ -47,7 +48,15 @@
 
 {% endif %}
 {% endif %}
+
+
+{% if user != current_user and user.already_follow(current_user) %}
+    <span>{{user.username}} follows you ;)</span>
+{% endif %}
+
 </div>
+
+
 
 {% if current_user.username == user.username %}
 <div class="container" >
