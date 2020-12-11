@@ -241,7 +241,7 @@ def edit_profile(username):
 @login_required
 def inbox(username):
     user = User.query.filter_by(username=username).first()
-    messages = Message.query.filter_by(receiver_id=user.id)
+    messages = Message.query.filter_by(receiver_id=user.id).order_by(Message.timestamp.desc()).all()
     return render_template('inbox.html', messages=messages)
 
 
