@@ -29,16 +29,15 @@
             <div class="card mt-4">
                 <div class="card-body">
                     <p class="card-text">
-                        {{ post_dict.post.content }}
-                        <br>
-                        <small class="text-muted">by: {{ post_dict.author }}</small>
-                        <br>
-                        <br>
-                        times: {{ post_dict.post.timestamp }}
-                        <br>
-                        <h6 class="card-subtitle text-muted">Likes: {{ post_dict.num_likes }} </h6>
+                        <p>
+                            <h3>{{ post_dict.post.content }} </h3><br>
+                            <small class="text-muted">by: {{ post_dict.author }}</small>
+                        </p>
+                        <p>
+                            time: {{ post_dict.post.timestamp }} <br>
+                            Likes: {{ post_dict.num_likes }}
+                        </p>
                     </p>
-                    <br>
                     <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
                 </div>
             </div>
