@@ -302,6 +302,7 @@ def erase_all_data():
     empty_all_tables()
     return redirect(url_for('manage_seeding'))
 
+
 @app.route('/search', methods=['POST'])
 def search():
     context = {}
@@ -323,7 +324,6 @@ def search():
 
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
-
 
 
 @app.route('/send_password_reset_request', methods=['GET', 'POST'])

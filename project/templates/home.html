@@ -45,6 +45,7 @@
                         </p>
                     </p>
                     
+                    {% if current_user.is_authenticated %}
                     {% if post_dict.post.author.username != current_user.username %}
                     {% if current_user.is_authenticated and not current_user.already_follow(post_dict.post.author) %}
 
@@ -60,6 +61,7 @@
                         {{ follow_form.submit(value='Unfollow') }}
                     </form>
 
+                    {% endif %}
                     {% endif %}
                     {% endif %}
 
