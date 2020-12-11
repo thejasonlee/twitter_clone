@@ -47,6 +47,13 @@
 
 {% endif %}
 {% endif %}
+
+
+{% if user != current_user and user.already_follow(current_user) %}
+    <span>{{user.username}} follows you ;)</span>
+{% endif %}
+
+
 </div>
 
 {% if current_user.username == user.username %}

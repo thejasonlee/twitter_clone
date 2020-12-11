@@ -1,10 +1,22 @@
 {% extends "layout.html" %}
+  
 
 
 {% block content %}
 
 <div class="container">
-    <h3>Following</h3>
+    <h3>You are Following:</h3>
+
+
+  {% for follow in user.followed %}
+    {% if follow.user != user %}
+            <a href="{{ url_for('user', username = follow.username) }}">
+                {{ follow.username }}
+            </a>
+    {% endif %}
+            <br>
+    {% endfor %}
+
 </div>
 
 {% endblock %}
