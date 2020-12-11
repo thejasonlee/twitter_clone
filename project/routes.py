@@ -268,7 +268,7 @@ def message(username):
         db.session.add(message)
         db.session.commit()
         flash(f'Sent message to {username}!', 'success')
-        redirect(url_for('user', username=username))
+        return redirect(url_for('user', username=username))
     return render_template('message.html', form=form, user=user)
 
 
