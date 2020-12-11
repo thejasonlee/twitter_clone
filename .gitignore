@@ -9,3 +9,5 @@ env.bak/
 venv.bak/
 .DS_Store
 /.idea
+.idea/workspace.xml
+.idea/twitter_clone.iml
