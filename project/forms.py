@@ -19,7 +19,7 @@ class SignInForm(FlaskForm):
 
 
 class UserPost(FlaskForm):
-    content = TextAreaField('Message', validators=[DataRequired()])
+    content = TextAreaField('Share your thoughts...', validators=[DataRequired()])
     submit = SubmitField('Post')
 
 

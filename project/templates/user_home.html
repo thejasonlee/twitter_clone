@@ -20,30 +20,15 @@
     {# Form to publish a Tweet/Post #}
     {# This is currently in progress #}
     <div class="container" >
-        {# Jason's experimentation with new Post form #}
-        {# Jason is trying to make the form look nicer #}
-        {# Bootstrap is responsive, so if we use it then it'll render on phones too #}
-        {# see https://medium.com/better-programming/how-to-use-flask-wtforms-faab71d5a034 #}
         <div class="form-group">
             <form method="POST" action="/user/home">
                 {{ form.csrf_token }}
                 {{ wtf.form_field(form.content) }}
-                <!-- <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea> -->
-                <br>
-                <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
+                <button class="btn btn-primary" type="submit">Publish my tweet...</button>
              </form>
         </div>
     </div>
-<!--
-<div class="container" >
-    {# legacy Post form #}
-    <form method="POST" action="">
-        {{ form.csrf_token }}
-        {{ form.content(rows='4',cols='50') }} <br>
-        {{ form.submit }} <br>
-    </form>
-</div>
--->
+
 <div class="container">
     <br>
     {% for post in posts %}
