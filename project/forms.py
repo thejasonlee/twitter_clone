@@ -38,3 +38,13 @@ class EditProfileForm(FlaskForm):
     password= PasswordField('Password', validators=[])
     content = TextAreaField('About Me', validators=[])
     submit= SubmitField("Submit")
+
+
+class PasswordResetRequestForm(FlaskForm):
+    email= StringField('Email',validators=[DataRequired(), Email()])
+    submit = SubmitField('Send')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if not user:
+            raise ValidationError('Email does not exist')
