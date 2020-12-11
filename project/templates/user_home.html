@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
     {% with messages = get_flashed_messages() %}
@@ -25,15 +25,16 @@
         {# Bootstrap is responsive, so if we use it then it'll render on phones too #}
         {# see https://medium.com/better-programming/how-to-use-flask-wtforms-faab71d5a034 #}
         <div class="form-group">
-            <form method="POST" action="">
+            <form method="POST" action="/user/home">
                 {{ form.csrf_token }}
-                <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea>
+                {{ wtf.form_field(form.content) }}
+                <!-- <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea> -->
                 <br>
                 <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
              </form>
         </div>
     </div>
-
+<!--
 <div class="container" >
     {# legacy Post form #}
     <form method="POST" action="">
@@ -42,8 +43,9 @@
         {{ form.submit }} <br>
     </form>
 </div>
-
+-->
 <div class="container">
+    <br>
     {% for post in posts %}
         <div class="card mt-4">
             <div class="card-body">
