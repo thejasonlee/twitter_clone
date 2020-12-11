@@ -62,4 +62,13 @@ class Like(db.Model):
         return f"Post('{self.content}')"
 
 
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(128), nullable=False)
+    body = db.Column(db.Text, nullable=False)
+    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
+    def __repr__(self):
+        return '<Title: {}, Message: {}>'.format(self.title, self.body)
