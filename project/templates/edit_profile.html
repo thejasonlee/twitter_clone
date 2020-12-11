@@ -4,21 +4,19 @@
 {% block content %}
 
 <div class="container" >
-    <form method="POST" action="">
+    
+    <h2>PICTURE</h2>
+            
+
+    <form method="post" action="" width="20">
         {{ form.hidden_tag() }}
-
-        <p>
-            <h2>PICTURE</h2>
-            <a href="">Upload Picture</a>
-        </p>
-
-        <p>
-            {{ form.username.label }} <br>
-            {{ form.username }} <br>
-        </p>
-        
-            {{ form.submit }} <br>
-        </p>
+        <div style="width: 30%">
+            {{ wtf.form_field(form.username) }} <br>
+        </div>
+        <div style="width: 30%">
+            {{ wtf.form_field(form.email) }} <br>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
 

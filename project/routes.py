@@ -241,6 +241,7 @@ def edit_profile(username):
     user = User.query.filter_by(username=current_user.username).first()
     if form.validate_on_submit():
         current_user.username = form.username.data
+        current_user.email = form.email.data
         db.session.commit()
         return redirect(url_for('user', username=current_user.username))
     return render_template('edit_profile.html', form=form)

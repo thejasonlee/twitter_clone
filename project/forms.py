@@ -33,10 +33,10 @@ class SearchForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username= StringField('Username', validators=[DataRequired()])
+    username= StringField('Username', validators=[])
     email= StringField('Email', validators=[Email()])
-    password= PasswordField('Password', validators=[])
-    content = TextAreaField('About Me', validators=[])
+    # password= PasswordField('Password', validators=[])
+    # content = TextAreaField('About Me', validators=[])
     submit= SubmitField("Submit")
 
 

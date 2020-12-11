@@ -21,6 +21,7 @@
 
 
     <h3>{{ user.username }}</h3>
+    <small> <p>{{ user.email }}</p> </small> 
     {% if current_user.username == user.username %} 
     <a href="{{ url_for('inbox', username=current_user.username) }}">
         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
