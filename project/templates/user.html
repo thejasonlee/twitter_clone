@@ -34,8 +34,14 @@
 
 <div class="container" >
 <p>
-    {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
-    {{ user.followed.count() }} <a href="{{ url_for('following', username=current_user.username) }}">following</a>
+    {% if user == current_user %}
+        {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
+        {{ user.followed.count() }} <a href="{{ url_for('following', username=current_user.username) }}">following</a>
+    
+    {% else %}
+        {{ user.followers.count() }} <a href="{{ url_for('followers', username=user.username) }}">followers</a>, 
+        {{ user.followed.count() }} <a href="{{ url_for('following', username=user.username) }}">following</a>
+    {% endif %}
 </p>
 
 {% if current_user.username != user.username %}
@@ -91,6 +97,7 @@
                     Time: {{ post.timestamp }} <br>
                     Likes: {{ post.like_count }}
                 </p>
+
             </div>
         </div>
     {% endfor %}

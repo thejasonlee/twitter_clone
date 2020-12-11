@@ -33,7 +33,9 @@ def default():
     all_posts = get_all_posts_with_like_counts()
     context['posts'] = all_posts
 
-    return render_template('home.html', context=context)
+    follow_form = FollowForm()
+
+    return render_template('home.html', context=context, follow_form=follow_form)
 
 
 @app.route('/signup', methods = ['GET', 'POST'])
@@ -206,7 +208,7 @@ def unfollow(username):
         current_user.unfollow(user)
         db.session.commit()
         flash(f'You are no longer following {username}!', 'success')
-        return redirect(url_for('user', username=username))
+        return redirect(url_for('following', username=current_user.username))
     else:
         return redirect(url_for('user_home'))
 
@@ -221,8 +223,15 @@ def followers(username):
 @app.route('/user/<username>/following', methods=['GET'])
 @login_required
 def following(username):
+    form = FollowForm()
     user = User.query.filter_by(username=username).first()
-    return render_template('following.html', user=user)
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        current_user.unfollow(user)
+        db.session.commit()
+        flash(f'You are no longer following {username}!', 'success')
+        return redirect(url_for('following', username=username))
+    return render_template('following.html', user=user, form=form)
 
 
 @app.route('/user/<username>/edit_profile', methods=['GET', 'POST'])

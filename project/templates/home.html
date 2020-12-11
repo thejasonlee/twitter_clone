@@ -44,7 +44,16 @@
                             Likes: {{ post_dict.num_likes }}
                         </p>
                     </p>
-                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
+                    
+                    {% if post_dict.post.author.username != current_user.username %}
+
+                    <form action="{{ url_for('follow', username=post_dict.post.author.username) }}" method="post">
+                        {{ follow_form.hidden_tag() }}
+                        {{ follow_form.submit(value='Follow') }}
+                    </form>
+
+                    {% endif %}
+
                 </div>
             </div>
         {% endfor %}
