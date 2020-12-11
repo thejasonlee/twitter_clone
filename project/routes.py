@@ -55,9 +55,12 @@ def signin():
     form = SignInForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
+        if user is None:
+            flash('Invalid username or password')
+            return redirect(url_for('signin'))
         password = form.password.data.encode('utf-8')
         pw_check = bcrypt.check_password_hash(user.password, password)
-        if user is None or not pw_check:
+        if not pw_check:
             flash('Invalid username or password')
             return redirect(url_for('signin'))
         login_user(user)
