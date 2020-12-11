@@ -265,7 +265,28 @@ def erase_all_data():
 
 @app.route('/search', methods=['POST'])
 def search():
-    #data = request.form['search-fld']
+    context = {}
+
+    # Summary stats for the site
+    num_likes = len(Like.query.all())
+    context['num_likes'] = num_likes
+
+    num_posts = len(Post.query.all())
+    context['num_posts'] = num_posts
+
+    num_users = len(User.query.all())
+    context['num_users'] = num_users
+
+    expr = request.form.get('search', False)
+    # a list of dicts, where each dict represents a post and related data
+    # See db_queries.py >> get_all_posts_with_like_counts() for details.
+    all_posts = get_posts_with_string(expr)
+
+    context['posts'] = all_posts
+    return render_template('home.html', context=context, search=expr)
+
+@app.route('/feed', methods=['GET', 'POST'])
+def feed():
     context = {}
 
     # Summary stats for the site
@@ -282,8 +303,8 @@ def search():
     print(expr)
     # a list of dicts, where each dict represents a post and related data
     # See db_queries.py >> get_all_posts_with_like_counts() for details.
-    all_posts = get_posts_with_string(expr)
+
+    all_posts = posts_of_following(User.query.filter_by(id))
 
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
-
