@@ -3,18 +3,23 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
+
+<div class="container" >
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
       <div class="alert alert-primary" role="alert">
-  <h4 class="alert-heading"> {{ message}} </h4>
+    <h4 class="alert-heading"> {{ message}} </h4>
     {% endfor %}
     </ul>
-  {% endif %}
-{% endwith %}
+    {% endif %}
+    {% endwith %}
 
-<div class="container" >
+
+
+
     <h3>{{ user.username }}</h3>
     {% if current_user.username == user.username %} 
     <a href="{{ url_for('inbox', username=current_user.username) }}">
