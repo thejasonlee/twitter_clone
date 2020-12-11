@@ -46,12 +46,21 @@
                     </p>
                     
                     {% if post_dict.post.author.username != current_user.username %}
+                    {% if not current_user.already_follow(post_dict.post.author) %}
 
                     <form action="{{ url_for('follow', username=post_dict.post.author.username) }}" method="post">
                         {{ follow_form.hidden_tag() }}
                         {{ follow_form.submit(value='Follow') }}
                     </form>
 
+                    {% else %}
+
+                    <form action="{{ url_for('unfollow', username=post_dict.post.author.username) }}" method="post">
+                        {{ follow_form.hidden_tag() }}
+                        {{ follow_form.submit(value='Unfollow') }}
+                    </form>
+
+                    {% endif %}
                     {% endif %}
 
                 </div>
