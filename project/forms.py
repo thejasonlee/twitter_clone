@@ -48,3 +48,9 @@ class PasswordResetRequestForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if not user:
             raise ValidationError('Email does not exist')
+            
+            
+class MessageForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    body = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')
