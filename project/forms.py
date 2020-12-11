@@ -33,8 +33,14 @@ class SearchForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username= StringField('Username', validators=[DataRequired()])
-    email= StringField('Email', validators=[Email()])
-    password= PasswordField('Password', validators=[])
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[Email()])
+    password = PasswordField('Password', validators=[])
     content = TextAreaField('About Me', validators=[])
-    submit= SubmitField("Submit")
+    submit = SubmitField("Submit")
+
+
+class MessageForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    body = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField("Send")

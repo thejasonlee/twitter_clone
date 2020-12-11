@@ -1,7 +1,7 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm
-from project.models import User, Post, Like
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm
+from project.models import User, Post, Like, Message
 from project.db_seed import *
 from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
@@ -239,8 +239,26 @@ def edit_profile(username):
 @app.route('/user/<username>/inbox', methods=['GET'])
 @login_required
 def inbox(username):
-    
-    return render_template('inbox.html')
+    user = User.query.filter_by(username=username).first()
+    messages = Message.query.filter_by(receiver_id=user.id)
+    return render_template('inbox.html', messages=messages)
+
+
+@app.route('/user/<username>/message', methods=['GET', 'POST'])
+@login_required
+def message(username):
+    form = MessageForm()
+    user = User.query.filter_by(username=username).first()
+    if form.validate_on_submit():
+        title = form.title.data
+        body = form.body.data
+        receiver = user
+        sender = current_user._get_current_object()
+        message = Message(title=title, body=body, receiver_id=receiver.id, sender_id=sender.id)
+        db.session.add(message)
+        db.session.commit()
+        redirect(url_for(message))
+    return render_template('message.html', form=form, user=user)
 
 
 @app.route('/list_users', methods=['GET'])
