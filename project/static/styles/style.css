@@ -3,4 +3,6 @@ body {
 	background-color: #87CEEB;
 }
 
-
+span #inbox {
+    display: inline-flexbox;
+}
