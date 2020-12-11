@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import InputRequired, DataRequired, Length, EqualTo, Email
+from project.models import User
 
 
 class SignUpForm(FlaskForm):
@@ -49,6 +50,13 @@ class PasswordResetRequestForm(FlaskForm):
         if not user:
             raise ValidationError('Email does not exist')
             
+
+class ResetPasswordForm(FlaskForm):
+    password= PasswordField('Password', validators=[InputRequired(), Length(min=5, max=30, message='Must be between 5 and 30 characters')])
+    confirmPassword = PasswordField('Confirm Password', validators=[InputRequired(), EqualTo('password'), Length(min=5, max=30, message='Must be between 5 and 30 characters')])
+    submit= SubmitField("Reset Password :P")
+
+
             
 class MessageForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])

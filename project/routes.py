@@ -1,7 +1,8 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
 
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm
+from project.email import send_reset_password_mail
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm, ResetPasswordForm
 from project.models import User, Post, Like
 
 from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm
@@ -328,8 +329,28 @@ def search():
 
 @app.route('/send_password_reset_request', methods=['GET', 'POST'])
 def send_password_reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = PasswordResetRequestForm()
+
+    if form.validate_on_submit():
+        email = form.email.data
+        user = User.query.filter_by(email=email).first()
+        token = user.generate_reset_password_token()
+        send_reset_password_mail(user, token)
+        flash('Password reset request is sent! Please check your email', category='info')
+
     return render_template('send_password_reset_request.html', form=form)
+
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_password():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = ResetPasswordForm()
+    return render_template('reset_password.html', form=form)
+
+
 
 
 @app.route('/feed', methods=['GET', 'POST'])
