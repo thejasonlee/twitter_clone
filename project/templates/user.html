@@ -61,9 +61,8 @@
             <form method="POST" action="{{ url_for('user', username=user.username, form=postform) }}">
                 {{ postform.csrf_token }}
                 {{ wtf.form_field(postform.content) }}
-                <!-- <textarea class="form-control" id="content" rows="3" placeholder="Type your tweet here..."></textarea> -->
                 <br>
-                <button class="btn btn-primary btn-block" type="submit">Publish my tweet...</button>
+                <button class="btn btn-primary" type="submit">Publish my tweet...</button>
              </form>
         </div>
 {% endif %}
@@ -72,12 +71,15 @@
     {% for post in posts %}
         <div class="card mt-4">
             <div class="card-body">
-                <!-- <h4 class="card-title">{{ post.author.username }}</h4> -->
-                <a class="card-text" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
+
                 <p class="card-text">
-                    {{ post.content }}
+                    <h3>{{ post.content }}</h3><br>
+                    <a class="" href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>
                 </p>
-                {{ post.timestamp }} <br>
+                <p>
+                    Time: {{ post.timestamp }} <br>
+                    Likes: {{ post.like_count }}
+                </p>
             </div>
         </div>
     {% endfor %}
