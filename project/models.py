@@ -1,3 +1,4 @@
+from flask import current_app
 from project import db, login
 from datetime import datetime
 from flask_login import UserMixin
@@ -45,6 +46,15 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+    def generate_reset_password_token(self):
+        return jwt.encode({'id': self.id}, current_app.config['SECRET_KEY'], algorithm='HS256')
+
+    def check_reset_password_token(self, token):
+        try:
+            data = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
+            return User.query.filter_by(id=data['id']).first()
+        except: 
+            return
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
