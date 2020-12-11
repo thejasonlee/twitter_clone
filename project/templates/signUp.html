@@ -2,6 +2,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
+   
+    <div class="container">
 
     <head>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_signUp.css') }}">
@@ -81,5 +83,8 @@
     <img src="{{url_for('static', filename='images/GforGritter.jpg')}}" alt="Gritter logo" width="350" height="350">
 
     </body>
+
+    </div>
+
 {% endblock content %}
 

@@ -1,7 +1,12 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
+
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm
+from project.models import User, Post, Like
+
 from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, MessageForm
 from project.models import User, Post, Like, Message
+
 from project.db_seed import *
 from project.db_queries import *
 from flask_login import current_user, login_user, logout_user, login_required
@@ -308,6 +313,14 @@ def search():
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
 
+
+
+@app.route('/send_password_reset_request', methods=['GET', 'POST'])
+def send_password_reset_request():
+    form = PasswordResetRequestForm()
+    return render_template('send_password_reset_request.html', form=form)
+
+
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
     context = {}
@@ -326,8 +339,8 @@ def feed():
     print(expr)
     # a list of dicts, where each dict represents a post and related data
     # See db_queries.py >> get_all_posts_with_like_counts() for details.
-
     all_posts = posts_of_following(User.query.filter_by(id))
-
+    
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
+

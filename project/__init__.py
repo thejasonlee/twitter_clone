@@ -6,6 +6,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager, login_required, login_user, logout_user
 from flask_bootstrap import Bootstrap
 from flask_bcrypt import Bcrypt
+from flask_mail import Mail
 
 
 naming_convention = {
@@ -30,5 +31,6 @@ migrate = Migrate(app, db, render_as_batch=True)
 bootstrap = Bootstrap(app)
 login = LoginManager(app)
 bcrypt = Bcrypt(app)
+mail = Mail(app)
 
 from project import routes
