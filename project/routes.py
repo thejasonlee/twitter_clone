@@ -217,7 +217,8 @@ def followers(username):
 @app.route('/user/<username>/following', methods=['GET'])
 @login_required
 def following(username):
-    return render_template('following.html')
+    user = User.query.filter_by(username=username).first()
+    return render_template('following.html', user=user)
 
 
 @app.route('/user/<username>/edit_profile', methods=['GET', 'POST'])
