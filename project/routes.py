@@ -1,6 +1,6 @@
 from flask import flash, render_template, url_for, redirect, g, send_from_directory, request
 from project import app, db, login
-from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm
+from project.forms import SignUpForm, SignInForm, UserPost, FollowForm, SearchForm, EditProfileForm, PasswordResetRequestForm
 from project.models import User, Post, Like
 from project.db_seed import *
 from project.db_queries import *
@@ -295,4 +295,10 @@ def search():
 
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
+
+
+@app.route('/send_password_reset_request', methods=['GET', 'POST'])
+def send_password_reset_request():
+    form = PasswordResetRequestForm()
+    return render_template('send_password_reset_request.html', form=form)
 
