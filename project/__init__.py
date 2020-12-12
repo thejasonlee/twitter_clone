@@ -25,19 +25,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
         "DATABASE_URL", f"sqlite:///app.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'testforgritter@gmail.com'
+app.config['MAIL_PASSWORD'] = 'gritteriscool'
 
-MAIL_SERVER = 'smtp.gmail.com'
-MAIL_PORT = 465
-MAIL_USE_SSL = True
-MAIL_USERNAME = os.environ.get('GMAIL_USERNAME') or 'MAIL_USERNAME'
-MAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD') or 'MAIL_PASSWORD'
+#os.environ.get('GMAIL_USERNAME') or 'MAIL_USERNAME'
+#os.environ.get('GMAIL_PASSWORD') or 'MAIL_PASSWORD'
 
 
+mail = Mail(app)
+#mail.init_app(app)
 db = SQLAlchemy(app=app, metadata=MetaData(naming_convention=naming_convention))
 db.init_app(app)
 migrate = Migrate(app, db, render_as_batch=True)
 bootstrap = Bootstrap(app)
-mail = Mail(app)
 login = LoginManager(app)
 bcrypt = Bcrypt(app)
 
