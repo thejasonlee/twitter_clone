@@ -1,7 +1,8 @@
+from flask import current_app
 from project import db, login
 from datetime import datetime
 from flask_login import UserMixin
-
+import jwt
 
 @login.user_loader
 def load_user(id):
@@ -26,6 +27,10 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+    received_messages = db.relationship('Message', foreign_keys='Message.receiver_id',
+                                         backref='receiver', lazy='dynamic')
+    sent_messages = db.relationship('Message', foreign_keys='Message.sender_id', 
+                                         backref='author', lazy='dynamic')
 
     def already_follow(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() == 1   
@@ -41,6 +46,15 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+    def generate_reset_password_token(self):
+        return jwt.encode({'id': self.id}, current_app.config['SECRET_KEY'], algorithm='HS256')
+
+    def check_reset_password_token(self, token):
+        try:
+            data = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
+            return User.query.filter_by(id=data['id']).first()
+        except: 
+            return
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -62,4 +76,13 @@ class Like(db.Model):
         return f"Post('{self.content}')"
 
 
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(128), nullable=False)
+    body = db.Column(db.Text, nullable=False)
+    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
+    def __repr__(self):
+        return '<Title: {}, Message: {}>'.format(self.title, self.body)

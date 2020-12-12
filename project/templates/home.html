@@ -31,14 +31,40 @@
                     <p class="card-text">
                         <p>
                             <h3>{{ post_dict.post.content }} </h3><br>
-                            <small class="text-muted">by: {{ post_dict.author }}</small>
+                            <small>author: </small>
+                            
+                            {% if current_user.is_authenticated %}
+                                <a class="text-muted" href="{{ url_for('user', username=post_dict.post.author.username) }}">{{ post_dict.author }}</a>
+                            {% else %}
+                                <a class="text-muted" href="{{ url_for('signin') }}">{{ post_dict.author }}</a>
+                            {% endif %}
                         </p>
                         <p>
                             time: {{ post_dict.post.timestamp }} <br>
                             Likes: {{ post_dict.num_likes }}
                         </p>
                     </p>
-                    <a class="btn btn-outline-primary" href="#">Like (dead link)</a>
+                    
+                    {% if current_user.is_authenticated %}
+                    {% if post_dict.post.author.username != current_user.username %}
+                    {% if current_user.is_authenticated and not current_user.already_follow(post_dict.post.author) %}
+
+                    <form action="{{ url_for('follow', username=post_dict.post.author.username) }}" method="post">
+                        {{ follow_form.hidden_tag() }}
+                        {{ follow_form.submit(value='Follow') }}
+                    </form>
+
+                    {% else %}
+
+                    <form action="{{ url_for('unfollow', username=post_dict.post.author.username) }}" method="post">
+                        {{ follow_form.hidden_tag() }}
+                        {{ follow_form.submit(value='Unfollow') }}
+                    </form>
+
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+
                 </div>
             </div>
         {% endfor %}

@@ -5,14 +5,36 @@
 {% block content %}
 
 <div class="container">
-    <h3>You are Following:</h3>
+    <h3>Following:</h3>
 
 
   {% for follow in user.followed %}
     {% if follow.user != user %}
-            <a href="{{ url_for('user', username = follow.username) }}">
-                {{ follow.username }}
-            </a>
+        <div class="row">
+            <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{{ url_for('user', username = follow.username) }}">
+                    {{ follow.username }} 
+                    </a>
+                </h5>
+                <p class="card-text"> {{ follow.email }} </p>
+
+                <p>
+                    {% if user == current_user %}
+                        <form action="{{ url_for('unfollow', username=follow.username) }}" method="post">
+                            {{ form.hidden_tag() }}
+                            {{ form.submit(value='Unfollow') }}
+                        </form>
+                    {% endif %}
+                </p>
+
+                </div>
+            </div>
+            </div>
+        </div>
+
     {% endif %}
             <br>
     {% endfor %}

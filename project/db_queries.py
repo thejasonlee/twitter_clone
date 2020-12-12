@@ -93,3 +93,31 @@ def get_posts_with_string(expr):
 
         result.append(post_dict)
     return result
+
+def get_posts_by_user(userid):
+    result = []
+    posts = db.session.query(Post).filter(Post.user_id.contains(userid)).all()
+
+    for post in posts:
+        post_dict = {}
+        post_dict['post'] = post
+
+        user = get_username_by_id(post.user_id)
+        if user is None:
+            post_dict['author'] = 'user not found'
+        else:
+            post_dict['author'] = user.username
+
+        num_likes = len(Like.query.filter(Like.post_id == post.id).all())
+        post_dict['num_likes'] = num_likes
+
+        result.append(post_dict)
+
+    return result
+
+def posts_of_following(following):
+    result = []
+    for users in following:
+        result.append(get_posts_by_user(users))
+    return result
+

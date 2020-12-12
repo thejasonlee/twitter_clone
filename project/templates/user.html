@@ -3,28 +3,51 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
+
+<div class="container" >
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
       <div class="alert alert-primary" role="alert">
-  <h4 class="alert-heading"> {{ message}} </h4>
+    <h4 class="alert-heading"> {{ message}} </h4>
     {% endfor %}
     </ul>
-  {% endif %}
-{% endwith %}
+    {% endif %}
+    {% endwith %}
 
-<div class="container" >
-    <h3>{{ user.username }}</h3>
+
+
+
+    <h2>{{ user.username }}</h2>
+    <small> <p>{{ user.email }}</p> </small> 
     {% if current_user.username == user.username %} 
+    <a href="{{ url_for('inbox', username=current_user.username) }}">
+        <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+        </svg>
+    </a>
+    <p></p>
     <h6><a href="{{ url_for('edit_profile', username=current_user.username) }}">Edit Profile</a></h6>
+
+    {% else %}
+
+    <a href="{{ url_for('message', username=user.username) }}">Send Message</a>
+
     {% endif %}
 </div>
 
 <div class="container" >
 <p>
-    {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
-    {{ user.followed.count() }} <a href="{{ url_for('following', username=current_user.username) }}">following</a>
+    {% if user == current_user %}
+        {{ user.followers.count() }} <a href="{{ url_for('followers', username=current_user.username) }}">followers</a>, 
+        {{ user.followed.count() }} <a href="{{ url_for('following', username=current_user.username) }}">following</a>
+    
+    {% else %}
+        {{ user.followers.count() }} <a href="{{ url_for('followers', username=user.username) }}">followers</a>, 
+        {{ user.followed.count() }} <a href="{{ url_for('following', username=user.username) }}">following</a>
+    {% endif %}
 </p>
 
 {% if current_user.username != user.username %}
@@ -57,7 +80,7 @@
 </div>
 
 {% if current_user.username == user.username %}
-<div class="container">
+        <div class="container">
             <form method="POST" action="{{ url_for('user', username=user.username, form=postform) }}">
                 {{ postform.csrf_token }}
                 {{ wtf.form_field(postform.content) }}
@@ -80,6 +103,7 @@
                     Time: {{ post.timestamp }} <br>
                     Likes: {{ post.like_count }}
                 </p>
+
             </div>
         </div>
     {% endfor %}
