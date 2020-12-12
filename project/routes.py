@@ -284,3 +284,8 @@ def search():
     context['posts'] = all_posts
     return render_template('home.html', context=context, search=expr)
 
+@app.route('/post/{id}', methods=['GET'])
+def show_post(id):
+    # do some stuff
+    context = {}
+    return redirect('post.html', context=context)
