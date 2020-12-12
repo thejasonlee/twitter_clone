@@ -370,6 +370,5 @@ def feed():
     for i in f_id:
         post_list.append(i.followed_id)
     all_posts = posts_of_following(post_list)
-    print(all_posts)
     return render_template('feed.html', posts=all_posts)
 
