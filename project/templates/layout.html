@@ -32,6 +32,7 @@
                 <input class="form-control mr-2" name="search" type="search" placeholder="Search">
                 <button class="btn btn-secondary btn-sm" type="submit">Search</button>
                   </form>
+
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav ml-auto">
                         {# if admin, show seeding tools #}
@@ -42,6 +43,7 @@
                         {# customise navbar for other users #}
                         {# user is logged in #}
                         {% if current_user.is_authenticated %}
+                            <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('feed') }}">Feed</a>
                             <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('followers', username=current_user.username) }}">Followers</a>
                             <!-- <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user_home') }}">Home</a> -->
                             <a class="nav-item nav-link mr-3 ml-auto" href="{{ url_for('user', username=current_user.username) }}">{{current_user.username}}'s Page</a>

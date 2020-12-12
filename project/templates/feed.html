@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+    <!-- POSTS -->
+    <div class="container">
+        <h2> Post Objects </h2>
+        <hr class="my-4">
+        <div>
+            {% for author in posts %}
+                {% for post in author %}
+                    <h3>post ID: {{ post.id }}</h3>
+                    <li>post content: {{ post.content }}</li>
+                    <!-- UPDATE LIKE COUNTS -->
+                    <li>post like_count: {{ post.like_count }}</li>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+

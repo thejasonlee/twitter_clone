@@ -10,8 +10,8 @@ def load_user(id):
 
 followers = db.Table(
     'followers',
-    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True),
-    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id'), nullable=True), # reader
+    db.Column('followed_id', db.Integer, db.ForeignKey('user.id'), nullable=True)  # writer
 )
 
 
