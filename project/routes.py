@@ -307,7 +307,7 @@ def erase_all_data():
 @app.route('/search', methods=['POST'])
 def search():
     context = {}
-
+    follow_form = FollowForm()
     # Summary stats for the site
     num_likes = len(Like.query.all())
     context['num_likes'] = num_likes
@@ -324,7 +324,7 @@ def search():
     all_posts = get_posts_with_string(expr)
 
     context['posts'] = all_posts
-    return render_template('home.html', context=context, search=expr)
+    return render_template('home.html', context=context, search=expr, follow_form=follow_form)
 
 
 @app.route('/post/{id}', methods=['GET'])
