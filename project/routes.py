@@ -39,6 +39,11 @@ def default():
     return render_template('home.html', context=context, follow_form=follow_form)
 
 
+@app.route('/about', methods = ['GET'])
+def about():
+    return render_template('about.html')
+
+
 @app.route('/signup', methods = ['GET', 'POST'])
 def signup():
     form = SignUpForm()
