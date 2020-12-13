@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head> <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style_about.css') }}"> </head>
+
+<div class="container"> 
+
+<body>
+
+<div class="about-section">
+  <h1>About Gritter</h1>
+  <p>A Grep-Team Twitter clone with enhancements</p>
+  <p>By: Aaron Shyuu, Jason Weidner, Michael Shippee and Francis Kim</p>
+</div>
+
+<h2 style="text-align:center;color:red" >Main Social Network Features</h2>
+<br>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Sign Up</h2>
+        <p>Sign up easily with a username, email and password. You can sign in directly if already have an account.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Sign In</h2>
+        <p>Sign in with a username and password and remember account details if needed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Edit Profile</h2>
+        <p>Edit username and email on your profile. Also changes your username and email for sign in.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Posting</h2>
+        <p>Make a post and share your thoughts with other users!</p>
+      </div>
+    </div>
+  </div>
+
+<div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Search posts</h2>
+        <p>Need to search for a post? Try our search bar :D</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Follow and Unfollow</h2>
+        <p>Follow other users to keep up with them! You can see just their posts on the feed. You can unfollow other users too. Don't hurt their feelings ;)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Messaging</h2>
+        <p>Message another user in the messaging section and wait for their reply...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Sign Out</h2>
+        <p>All done? Sign out with just a single click!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Like posts (In progress)</h2>
+        <p>Don't be shy to show love to posts you like :)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <div class="containers">
+        <h2>Forgot your password? Reset with an email to you (In progress)</h2>
+        <p>Oh no! Forgot your password? No problem, we got you covered</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</div>
+
+{% endblock content %}
